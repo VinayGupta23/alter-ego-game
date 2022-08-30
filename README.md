@@ -14,6 +14,10 @@ The default code editor included with Unity is Visual Studio, please make sure t
 
 All documentation (GDD, surveys, notes, etc.) will be maintained on [Google Drive](https://drive.google.com/drive/folders/1wZfKsCMxFXs1D0v6773a8cE5PwrfDy2c?usp=sharing).
 
+### Communication
+
+We'll use [Discord](https://discord.gg/fKvweVH9CU) for chatting, screen-share, debugging, etc.
+
 ## Task Management
 
 We will work in an Agile-like approach, using the tools integrated within GitHub for easy tracking. We have the following setup:

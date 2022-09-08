@@ -42,11 +42,11 @@ Locate your Unity installation, hence denoted as `UNITY_TOOLS_FOLDER`.
 Open your local git config using: `git config --local --edit` and paste the following:
 ```conf
 [merge]
-  tool = unityyamlmerge
+    tool = unityyamlmerge
 [mergetool "unityyamlmerge"]
-  keepBackup = false
-  trustExitCode = false
-  cmd = \"<UNITY_TOOLS_FOLDER>/UnityYAMLMerge.exe\" merge -p "$BASE" "$REMOTE" "$LOCAL" "$MERGED"
+    keepBackup = false
+    trustExitCode = false
+    cmd = \"<UNITY_TOOLS_FOLDER>/UnityYAMLMerge.exe\" merge -p "$BASE" "$REMOTE" "$LOCAL" "$MERGED"
 ```
 
 Replace the contents of `mergespecfile.txt`, to setup your "fallback" merge tool. The below shows an example for VS Code:

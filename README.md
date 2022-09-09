@@ -65,6 +65,8 @@ Replace the contents of `mergespecfile.txt`, to setup your "fallback" merge tool
 * use "%programs%/Microsoft VS Code/bin/code" --wait --merge %r %l %b %d
 ```
 
+If you are using SourceTree, you may want to check this [YouTube tutorial](https://youtu.be/P_vLYDq2YkE).
+
 #### Test if Smart Merge works
 
 Please see this [sample repository](https://github.com/vinayg-usc/unity-git-expt) created with a deliberate conflict, to help verify if your config works.

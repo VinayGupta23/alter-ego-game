@@ -180,6 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   jumpForce: 7.5
+  extraJumps: 1
   playerFeet: {fileID: 3869406191599336438}
   checkRadius: 0.1
   groundLayer:

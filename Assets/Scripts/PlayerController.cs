@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public float speed;
     public float jumpForce;
+    public int extraJumps;
     private float moveInput;
     private int jumps;
 
@@ -28,7 +29,7 @@ public class PlayerController : MonoBehaviour
 
         if (isGrounded)
         {
-            jumps = 1;
+            jumps = extraJumps;
         }
 
         if (Input.GetKeyDown(KeyCode.Space))

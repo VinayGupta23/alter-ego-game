@@ -6,42 +6,32 @@ public class PlayerController : MonoBehaviour
 {
     public float speed;
     public float jumpForce;
-    public int extraJumps;
     private float moveInput;
-    private int jumps;
 
+    public float colXOffset;
+    public float colYOffset;
     private Rigidbody2D rb;
+    private Collider2D col;
     private bool facingRight = true;
 
     private bool isGrounded;
-    public Transform playerFeet;
-    public float checkRadius;
     public LayerMask groundLayer;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        col = GetComponent<Collider2D>();
     }
 
     void Update()
     {
         moveInput = Input.GetAxis("Horizontal");
 
-        if (isGrounded)
-        {
-            jumps = extraJumps;
-        }
-
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (isGrounded)
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-            }
-            else if (jumps > 0)
-            {
-                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-                jumps--;
             }
         }
         
@@ -52,22 +42,25 @@ public class PlayerController : MonoBehaviour
         
         if ((!facingRight && moveInput > 0) || (facingRight && moveInput < 0))
         {
-            flip();
+            Flip();
         }
     }
 
     void FixedUpdate()
     {
-        isGrounded = Physics2D.OverlapCircle(playerFeet.position, checkRadius, groundLayer);
+        Vector2 max = col.bounds.max;
+        Vector2 min = col.bounds.min;
+        max.y -= colYOffset;
+        max.x -= colXOffset;
+        min.x += colXOffset;
+        isGrounded = Physics2D.OverlapArea(min, max, groundLayer);
 
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
     }
 
-    void flip()
+    void Flip()
     {
         facingRight = !facingRight;
-        Vector3 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
+        transform.localScale *= -1;
     }
 }

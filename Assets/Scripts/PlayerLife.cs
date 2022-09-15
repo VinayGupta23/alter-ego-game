@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,9 +13,9 @@ public class PlayerLife : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("trap"))
         {
-            rb.bodyType = RigidbodyType2D.Static;
-            Destroy(rb.gameObject);
-            Thread.Sleep(1000);
+            //rb.bodyType = RigidbodyType2D.Static;
+            //Destroy(rb.gameObject);
+            //Thread.Sleep(1000);
             // Restarting the current level
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }

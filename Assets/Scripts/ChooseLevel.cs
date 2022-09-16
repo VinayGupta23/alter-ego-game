@@ -12,6 +12,6 @@ public class ChooseLevel : MonoBehaviour
 
     public void playLevel2()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
     }
 }

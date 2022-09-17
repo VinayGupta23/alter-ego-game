@@ -8,6 +8,7 @@ public class DoorController : MonoBehaviour
     BoxCollider2D boxCollider;
 
     private bool isOpen = false;
+    private Color openedFadeColor = new Color(0f, 0f, 0f, 0.7f);
 
     // Start is called before the first frame update
     void Start()
@@ -22,13 +23,20 @@ public class DoorController : MonoBehaviour
         
     }
 
-    public void OpenDoor()
+    public void ToggleDoor()
     {
-        if (!isOpen)
+        if (isOpen)
         {
-            boxCollider.enabled = false;
-            spriteRenderer.color -= new Color(0f, 0f, 0f, 0.7f);
-            isOpen = true;
+            // Already open, so close the door
+            boxCollider.enabled = true;
+            spriteRenderer.color += openedFadeColor;
         }
+        else
+        {
+            // Door is closed, so open it
+            boxCollider.enabled = false;
+            spriteRenderer.color -= openedFadeColor;
+        }
+        isOpen = !isOpen;
     }
 }

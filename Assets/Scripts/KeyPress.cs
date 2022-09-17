@@ -30,7 +30,7 @@ public class KeyPress : MonoBehaviour
     {
         if (door)
         {
-            door.OpenDoor();
+            door.ToggleDoor();
         }
     }
 }

@@ -61,6 +61,7 @@ public class PlayerController : MonoBehaviour
     void Flip()
     {
         facingRight = !facingRight;
-        transform.localScale *= -1;
+        // BUG: This causes collisions to recompute, and is also incorrect.
+        // transform.localScale *= -1;
     }
 }

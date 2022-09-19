@@ -77,7 +77,7 @@ We will work in an Agile-like approach, using the tools integrated within GitHub
  - Everything that can be a prefab, should be a prefab.
    - Once we have these "building blocks", we can create levels rapidly and indpendently.
  - TEST YOUR CHANGES before committing.
-   - Create a "test" scene using the template `File > New Scene > BlankScene` for your feature.
+   - Create a "test" scene by making a copy of `Assets/Scenes/BlankScene.unity` for your feature.
 
 ### Asset Creation
 

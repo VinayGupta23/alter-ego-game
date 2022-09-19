@@ -367,6 +367,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc7be4b58c79b254ab9f33755afbb21d, type: 3}
+--- !u!1 &856690726 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8903454209015157097, guid: fc7be4b58c79b254ab9f33755afbb21d, type: 3}
+  m_PrefabInstance: {fileID: 746181221}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &868231224
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,6 +584,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8469453898424591344, guid: 107ec466a9acb3a4eaee6c42397cbc8f, type: 3}
+      propertyPath: clone
+      value: 
+      objectReference: {fileID: 856690726}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 107ec466a9acb3a4eaee6c42397cbc8f, type: 3}
 --- !u!1001 &1335141224
@@ -591,6 +600,10 @@ PrefabInstance:
     - target: {fileID: 3555094371215136421, guid: 04366930cedc9ef468acce5f5eb52714, type: 3}
       propertyPath: m_Name
       value: Door1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555094371215136421, guid: 04366930cedc9ef468acce5f5eb52714, type: 3}
+      propertyPath: m_TagString
+      value: Finish
       objectReference: {fileID: 0}
     - target: {fileID: 3555094371215136441, guid: 04366930cedc9ef468acce5f5eb52714, type: 3}
       propertyPath: m_RootOrder

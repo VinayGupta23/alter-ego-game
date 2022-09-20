@@ -70,11 +70,21 @@ Replace the contents of `mergespecfile.txt`, to setup your "fallback" merge tool
 
 Please see this [sample repository](https://github.com/vinayg-usc/unity-git-expt) created with a deliberate conflict, to help verify if your config works.
 
-## Developer Guidelines (draft)
+## Developer Guidelines
 
-We will work in an Agile-like approach, using the tools integrated within GitHub for easy tracking. Please find the guidelines below, and feel free to share your thoughts on them!
+We will work in an Agile-like approach, using the tools integrated within GitHub for easy tracking. Please find the guidelines below, and do share your thoughts on the same!
  - We will try to divide work in a non-overlapping way.
  - Everything that can be a prefab, should be a prefab.
    - Once we have these "building blocks", we can create levels rapidly and indpendently.
  - TEST YOUR CHANGES before committing.
-   - Let's create a "test" scene for each mechanic so we have full freedom to debug.
+   - Create a "test" scene by making a copy of `Assets/Scenes/BlankScene.unity` for your feature.
+
+### Asset Creation
+
+Reference: [How to size assets for 2D games?](https://blog.unity.com/technology/choosing-the-resolution-of-your-2d-art-assets)
+
+In summary, for crisp rendering, we should maintain `resolution_height = 2 * camera_size * PPU`:
+ - We are targetting `1080p` max resolution.
+ - By experimenting and comparing with similar games, the camera zoom will be set to `11.25`.
+ - This gives us a PPU of `48px`.
+   - This means, e.g., if the player is 2 units tall and 1 unit wide, the sprite should have size `48 * 96 px`.

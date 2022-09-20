@@ -1,20 +1,26 @@
 using UnityEngine;
 
-public class CloneLife : MonoBehaviour
+public class CloneLife : LifeBase
 {
     private Vector3 originalPosition;
-    
-    void Start()
+
+    protected override void Start()
     {
+        base.Start();
         originalPosition = transform.position;
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("trap"))
         {
-            // take clone to original position
-            transform.position = originalPosition;
+            Die();
         }
     }
- 
+
+    public override void HandleDeathAnimDone()
+    {
+        Revive();
+        transform.position = originalPosition;
+    }
 }

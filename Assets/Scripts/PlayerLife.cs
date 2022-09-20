@@ -8,6 +8,12 @@ public class PlayerLife : LifeBase
         if (collision.gameObject.CompareTag("trap"))
         {
             Die();
+
+            // Kill all clones as well
+            foreach (GameObject clone in GameObject.FindGameObjectsWithTag("Clone"))
+            {
+                clone.GetComponent<LifeBase>().Die();
+            }
         }
     }
 

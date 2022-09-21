@@ -10,13 +10,12 @@ public class GoalTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            int current = SceneManager.GetActiveScene().buildIndex + 1;
-            Debug.Log(current);
+            /*int current = SceneManager.GetActiveScene().buildIndex + 1;
             if (SceneManager.GetSceneByBuildIndex(current).IsValid())
             {
-                
-                SceneManager.LoadScene(current);
-            }
+                SceneManager.LoadScene(current, LoadSceneMode.Single);
+            }*/
+            SceneManager.LoadScene("Level2", LoadSceneMode.Single);
         }
     }
 }

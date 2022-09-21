@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -32,5 +33,25 @@ public class LevelManager : MonoBehaviour
             current = 0;
         }
         SceneManager.LoadScene(scenes[current], LoadSceneMode.Single);
+    }
+
+    public string[] GetLevels()
+    {
+        return scenes;
+    }
+
+    void JumpToLevel(string levelName)
+    {
+        int lvl = Array.IndexOf(scenes, levelName);
+        if (lvl >= 0)
+        {
+            current = lvl;
+            SceneManager.LoadScene(levelName, LoadSceneMode.Single);
+        }
+    }
+
+    string GetCurrentLevel()
+    {
+        return scenes[current];
     }
 }

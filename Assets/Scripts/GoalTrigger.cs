@@ -6,16 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class GoalTrigger : MonoBehaviour
 {
+    private LevelManager levelManager;
+    void Start()
+    {
+        levelManager = GameObject.FindWithTag("LevelManager").GetComponent<LevelManager>();
+    }
+    
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            /*int current = SceneManager.GetActiveScene().buildIndex + 1;
-            if (SceneManager.GetSceneByBuildIndex(current).IsValid())
-            {
-                SceneManager.LoadScene(current, LoadSceneMode.Single);
-            }*/
-            SceneManager.LoadScene("Level2", LoadSceneMode.Single);
+            levelManager.NextLevel();
         }
     }
 }

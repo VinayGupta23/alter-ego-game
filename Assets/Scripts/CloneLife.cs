@@ -9,8 +9,8 @@ public class CloneLife : LifeBase
     {
         base.Start();
         originalPosition = transform.position;
+
         Vector3 spawnPosition = originalPosition;
-        spawnPosition.y += 1.0f;
         Instantiate(spawner, spawnPosition, Quaternion.identity);
     }
 

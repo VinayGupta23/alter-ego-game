@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour
     private static readonly string[] scenes =
     {
         "Level2Tiled",
+        "Level1",
         "Level2",
     };
 
@@ -40,7 +41,7 @@ public class LevelManager : MonoBehaviour
         return scenes;
     }
 
-    void JumpToLevel(string levelName)
+    public void JumpToLevel(string levelName)
     {
         int lvl = Array.IndexOf(scenes, levelName);
         if (lvl >= 0)
@@ -50,7 +51,7 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    string GetCurrentLevel()
+    public string GetCurrentLevel()
     {
         return scenes[current];
     }

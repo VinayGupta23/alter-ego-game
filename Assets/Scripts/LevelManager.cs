@@ -11,6 +11,9 @@ public class LevelManager : MonoBehaviour
         "Level2Tiled",
         "Level1",
         "Level2",
+        "Level3",
+        "Level4",
+        "Level5"
     };
 
     private int current = 0;

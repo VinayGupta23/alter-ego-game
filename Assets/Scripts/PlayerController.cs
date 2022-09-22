@@ -17,14 +17,24 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
     public LayerMask groundLayer;
 
+    private LifeBase life;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
+        life = GetComponent<LifeBase>();
     }
 
     void Update()
     {
+        if (life.IsAlive == false)
+        {
+            // Don't register input if player is dead
+            // This supresses warnings since we change the rigid body type on death
+            return;
+        }
+
         moveInput = Input.GetAxis("Horizontal");
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -48,6 +58,11 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (life.IsAlive == false)
+        {
+            return;
+        }
+
         Vector2 max = col.bounds.max;
         Vector2 min = col.bounds.min;
         max.y -= colYOffset;
@@ -61,6 +76,7 @@ public class PlayerController : MonoBehaviour
     void Flip()
     {
         facingRight = !facingRight;
-        transform.localScale *= -1;
+        // BUG: This causes collisions to recompute, and is also incorrect.
+        // transform.localScale *= -1;
     }
 }

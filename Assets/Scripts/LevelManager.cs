@@ -9,8 +9,10 @@ public class LevelManager : MonoBehaviour
     private static readonly string[] scenes =
     {
         "MainMenu",
-        "Level2Tiled",
+        "TutorialLevel1",
+        "TutorialLevel2",
         "Level1",
+        "TutorialLevel3",
         "Level2",
         "Level3",
         "Level4",

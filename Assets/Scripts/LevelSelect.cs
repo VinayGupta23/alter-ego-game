@@ -6,24 +6,24 @@ using UnityEngine.UI;
 
 public class LevelSelect : MonoBehaviour
 {
-    public void LV1()
+    public void TUT1() {
+        GameObject.FindWithTag("LevelManager").GetComponent<LevelManager>().JumpToLevel("TutorialLevel1");
+    }
+    
+    public void TUT2() {
+        GameObject.FindWithTag("LevelManager").GetComponent<LevelManager>().JumpToLevel("TutorialLevel2");
+    }
+    
+    public void LVL1()
     {
         GameObject.FindWithTag("LevelManager").GetComponent<LevelManager>().JumpToLevel("Level1");
     }
+    
+    public void TUT3() {
+        GameObject.FindWithTag("LevelManager").GetComponent<LevelManager>().JumpToLevel("TutorialLevel3");
+    }
 
-    public void LV2() {
+    public void LVL2() {
         GameObject.FindWithTag("LevelManager").GetComponent<LevelManager>().JumpToLevel("Level2");
-    }
-
-    public void LV3() {
-        GameObject.FindWithTag("LevelManager").GetComponent<LevelManager>().JumpToLevel("Level3");
-    }
-
-    public void LV4() {
-        GameObject.FindWithTag("LevelManager").GetComponent<LevelManager>().JumpToLevel("Level4");
-    }
-
-    public void LV5() {
-        GameObject.FindWithTag("LevelManager").GetComponent<LevelManager>().JumpToLevel("Level5");
     }
 }

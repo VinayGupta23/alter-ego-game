@@ -1,12 +1,19 @@
 using System.IO;
 using UnityEngine;
+using Firebase.Firestore;
+using System;
+using System.Globalization;
 
 
 public static class Analytics
 {
-    private static string directory = "/Users/ashutoshsharma/Documents/Course_Book_PDFs/CSCI-526-Games/UNITY PROJECTS/AnalyticsData/";
-    private static string fileName = "MyData.txt";
-    private static SaveObject saveObject = new SaveObject("Ashutosh", 0, 0);
+    
+    private static SaveObject saveObject = new SaveObject();
+
+    public static void SetPlayerName(string playerName)
+    {
+        saveObject.playerName = playerName;
+    }
 
     public static void SetLevelName(string level)
     {
@@ -36,13 +43,21 @@ public static class Analytics
     public static void Save()
     {
         Debug.Log("Inside Save Function");
-        if (!Directory.Exists(directory))
+        var saveObjectfb = new SaveObjectfb
         {
-            Directory.CreateDirectory(directory);
-        }
+            playerName = saveObject.playerName,
+            level = saveObject.level,
+            playerDeaths = GetPlayerDeaths(),
+            cloneDeaths = GetCloneDeaths()
+        };
         
-        string json = JsonUtility.ToJson(saveObject);
-        File.WriteAllText(directory+fileName, json);
+        DateTime now = DateTime.Now;
+        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
+
+
+        Debug.Log(now.ToString("MM-dd-yyyy-HH:mm:ss"));
+        var firestore = FirebaseFirestore.DefaultInstance;
+        firestore.Document("alterego/" + now.ToString("MM-dd-yyyy-HH:mm:ss")).SetAsync(saveObject);
     }
 
 }

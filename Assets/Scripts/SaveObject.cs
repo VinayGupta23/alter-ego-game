@@ -1,4 +1,22 @@
+using Firebase.Firestore;
+
+[FirestoreData]
 [System.Serializable]
+
+public struct SaveObjectfb
+{
+    [FirestoreProperty]
+    public string playerName { get; set; }
+
+    [FirestoreProperty]
+    public string level { get; set; }
+
+    [FirestoreProperty]
+    public int playerDeaths { get; set; }
+
+    [FirestoreProperty]
+    public int cloneDeaths { get; set; }
+}
 
 public class SaveObject
 {
@@ -7,12 +25,11 @@ public class SaveObject
     public int playerDeaths;
     public int cloneDeaths;
 
-    
-    public SaveObject(){}
-    public SaveObject(string playerName, int playerDeaths, int cloneDeaths)
+    public SaveObject()
     {
-        this.playerName = playerName;
-        this.playerDeaths = playerDeaths;
-        this.cloneDeaths = cloneDeaths;
+        this.playerName = "";
+        this.level = "";
+        this.playerDeaths = 0;
+        this.cloneDeaths = 0;
     }
 }

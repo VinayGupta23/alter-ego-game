@@ -8,6 +8,7 @@ public class PlayerLife : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        Analytics.SetPlayerName("TestUser");
         Analytics.SetLevelName(SceneManager.GetActiveScene().name);
     }
     private void OnCollisionEnter2D(Collision2D collision)

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "751129428142",
+    "firebase_url": "https://csci526-32f78-default-rtdb.firebaseio.com",
+    "project_id": "csci526-32f78",
+    "storage_bucket": "csci526-32f78.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:751129428142:android:ea8e324b78191752496d3f",
+        "android_client_info": {
+          "package_name": "com.csci526.alterego"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "751129428142-q8ovjb27a145vgu056uhm7p3ofm0sttp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDAqQawC94LspC-hEC4K7WWJUj_8Dp6q4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "751129428142-q8ovjb27a145vgu056uhm7p3ofm0sttp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "751129428142-a8jgo9bu9ntjsaofqjq4f98i316d456i.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.csci526.alterego"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

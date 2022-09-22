@@ -7,10 +7,11 @@ public class SaveObject
     public int playerDeaths;
     public int cloneDeaths;
 
-    public SaveObject(string playerName, string level, int playerDeaths, int cloneDeaths)
+    
+    public SaveObject(){}
+    public SaveObject(string playerName, int playerDeaths, int cloneDeaths)
     {
         this.playerName = playerName;
-        this.level = level;
         this.playerDeaths = playerDeaths;
         this.cloneDeaths = cloneDeaths;
     }

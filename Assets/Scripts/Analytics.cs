@@ -39,6 +39,15 @@ public static class Analytics
     {
         return saveObject.cloneDeaths;
     }
+    public static String GetPlayerName() {
+
+        return saveObject.playerName;
+    }
+    public static String GetLevel()
+    {
+
+        return saveObject.level;
+    }
 
     public static void Save()
     {
@@ -50,14 +59,14 @@ public static class Analytics
             playerDeaths = GetPlayerDeaths(),
             cloneDeaths = GetCloneDeaths()
         };
-        
+        Debug.Log("After fb object creation");
         DateTime now = DateTime.Now;
         CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
 
 
         Debug.Log(now.ToString("MM-dd-yyyy-HH:mm:ss"));
         var firestore = FirebaseFirestore.DefaultInstance;
-        firestore.Document("alterego/" + now.ToString("MM-dd-yyyy-HH:mm:ss")).SetAsync(saveObject);
+        firestore.Document("alterego/" + now.ToString("MM-dd-yyyy-HH:mm:ss")).SetAsync(saveObjectfb);
     }
 
 }

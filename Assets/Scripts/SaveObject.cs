@@ -1,7 +1,7 @@
 using Firebase.Firestore;
 
-[FirestoreData]
 [System.Serializable]
+[FirestoreData]
 
 public struct SaveObjectfb
 {

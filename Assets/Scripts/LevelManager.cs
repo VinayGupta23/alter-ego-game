@@ -18,7 +18,7 @@ public class LevelManager : MonoBehaviour
         "Level3"
     };
 
-    private int current = 0;
+    private int current;
 
     void Start()
     {
@@ -27,6 +27,8 @@ public class LevelManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        current = Array.IndexOf(scenes, SceneManager.GetActiveScene().name);
         DontDestroyOnLoad(this.gameObject);
     }
 
@@ -59,5 +61,10 @@ public class LevelManager : MonoBehaviour
     public string GetCurrentLevel()
     {
         return scenes[current];
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(scenes[current], LoadSceneMode.Single);
     }
 }

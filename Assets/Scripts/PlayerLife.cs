@@ -3,12 +3,20 @@ using UnityEngine.SceneManagement;
 
 public class PlayerLife : LifeBase
 {
+    protected virtual void Start()
+    {
+        base.Start();
+        Analytics.SetPlayerName("TestUser");
+        Analytics.SetLevelName(SceneManager.GetActiveScene().name);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("trap"))
         {
-            Die();
+            Analytics.RecordPlayerDeath();
 
+            Die();
             // Kill all clones as well
             foreach (GameObject clone in GameObject.FindGameObjectsWithTag("Clone"))
             {

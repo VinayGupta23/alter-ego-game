@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerLife : LifeBase
 {
-    protected virtual void Start()
+    protected override void Start()
     {
         base.Start();
         Analytics.SetPlayerName("TestUser");

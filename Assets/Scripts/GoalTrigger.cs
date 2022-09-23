@@ -21,7 +21,10 @@ public class GoalTrigger : MonoBehaviour
             Debug.Log("Level: " + Analytics.GetLevel());
             Debug.Log("Player Deaths: " + Analytics.GetPlayerDeaths());
             Debug.Log("Clone Deaths: " + Analytics.GetCloneDeaths());
-            Analytics.Save();
+
+            // Analytics.Save();
+            StartCoroutine(Analytics.Post(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")));
+            Analytics.ResetSaveObject();
 
             levelManager.NextLevel();
         }

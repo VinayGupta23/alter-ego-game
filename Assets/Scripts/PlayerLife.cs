@@ -23,15 +23,6 @@ public class PlayerLife : LifeBase
                 clone.GetComponent<LifeBase>().Die();
             }
         }
-        if (collision.gameObject.CompareTag("Finish"))
-        {
-            Debug.Log("In Finish");
-            Debug.Log("Player Name: " + Analytics.GetPlayerName());
-            Debug.Log("Level: " + Analytics.GetLevel());
-            Debug.Log("Player Deaths: " + Analytics.GetPlayerDeaths());
-            Debug.Log("Clone Deaths: " + Analytics.GetCloneDeaths());
-            Analytics.Save();
-        }
     }
 
     public override void HandleDeathAnimDone()

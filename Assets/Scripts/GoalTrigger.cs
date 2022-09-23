@@ -16,6 +16,13 @@ public class GoalTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log("In Finish");
+            Debug.Log("Player Name: " + Analytics.GetPlayerName());
+            Debug.Log("Level: " + Analytics.GetLevel());
+            Debug.Log("Player Deaths: " + Analytics.GetPlayerDeaths());
+            Debug.Log("Clone Deaths: " + Analytics.GetCloneDeaths());
+            Analytics.Save();
+
             levelManager.NextLevel();
         }
     }

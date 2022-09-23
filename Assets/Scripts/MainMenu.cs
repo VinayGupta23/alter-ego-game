@@ -1,16 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
     public void LevelSelect() {
-        SceneManager.LoadScene("LevelSelect");
+        GameObject.FindWithTag("LevelManager").GetComponent<LevelManager>().JumpToLevel("LevelSelect");
     }
 
-    public void Quit() {
-        Debug.Log("Quit!");
-        Application.Quit();
+    public void StartTutorial() {
+        GameObject.FindWithTag("LevelManager").GetComponent<LevelManager>().JumpToLevel("TutorialLevel1");
     }
 }

@@ -26,4 +26,8 @@ public class LevelSelect : MonoBehaviour
     public void LVL2() {
         GameObject.FindWithTag("LevelManager").GetComponent<LevelManager>().JumpToLevel("Level2");
     }
+
+    public void LVL3() {
+        GameObject.FindWithTag("LevelManager").GetComponent<LevelManager>().JumpToLevel("Level3");
+    }
 }

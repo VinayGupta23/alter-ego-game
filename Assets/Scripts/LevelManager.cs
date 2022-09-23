@@ -8,11 +8,17 @@ public class LevelManager : MonoBehaviour
 {
     private static readonly string[] scenes =
     {
-        "Level2Tiled",
+        "MainMenu",
+        "LevelSelect",
+        "TutorialLevel1",
+        "TutorialLevel2",
+        "Level1",
+        "TutorialLevel3",
         "Level2",
+        "Level3"
     };
 
-    private int current = 0;
+    private int current;
 
     void Start()
     {
@@ -21,6 +27,8 @@ public class LevelManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        current = Array.IndexOf(scenes, SceneManager.GetActiveScene().name);
         DontDestroyOnLoad(this.gameObject);
     }
 
@@ -40,7 +48,7 @@ public class LevelManager : MonoBehaviour
         return scenes;
     }
 
-    void JumpToLevel(string levelName)
+    public void JumpToLevel(string levelName)
     {
         int lvl = Array.IndexOf(scenes, levelName);
         if (lvl >= 0)
@@ -50,8 +58,13 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    string GetCurrentLevel()
+    public string GetCurrentLevel()
     {
         return scenes[current];
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(scenes[current], LoadSceneMode.Single);
     }
 }

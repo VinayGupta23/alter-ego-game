@@ -1,11 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class ReturnMenu : MonoBehaviour
 {
-    public void return_to_menu() {
-        SceneManager.LoadScene("MainMenu");
+    // Start is called before the first frame update
+    void Start()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+           UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+        }
     }
 }

@@ -9,8 +9,7 @@ public class LevelManager : MonoBehaviour
     private static LevelManager _instance;
     public static LevelManager Instance => _instance;
     
-    private static readonly string[] levels =
-    {
+    private static List<string> levels = new List<string> {
         "TutorialLevel1",
         "TutorialLevel2",
         "Level1",
@@ -29,7 +28,15 @@ public class LevelManager : MonoBehaviour
         }
 
         _instance = this;
-        current = Array.IndexOf(levels, SceneManager.GetActiveScene().name);
+
+        string currentScene = SceneManager.GetActiveScene().name;
+        if (Debug.isDebugBuild && !levels.Contains(currentScene))
+        {
+            // When running test scenes, this ensures the level manager API works
+            levels.Add(currentScene);
+            Debug.Log("Added current scene to level manager for debug purposes.");
+        }
+        current = levels.IndexOf(SceneManager.GetActiveScene().name);
         DontDestroyOnLoad(this.gameObject);
     }
 
@@ -37,7 +44,7 @@ public class LevelManager : MonoBehaviour
     {
         if (current == -1) return;
         current++;
-        if (current >= levels.Length)
+        if (current >= levels.Count)
         {
             MainMenu();
         }
@@ -47,14 +54,14 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public string[] GetLevels()
+    public List<string> GetLevels()
     {
         return levels;
     }
 
     public void JumpToLevel(string levelName)
     {
-        int lvl = Array.IndexOf(levels, levelName);
+        int lvl = levels.IndexOf(levelName);
         if (lvl >= 0)
         {
             current = lvl;

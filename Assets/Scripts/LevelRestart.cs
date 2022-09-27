@@ -8,7 +8,7 @@ public class LevelRestart : MonoBehaviour
     // Start is called before the first frame update
     public void Restart()
     {
-        GameObject.FindWithTag("LevelManager").GetComponent<LevelManager>().RestartLevel();
+        LevelManager.Instance.RestartLevel();
     }
 
 }

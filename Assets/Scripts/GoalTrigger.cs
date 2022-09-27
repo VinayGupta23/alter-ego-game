@@ -9,7 +9,7 @@ public class GoalTrigger : MonoBehaviour
     private LevelManager levelManager;
     void Start()
     {
-        levelManager = GameObject.FindWithTag("LevelManager").GetComponent<LevelManager>();
+        levelManager = LevelManager.Instance;
     }
     
     void OnTriggerEnter2D(Collider2D other)

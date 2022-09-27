@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Quit : MonoBehaviour
 {
-    public void LevelSelect() {
-        SceneManager.LoadScene("LevelSelect");
+    public void LevelSelect()
+    {
+        LevelManager.Instance.LevelSelect();
     }
 
     public Quit() {

@@ -5,10 +5,10 @@ using UnityEngine;
 public class MainMenu : MonoBehaviour
 {
     public void LevelSelect() {
-        GameObject.FindWithTag("LevelManager").GetComponent<LevelManager>().JumpToLevel("LevelSelect");
+        LevelManager.Instance.JumpToLevel("LevelSelect");
     }
 
     public void StartTutorial() {
-        GameObject.FindWithTag("LevelManager").GetComponent<LevelManager>().JumpToLevel("TutorialLevel1");
+        LevelManager.Instance.JumpToLevel("TutorialLevel1");
     }
 }

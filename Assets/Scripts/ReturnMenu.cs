@@ -16,7 +16,7 @@ public class ReturnMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-           UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+            LevelManager.Instance.MainMenu();
         }
     }
 }

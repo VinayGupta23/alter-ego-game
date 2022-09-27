@@ -27,6 +27,6 @@ public class PlayerLife : LifeBase
 
     public override void HandleDeathAnimDone()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        LevelManager.Instance.RestartLevel();
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class MainMenu : MonoBehaviour
 {
     public void LevelSelect() {
-        LevelManager.Instance.JumpToLevel("LevelSelect");
+        LevelManager.Instance.LevelSelect();
     }
 
     public void StartTutorial() {

@@ -118,3 +118,4 @@ MonoBehaviour:
   positions:
   - {x: 0.6025796, y: -6.459761, z: 0}
   - {x: 5.76, y: -6.459761, z: 0}
+  allowMovement: 1

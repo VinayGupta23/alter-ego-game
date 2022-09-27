@@ -6,10 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class GoalTrigger : MonoBehaviour
 {
-    private LevelManager levelManager;
     void Start()
     {
-        levelManager = LevelManager.Instance;
+
     }
     
     void OnTriggerEnter2D(Collider2D other)
@@ -26,7 +25,7 @@ public class GoalTrigger : MonoBehaviour
             StartCoroutine(Analytics.Post(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")));
             Analytics.ResetSaveObject();
 
-            levelManager.NextLevel();
+            LevelManager.Instance.NextLevel();
         }
     }
 }

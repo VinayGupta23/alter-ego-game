@@ -39,11 +39,12 @@ public class LevelManager : MonoBehaviour
         current++;
         if (current >= levels.Length)
         {
-            current = -1;
             MainMenu();
-            return;
         }
-        SceneManager.LoadScene(levels[current], LoadSceneMode.Single);
+        else
+        {
+            SceneManager.LoadScene(levels[current], LoadSceneMode.Single);
+        }
     }
 
     public string[] GetLevels()
@@ -63,6 +64,10 @@ public class LevelManager : MonoBehaviour
 
     public string GetCurrentLevel()
     {
+        if (current == -1)
+        {
+            return SceneManager.GetActiveScene().name;
+        }
         return levels[current];
     }
 
@@ -74,11 +79,13 @@ public class LevelManager : MonoBehaviour
 
     public void MainMenu()
     {
+        current = -1;
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
     
     public void LevelSelect()
     {
+        current = -1;
         SceneManager.LoadScene("LevelSelect", LoadSceneMode.Single);
     }
 }

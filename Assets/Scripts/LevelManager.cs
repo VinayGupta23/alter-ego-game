@@ -6,10 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    private static readonly string[] scenes =
+    private static LevelManager _instance;
+    public static LevelManager Instance => _instance;
+    
+    private static readonly string[] levels =
     {
-        "MainMenu",
-        "LevelSelect",
         "TutorialLevel1",
         "TutorialLevel2",
         "Level1",
@@ -22,35 +23,38 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
-        GameObject[] objs = GameObject.FindGameObjectsWithTag("LevelManager");
-        if (objs.Length > 1)
+        if (_instance != null && _instance != this)
         {
             Destroy(this.gameObject);
         }
 
-        current = Array.IndexOf(scenes, SceneManager.GetActiveScene().name);
+        _instance = this;
+        current = Array.IndexOf(levels, SceneManager.GetActiveScene().name);
         DontDestroyOnLoad(this.gameObject);
     }
 
     public void NextLevel()
     {
+        if (current == -1) return;
         current++;
-        Debug.Log(current);
-        if (current >= scenes.Length)
+        if (current >= levels.Length)
         {
-            current = 0;
+            MainMenu();
         }
-        SceneManager.LoadScene(scenes[current], LoadSceneMode.Single);
+        else
+        {
+            SceneManager.LoadScene(levels[current], LoadSceneMode.Single);
+        }
     }
 
     public string[] GetLevels()
     {
-        return scenes;
+        return levels;
     }
 
     public void JumpToLevel(string levelName)
     {
-        int lvl = Array.IndexOf(scenes, levelName);
+        int lvl = Array.IndexOf(levels, levelName);
         if (lvl >= 0)
         {
             current = lvl;
@@ -60,11 +64,28 @@ public class LevelManager : MonoBehaviour
 
     public string GetCurrentLevel()
     {
-        return scenes[current];
+        if (current == -1)
+        {
+            return SceneManager.GetActiveScene().name;
+        }
+        return levels[current];
     }
 
     public void RestartLevel()
     {
-        SceneManager.LoadScene(scenes[current], LoadSceneMode.Single);
+        if (current == -1) return;
+        SceneManager.LoadScene(levels[current], LoadSceneMode.Single);
+    }
+
+    public void MainMenu()
+    {
+        current = -1;
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+    }
+    
+    public void LevelSelect()
+    {
+        current = -1;
+        SceneManager.LoadScene("LevelSelect", LoadSceneMode.Single);
     }
 }

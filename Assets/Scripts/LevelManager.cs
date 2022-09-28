@@ -8,7 +8,9 @@ public class LevelManager : MonoBehaviour
 {
     private static LevelManager _instance;
     public static LevelManager Instance => _instance;
-    
+
+    private static string mainMenuScene = "MainMenu";
+    private static string levelSelectScene = "LevelSelect";
     private static List<string> levels = new List<string> {
         "TutorialLevel1",
         "TutorialLevel2",
@@ -30,11 +32,14 @@ public class LevelManager : MonoBehaviour
         _instance = this;
 
         string currentScene = SceneManager.GetActiveScene().name;
-        if (Debug.isDebugBuild && !levels.Contains(currentScene))
+        if (Debug.isDebugBuild)
         {
-            // When running test scenes, this ensures the level manager API works
-            levels.Add(currentScene);
-            Debug.Log("Added current scene to level manager for debug purposes.");
+            if (currentScene != mainMenuScene && currentScene != levelSelectScene && !levels.Contains(currentScene))
+            {
+                // When running test scenes, add it to level manager so the API works
+                levels.Add(currentScene);
+                Debug.Log("Added current scene to level manager for debug purposes.");
+            }
         }
         current = levels.IndexOf(SceneManager.GetActiveScene().name);
         DontDestroyOnLoad(this.gameObject);
@@ -87,12 +92,12 @@ public class LevelManager : MonoBehaviour
     public void MainMenu()
     {
         current = -1;
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+        SceneManager.LoadScene(mainMenuScene, LoadSceneMode.Single);
     }
     
     public void LevelSelect()
     {
         current = -1;
-        SceneManager.LoadScene("LevelSelect", LoadSceneMode.Single);
+        SceneManager.LoadScene(levelSelectScene, LoadSceneMode.Single);
     }
 }

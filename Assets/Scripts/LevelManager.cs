@@ -67,4 +67,5 @@ public class LevelManager : MonoBehaviour
     {
         SceneManager.LoadScene(scenes[current], LoadSceneMode.Single);
     }
+
 }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2510087014095850484}
   - component: {fileID: 8609113408356921730}
   m_Layer: 0
-  m_Name: ButtonforSpike
+  m_Name: MultiButton1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

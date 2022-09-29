@@ -6,8 +6,6 @@ public class ButtonMultiController : MonoBehaviour
 {
     [SerializeField]
     GameObject[] targets;
-
-
     // Update is called once per frame
     private void OnTriggerEnter2D(Collider2D collision)
     {

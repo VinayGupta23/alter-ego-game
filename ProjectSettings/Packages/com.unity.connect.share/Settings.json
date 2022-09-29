@@ -21,7 +21,7 @@
             {
                 "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "buildOutputDirList",
-                "value": "{\"m_Value\":\"C:/Users/acer/Desktop/USC/GameDev/alter-ego-game/Builds/TutorialLevels_09_21;C:/Users/acer/Desktop/USC/GameDev/alter-ego-game/Builds/Level2_09_15;C:/Users/acer/Desktop/USC/GameDev/alter-ego-game/Builds/Level1_09_15;C:/Users/acer/Desktop/USC/GameDev/alter-ego-game/Builds/09_15_2022_Test1;C:/Users/acer/Desktop/USC/GameDev/alter-ego-game/Builds/09_15_2022;;;;;\"}"
+                "value": "{\"m_Value\":\"C:/Users/39203/OneDrive/Desktop/CSCI 526/alter-ego-game/WebGL Builds;C:/Users/acer/Desktop/USC/GameDev/alter-ego-game/Builds/TutorialLevels_09_21;C:/Users/acer/Desktop/USC/GameDev/alter-ego-game/Builds/Level2_09_15;C:/Users/acer/Desktop/USC/GameDev/alter-ego-game/Builds/Level1_09_15;C:/Users/acer/Desktop/USC/GameDev/alter-ego-game/Builds/09_15_2022_Test1;C:/Users/acer/Desktop/USC/GameDev/alter-ego-game/Builds/09_15_2022;;;;\"}"
             }
         ]
     }

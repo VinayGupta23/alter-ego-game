@@ -6,7 +6,9 @@ using UnityEngine.UI;
 
 public class LevelSelect : MonoBehaviour
 {
+
     public void TUT1() {
+        // System.Diagnostics.Debug.WriteLine("My text");
         GameObject.FindWithTag("LevelManager").GetComponent<LevelManager>().JumpToLevel("TutorialLevel1");
     }
     

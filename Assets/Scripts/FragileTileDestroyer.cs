@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
+// References for detecting individual tile collision:
+// https://stackoverflow.com/questions/64976889/detect-which-tilemap-cells-have-collided-with-a-collider2d-in-unity
+// https://answers.unity.com/questions/1572343/how-to-detect-on-which-exact-tile-a-collision-happ.html
+
 public class FragileTileDestroyer : MonoBehaviour
 {
     public float destroyDelay = 0.5f;

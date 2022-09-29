@@ -20,6 +20,9 @@ public class LevelManager : MonoBehaviour
         "Level3",
         "TutorialLevel4",
         "TutorialLevel5",
+        "Level4",
+        "Level5",
+        "Level6",
     };
 
     private int current;

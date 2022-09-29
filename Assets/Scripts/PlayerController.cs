@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -69,6 +71,32 @@ public class PlayerController : MonoBehaviour
         max.x -= colXOffset;
         min.x += colXOffset;
         isGrounded = Physics2D.OverlapArea(min, max, groundLayer);
+
+        List<Collider2D> colliders = new List<Collider2D>();
+        ContactFilter2D filter = new ContactFilter2D();
+        filter.useTriggers = false;
+        filter.layerMask = LayerMask.GetMask("Default");
+        filter.useLayerMask = true;
+        Physics2D.OverlapCollider(col, filter, colliders);
+        foreach(Collider2D c in colliders)
+        {
+            float maxCol = c.bounds.max.x - transform.position.x;
+            float minCol = c.bounds.min.x - transform.position.x;
+            if (maxCol > 0 && minCol < 0)
+            {
+                Vector3 pos = transform.position;
+                if (maxCol > Math.Abs(minCol))
+                {
+                    pos.x -= 0.5f;
+                }
+                else
+                {
+                    pos.x += 0.5f;
+                }
+
+                transform.position = pos;
+            }
+        }
 
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
     }

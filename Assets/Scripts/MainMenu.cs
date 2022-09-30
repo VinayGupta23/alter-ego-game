@@ -9,6 +9,6 @@ public class MainMenu : MonoBehaviour
     }
 
     public void StartTutorial() {
-        LevelManager.Instance.JumpToLevel("TutorialLevel1");
+        LevelManager.Instance.JumpToLevel("0-1");
     }
 }

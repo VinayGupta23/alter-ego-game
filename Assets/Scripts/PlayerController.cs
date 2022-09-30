@@ -123,4 +123,19 @@ public class PlayerController : MonoBehaviour
         // BUG: This causes collisions to recompute, and is also incorrect.
         // transform.localScale *= -1;
     }
+
+    void OnTriggerEnter2D(Collider2D other){
+        if(other.gameObject.CompareTag("SpeedBoost"))
+        {
+            speed = speed*1.5f;
+            Destroy(other.gameObject);
+            StartCoroutine(StopSpeedUp());
+        }
+    }
+
+    IEnumerator StopSpeedUp()
+    {
+        yield return new WaitForSeconds(2.5f);
+        speed = speed/1.5f;
+    }
 }

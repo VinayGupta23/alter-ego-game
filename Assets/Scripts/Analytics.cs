@@ -7,8 +7,9 @@ using UnityEngine.Networking;
 
 public static class Analytics
 {
-    private static string URL = "https://docs.google.com/forms/u/1/d/e/1FAIpQLSfTGamJ38JWu5cGsslKp83ijYCk5o4awjrRxqp8Q14h_PO-LQ/formResponse";
-
+    
+    //Smaran's google form
+    private static string URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeQOE5oQ8iT3QJ9JvJJsY8H2eTPVAzFICRnWNUCJggAUg-qHA/formResponse";
     private static SaveObject saveObject = new SaveObject();
 
     public static void SetPlayerName(string playerName)
@@ -67,11 +68,11 @@ public static class Analytics
     public static IEnumerator Post(string sessionID)
     {
         WWWForm form = new WWWForm();
-        form.AddField("entry.1881344749", sessionID);
-        form.AddField("entry.1270308506", saveObject.playerName);
-        form.AddField("entry.846070688", saveObject.level);
-        form.AddField("entry.258147173", saveObject.playerDeaths);
-        form.AddField("entry.969688975", saveObject.cloneDeaths);
+        //form.AddField("entry.1881344749", sessionID);
+        form.AddField("entry.1338829509", saveObject.playerName);
+        form.AddField("entry.446291850", saveObject.level);
+        form.AddField("entry.1394998312", saveObject.playerDeaths);
+        form.AddField("entry.1382578195", saveObject.cloneDeaths);
 
         using (UnityWebRequest www = UnityWebRequest.Post(URL, form))
         {

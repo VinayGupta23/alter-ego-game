@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Debug = UnityEngine.Debug;
 
 public class LevelManager : MonoBehaviour
 {
@@ -62,6 +64,8 @@ public class LevelManager : MonoBehaviour
         {
             SceneManager.LoadScene(levels[current], LoadSceneMode.Single);
         }
+        
+        Analytics.Instance.SetLevelStopwatch(Stopwatch.StartNew());
     }
 
     public List<string> GetLevels()
@@ -77,6 +81,8 @@ public class LevelManager : MonoBehaviour
             current = lvl;
             SceneManager.LoadScene(levelName, LoadSceneMode.Single);
         }
+        
+        Analytics.Instance.SetLevelStopwatch(Stopwatch.StartNew());
     }
 
     public string GetCurrentLevel()

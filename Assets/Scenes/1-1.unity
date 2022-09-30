@@ -142,6 +142,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6173355228802749482, guid: 66eb6771b9d7cc449a417f53a26e5086, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 277991911}
     - target: {fileID: 6173355228802749483, guid: 66eb6771b9d7cc449a417f53a26e5086, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -407,6 +411,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04366930cedc9ef468acce5f5eb52714, type: 3}
+--- !u!1 &277991911 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3555094371215136421, guid: 04366930cedc9ef468acce5f5eb52714, type: 3}
+  m_PrefabInstance: {fileID: 277991910}
+  m_PrefabAsset: {fileID: 0}
 --- !u!61 &311251417 stripped
 BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 3555094371215136443, guid: 04366930cedc9ef468acce5f5eb52714, type: 3}
@@ -724,6 +733,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6173355228802749482, guid: 66eb6771b9d7cc449a417f53a26e5086, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1015327326}
     - target: {fileID: 6173355228802749483, guid: 66eb6771b9d7cc449a417f53a26e5086, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -939,6 +952,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04366930cedc9ef468acce5f5eb52714, type: 3}
+--- !u!1 &1015327326 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3555094371215136421, guid: 04366930cedc9ef468acce5f5eb52714, type: 3}
+  m_PrefabInstance: {fileID: 1015327325}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1077603506
 GameObject:
   m_ObjectHideFlags: 0

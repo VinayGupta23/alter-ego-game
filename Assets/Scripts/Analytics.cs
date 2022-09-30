@@ -1,7 +1,10 @@
 using UnityEngine;
 using System;
 using System.Collections;
+using System.Diagnostics;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
+using Debug = UnityEngine.Debug;
 
 public class Analytics : MonoBehaviour
 {
@@ -11,6 +14,7 @@ public class Analytics : MonoBehaviour
     //Smaran's google form
     private static string URL = "https://docs.google.com/forms/u/1/d/e/1FAIpQLSfTGamJ38JWu5cGsslKp83ijYCk5o4awjrRxqp8Q14h_PO-LQ/formResponse";
     private SaveObject saveObject;
+    private long sessionID;
     
     void Start()
     {
@@ -23,6 +27,12 @@ public class Analytics : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         saveObject = new SaveObject();
+        sessionID = DateTime.Now.Ticks;
+    }
+
+    public void SetLevelStopwatch(Stopwatch sw)
+    {
+        saveObject.levelStopwatch = sw;
     }
 
     public void SetPlayerName(string playerName)
@@ -66,9 +76,13 @@ public class Analytics : MonoBehaviour
 
     public void Save()
     {
+        saveObject.levelStopwatch.Stop();
+        string totalTime = saveObject.levelStopwatch.Elapsed.TotalSeconds.ToString("F");
+        SetPlayerName("TestUser");
+        SetLevelName(SceneManager.GetActiveScene().name);
         // This does not work, currently we are using low-level APIs from GoalTrigger.cs
         Debug.Log("Inside Save Function");
-        StartCoroutine(Post(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")));
+        StartCoroutine(Post(sessionID, totalTime));
         ResetSaveObject();
     }
 
@@ -78,14 +92,17 @@ public class Analytics : MonoBehaviour
         saveObject.cloneDeaths = 0;
     }
 
-    private IEnumerator Post(string sessionID)
+    private IEnumerator Post(long sessionID, string totalTime)
     {
         WWWForm form = new WWWForm();
-        form.AddField("entry.1881344749", sessionID);
+        form.AddField("entry.1881344749", sessionID.ToString());
         form.AddField("entry.1270308506", saveObject.playerName);
         form.AddField("entry.846070688", saveObject.level);
         form.AddField("entry.258147173", saveObject.playerDeaths);
         form.AddField("entry.969688975", saveObject.cloneDeaths);
+        //form.AddField("entry.1115030971", saveObject.levelStopwatch.Elapsed.TotalSeconds.ToString("F"));
+        form.AddField("entry.1115030971", totalTime);
+        //Debug.Log("Time Elapsed : "+saveObject.levelStopwatch.Elapsed.TotalSeconds.ToString("F"));
 
         using (UnityWebRequest www = UnityWebRequest.Post(URL, form))
         {

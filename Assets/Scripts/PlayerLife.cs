@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,8 +7,6 @@ public class PlayerLife : LifeBase
     protected override void Start()
     {
         base.Start();
-        Analytics.Instance.SetPlayerName("TestUser");
-        Analytics.Instance.SetLevelName(SceneManager.GetActiveScene().name);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -9,7 +9,7 @@ using UnityEngine.Tilemaps;
 
 public class FragileTileDestroyer : MonoBehaviour
 {
-    public float destroyDelay = 0.5f;
+    public float destroyDelay = 0.25f;
     public Color impendingDestroyTint = new Color(1, 1, 1, 0.5f);
 
     private readonly float projectionScale = 0.1f;

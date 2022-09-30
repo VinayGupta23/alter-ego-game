@@ -75,3 +75,6 @@ crashlytics-build.properties
 # WebGL Publisher
 webgl_sharing
 connectwebgl.zip
+
+# Other
+.DS_Store

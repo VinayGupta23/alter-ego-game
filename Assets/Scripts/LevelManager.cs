@@ -12,12 +12,17 @@ public class LevelManager : MonoBehaviour
     private static string mainMenuScene = "MainMenu";
     private static string levelSelectScene = "LevelSelect";
     private static List<string> levels = new List<string> {
-        "TutorialLevel1",
-        "TutorialLevel2",
-        "Level1",
-        "TutorialLevel3",
-        "Level2",
-        "Level3"
+        "0-1",
+        "0-2",
+        "0-3",
+        "1-1",
+        "1-2",
+        "1-3",
+        "2-1",
+        "2-2",
+        "2-3",
+        "2-4",
+        "2-5",
     };
 
     private int current;

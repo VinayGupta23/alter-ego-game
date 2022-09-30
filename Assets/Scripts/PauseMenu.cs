@@ -2,12 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
 
     public GameObject pauseMenuUI;
+
+    void Start()
+    {
+        GameObject levelName = transform.Find("LevelName").gameObject;
+        TextMeshProUGUI levelNameText = levelName.GetComponent<TextMeshProUGUI>();
+        levelNameText.text = SceneManager.GetActiveScene().name;
+    }
+
     // Update is called once per frame
     void Update()
     {

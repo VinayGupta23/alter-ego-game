@@ -8,6 +8,7 @@ TagManager:
   - Clone
   - LevelManager
   - MovingPlatform
+  - SpeedBoost
   layers:
   - Default
   - TransparentFX

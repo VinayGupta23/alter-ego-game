@@ -48,22 +48,22 @@ public class LevelManager : MonoBehaviour
 
         _instance = this;
 
-        string currentScene = SceneManager.GetActiveScene().name;
-        if (Debug.isDebugBuild)
-        {
-            if (currentScene != mainMenuScene && currentScene != levelSelectScene && !levels.Contains(currentScene))
-            {
-                // When running test scenes, add it to level manager so the API works
-                levels.Add(currentScene);
-                Debug.Log("Added current scene to level manager for debug purposes.");
-            }
-        }
         current = levels.IndexOf(SceneManager.GetActiveScene().name);
         DontDestroyOnLoad(this.gameObject);
     }
 
     public void NextLevel()
     {
+        if (Debug.isDebugBuild)
+        {
+            string currentScene = SceneManager.GetActiveScene().name;
+            if (currentScene != mainMenuScene && currentScene != levelSelectScene && !levels.Contains(currentScene))
+            {
+                // This is a test scene not part of level sequence
+                MainMenu();
+            }
+        }
+
         if (current == -1) return;
         current++;
         if (current >= levels.Count)
@@ -106,6 +106,16 @@ public class LevelManager : MonoBehaviour
 
     public void RestartLevel()
     {
+        if (Debug.isDebugBuild)
+        {
+            string currentScene = SceneManager.GetActiveScene().name;
+            if (currentScene != mainMenuScene && currentScene != levelSelectScene && !levels.Contains(currentScene))
+            {
+                // This is a test scene not part of level sequence
+                SceneManager.LoadScene(currentScene, LoadSceneMode.Single);
+            }
+        }
+
         if (current == -1) return;
         SceneManager.LoadScene(levels[current], LoadSceneMode.Single);
     }

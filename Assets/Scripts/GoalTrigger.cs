@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class GoalTrigger : MonoBehaviour
 {
+
+    public GameObject LevelEndPopUp;
+
     void Start()
     {
 
@@ -25,7 +28,16 @@ public class GoalTrigger : MonoBehaviour
             // StartCoroutine(Analytics.Post(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")));
             // Analytics.ResetSaveObject();
 
-            LevelManager.Instance.NextLevel();
+            LevelEndPopUp.SetActive(true);
+
+            // LevelManager.Instance.NextLevel();
         }
     }
+
+    public void Move2NextLevel(){
+        LevelManager.Instance.NextLevel();
+    }
+
+    
+
 }

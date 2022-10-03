@@ -56,5 +56,10 @@ public class PauseMenu : MonoBehaviour
     {
         LevelManager.Instance.LevelSelect();
     }
+
+    public void Move2NextLevel(){
+        LevelManager.Instance.NextLevel();
+    }
     
+
  }

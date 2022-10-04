@@ -10,6 +10,7 @@ TagManager:
   - SpeedBoost
   - GameManager
   - Door
+  - Gem
   layers:
   - Default
   - TransparentFX

@@ -21,6 +21,11 @@ public class GoalTrigger : MonoBehaviour
             Debug.Log("Player Deaths: " + Analytics.Instance.GetPlayerDeaths());
             Debug.Log("Clone Deaths: " + Analytics.Instance.GetCloneDeaths());
 
+            GameProgress gameProgress = ProgressManager.Instance.GameProgress;
+            string currentLevel = LevelManager.Instance.GetCurrentLevel();
+            gameProgress.MarkComplete(currentLevel);
+            GameProgress.Save(gameProgress);
+
             Analytics.Instance.Save();
             // StartCoroutine(Analytics.Post(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")));
             // Analytics.ResetSaveObject();

@@ -54,6 +54,15 @@ public class GameProgress
         }
     }
 
+    public void Reset()
+    {
+        completedLevels.Clear();
+        gemCollectedLevels.Clear();
+        
+        serializable.completedLevels.Clear();
+        serializable.gemCollectedLevels.Clear();
+    }
+
     private static readonly string VERSION_KEY = "version";
     private static readonly string PROGRESS_KEY = "progress";
 

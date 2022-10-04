@@ -49,6 +49,8 @@ public class GameProgress
                 serializable.gemCollectedLevels.Add(levelName);
             }
         }
+
+        Save(this);
     }
 
     public void Reset()
@@ -58,6 +60,8 @@ public class GameProgress
 
         serializable.completedLevels.Clear();
         serializable.gemCollectedLevels.Clear();
+        
+        Save(this);
     }
 
     // Static section for load/save methods
@@ -89,10 +93,10 @@ public class GameProgress
 
         return gp;
     }
-
+    
     // Note: This updates the PlayerPrefs object, not directly the underlying storage.
     //       Unity automatically writes to storage when application is closed.
-    public static void Save(GameProgress gp)
+    private static void Save(GameProgress gp)
     {
         PlayerPrefs.SetString(VERSION_KEY, Application.version);
         string progressRaw = JsonUtility.ToJson(gp.serializable);

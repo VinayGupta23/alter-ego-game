@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GoalTrigger : MonoBehaviour
 {
+    public GameObject gem;
     void Start()
     {
 
@@ -23,8 +24,15 @@ public class GoalTrigger : MonoBehaviour
 
             GameProgress gameProgress = ProgressManager.Instance.GameProgress;
             string currentLevel = LevelManager.Instance.GetCurrentLevel();
-            gameProgress.MarkComplete(currentLevel);
-            GameProgress.Save(gameProgress);
+            
+            if (gem != null && gem.GetComponent<GemCollection>().IsCollected())
+            {
+                gameProgress.MarkComplete(currentLevel, true);
+            }
+            else
+            {
+                gameProgress.MarkComplete(currentLevel);
+            }
 
             Analytics.Instance.Save();
             // StartCoroutine(Analytics.Post(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")));

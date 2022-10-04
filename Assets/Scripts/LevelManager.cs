@@ -13,8 +13,8 @@ public class GameProgress
     [Serializable]
     private class SerializableGameProgress
     {
-        public List<string> completedLevels;
-        public List<string> gemCollectedLevels;
+        public List<string> completedLevels = new List<string>();
+        public List<string> gemCollectedLevels = new List<string>();
     }
 
     private HashSet<string> completedLevels;

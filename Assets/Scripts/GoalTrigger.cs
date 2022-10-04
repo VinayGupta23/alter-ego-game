@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class GoalTrigger : MonoBehaviour
 {
-    public GameObject gem;
+    private GameObject gem;
     void Start()
     {
-
+        gem = GameObject.FindGameObjectWithTag("Gem");
     }
     
     void OnTriggerEnter2D(Collider2D other)

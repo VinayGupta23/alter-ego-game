@@ -9,6 +9,7 @@ TagManager:
   - MovingPlatform
   - SpeedBoost
   - GameManager
+  - Gem
   layers:
   - Default
   - TransparentFX

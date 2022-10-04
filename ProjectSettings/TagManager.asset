@@ -9,6 +9,8 @@ TagManager:
   - MovingPlatform
   - SpeedBoost
   - GameManager
+  - LevelManager
+  - Door
   layers:
   - Default
   - TransparentFX

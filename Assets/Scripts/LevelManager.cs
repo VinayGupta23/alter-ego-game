@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Debug = UnityEngine.Debug;
 
 public class LevelManager : MonoBehaviour
 {
@@ -11,28 +13,7 @@ public class LevelManager : MonoBehaviour
 
     private static string mainMenuScene = "MainMenu";
     private static string levelSelectScene = "LevelSelect";
-    private static List<string> levels = new List<string> {
-        "0-1",
-        "0-2",
-        "0-3",
-        "1-1",
-        "1-2",
-        "1-3",
-        "2-1",
-        "2-2",
-        "2-3",
-        "2-4",
-        "2-5",
-        "3-1",
-        "3-2",
-        "3-3",
-        "4-1",
-        "4-2",
-        "4-3",
-        "5-1",
-        "5-2",
-        "5-3"
-    };
+    private static List<string> levels = Constants.LevelNames;
 
     private int current;
 
@@ -41,26 +22,27 @@ public class LevelManager : MonoBehaviour
         if (_instance != null && _instance != this)
         {
             Destroy(this.gameObject);
+            return;
         }
 
         _instance = this;
 
-        string currentScene = SceneManager.GetActiveScene().name;
-        if (Debug.isDebugBuild)
-        {
-            if (currentScene != mainMenuScene && currentScene != levelSelectScene && !levels.Contains(currentScene))
-            {
-                // When running test scenes, add it to level manager so the API works
-                levels.Add(currentScene);
-                Debug.Log("Added current scene to level manager for debug purposes.");
-            }
-        }
         current = levels.IndexOf(SceneManager.GetActiveScene().name);
         DontDestroyOnLoad(this.gameObject);
     }
 
     public void NextLevel()
     {
+        if (Debug.isDebugBuild)
+        {
+            string currentScene = SceneManager.GetActiveScene().name;
+            if (currentScene != mainMenuScene && currentScene != levelSelectScene && !levels.Contains(currentScene))
+            {
+                // This is a test scene not part of level sequence
+                MainMenu();
+            }
+        }
+
         if (current == -1) return;
         current++;
         if (current >= levels.Count)
@@ -71,6 +53,8 @@ public class LevelManager : MonoBehaviour
         {
             SceneManager.LoadScene(levels[current], LoadSceneMode.Single);
         }
+        
+        Analytics.Instance.SetLevelStopwatch(Stopwatch.StartNew());
     }
 
     public List<string> GetLevels()
@@ -86,6 +70,8 @@ public class LevelManager : MonoBehaviour
             current = lvl;
             SceneManager.LoadScene(levelName, LoadSceneMode.Single);
         }
+        
+        Analytics.Instance.SetLevelStopwatch(Stopwatch.StartNew());
     }
 
     public string GetCurrentLevel()
@@ -99,6 +85,16 @@ public class LevelManager : MonoBehaviour
 
     public void RestartLevel()
     {
+        if (Debug.isDebugBuild)
+        {
+            string currentScene = SceneManager.GetActiveScene().name;
+            if (currentScene != mainMenuScene && currentScene != levelSelectScene && !levels.Contains(currentScene))
+            {
+                // This is a test scene not part of level sequence
+                SceneManager.LoadScene(currentScene, LoadSceneMode.Single);
+            }
+        }
+
         if (current == -1) return;
         SceneManager.LoadScene(levels[current], LoadSceneMode.Single);
     }

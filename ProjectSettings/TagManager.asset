@@ -6,9 +6,9 @@ TagManager:
   tags:
   - trap
   - Clone
-  - LevelManager
   - MovingPlatform
   - SpeedBoost
+  - GameManager
   layers:
   - Default
   - TransparentFX

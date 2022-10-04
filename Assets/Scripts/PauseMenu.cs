@@ -30,6 +30,11 @@ public class PauseMenu : MonoBehaviour
                 Pause();
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+           LevelManager.Instance.MainMenu(); 
+        }
         
     }
 

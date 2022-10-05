@@ -12,21 +12,28 @@ public class ButtonMultiController : MonoBehaviour
     public void Start()
     {
         IUnderControl[] cur_components = { };
-        foreach (var target in targets) {
-            cur_components = target.GetComponents<IUnderControl>();
-            foreach (var component in cur_components) {
-                components.Add(component);
+        if (targets != null) {
+            foreach (var target in targets)
+            {
+                cur_components = target.GetComponents<IUnderControl>();
+                foreach (var component in cur_components)
+                {
+                    components.Add(component);
+                }
             }
         }
+        
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        foreach (var component in components)
-        {
-            component.Toggle();
+        if (components != null) {
+            foreach (var component in components)
+            {
+                component.Toggle();
+            }
         }
+        
     }
             
  

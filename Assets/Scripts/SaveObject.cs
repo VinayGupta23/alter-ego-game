@@ -7,7 +7,8 @@ public class SaveObject
     public string level;
     public int playerDeaths;
     public int cloneDeaths;
-    public Stopwatch levelStopwatch;
+    public int restarts;
+    public Stopwatch attemptStopwatch;
 
     public SaveObject()
     {
@@ -15,6 +16,7 @@ public class SaveObject
         this.level = "";
         this.playerDeaths = 0;
         this.cloneDeaths = 0;
-        this.levelStopwatch = Stopwatch.StartNew();
+        this.restarts = 0;
+        this.attemptStopwatch = Stopwatch.StartNew();
     }
 }

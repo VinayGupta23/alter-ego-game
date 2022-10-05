@@ -12,11 +12,11 @@ public class Analytics : MonoBehaviour
     public static Analytics Instance => _instance;
     
     // Ashutosh's form
-    // private static string URL = "https://docs.google.com/forms/u/1/d/e/1FAIpQLSfTGamJ38JWu5cGsslKp83ijYCk5o4awjrRxqp8Q14h_PO-LQ/formResponse";
+    private static string URL = "https://docs.google.com/forms/u/1/d/e/1FAIpQLSfTGamJ38JWu5cGsslKp83ijYCk5o4awjrRxqp8Q14h_PO-LQ/formResponse";
     
     //Smaran's google form
-    private static string URL =
-        "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeQOE5oQ8iT3QJ9JvJJsY8H2eTPVAzFICRnWNUCJggAUg-qHA/formResponse";
+    // private static string URL =
+    //     "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeQOE5oQ8iT3QJ9JvJJsY8H2eTPVAzFICRnWNUCJggAUg-qHA/formResponse";
     private SaveObject saveObject;
     private long sessionID;
     
@@ -35,9 +35,9 @@ public class Analytics : MonoBehaviour
         sessionID = DateTime.Now.Ticks;
     }
 
-    public void SetLevelStopwatch(Stopwatch sw)
+    public void SetAttemptStopwatch(Stopwatch sw)
     {
-        saveObject.levelStopwatch = sw;
+        saveObject.attemptStopwatch = sw;
     }
 
     public void SetPlayerName(string playerName)
@@ -60,6 +60,11 @@ public class Analytics : MonoBehaviour
         saveObject.cloneDeaths++;
     }
 
+    public void RecordLevelRestart()
+    {
+        saveObject.restarts++;
+    }
+
     public int GetPlayerDeaths()
     {
         return saveObject.playerDeaths;
@@ -68,6 +73,10 @@ public class Analytics : MonoBehaviour
     public int GetCloneDeaths()
     {
         return saveObject.cloneDeaths;
+    }
+    public int GetRestarts()
+    {
+        return saveObject.restarts;
     }
     public String GetPlayerName() {
 
@@ -81,12 +90,14 @@ public class Analytics : MonoBehaviour
 
     public void Save()
     {
-        saveObject.levelStopwatch.Stop();
-        string totalTime = saveObject.levelStopwatch.Elapsed.TotalSeconds.ToString("F");
+        saveObject.attemptStopwatch.Stop();
+        string totalTime = saveObject.attemptStopwatch.Elapsed.TotalSeconds.ToString("F");
         SetPlayerName("TestUser");
         SetLevelName(SceneManager.GetActiveScene().name);
-        // This does not work, currently we are using low-level APIs from GoalTrigger.cs
+
         Debug.Log("Inside Save Function");
+        Debug.Log(totalTime);
+        
         StartCoroutine(Post(sessionID, totalTime));
         ResetSaveObject();
     }
@@ -95,19 +106,30 @@ public class Analytics : MonoBehaviour
     {
         saveObject.playerDeaths = 0;
         saveObject.cloneDeaths = 0;
+        saveObject.restarts = 0;
+        saveObject.attemptStopwatch.Restart();
     }
 
     private IEnumerator Post(long sessionID, string totalTime)
     {
         WWWForm form = new WWWForm();
-        form.AddField("entry.1744685662", sessionID.ToString());
-        form.AddField("entry.1338829509", saveObject.playerName);
-        form.AddField("entry.446291850", saveObject.level);
-        form.AddField("entry.1394998312", saveObject.playerDeaths);
-        form.AddField("entry.1382578195", saveObject.cloneDeaths);
-        //form.AddField("entry.1115030971", saveObject.levelStopwatch.Elapsed.TotalSeconds.ToString("F"));
-        form.AddField("entry.1974086555", totalTime);
-        //Debug.Log("Time Elapsed : "+saveObject.levelStopwatch.Elapsed.TotalSeconds.ToString("F"));
+        //smaran form fields
+        // form.AddField("entry.1744685662", sessionID.ToString());
+        // form.AddField("entry.1338829509", saveObject.playerName);
+        // form.AddField("entry.446291850", saveObject.level);
+        // form.AddField("entry.1394998312", saveObject.playerDeaths);
+        // form.AddField("entry.1382578195", saveObject.cloneDeaths);
+        // form.AddField("entry.1974086555", totalTime);
+        // form.AddField("entry.", saveObject.restarts);
+        
+        //Ashutosh form fields
+        form.AddField("entry.1881344749", sessionID.ToString());
+        form.AddField("entry.1270308506", saveObject.playerName);
+        form.AddField("entry.846070688", saveObject.level);
+        form.AddField("entry.258147173", saveObject.playerDeaths);
+        form.AddField("entry.969688975", saveObject.cloneDeaths);
+        form.AddField("entry.1115030971", totalTime);
+        form.AddField("entry.1709230882", saveObject.restarts);
 
         using (UnityWebRequest www = UnityWebRequest.Post(URL, form))
         {
@@ -120,6 +142,7 @@ public class Analytics : MonoBehaviour
             else
             {
                 Debug.Log("Form upload completed");
+                Debug.Log("__________________________________________");
             }
         }
     }

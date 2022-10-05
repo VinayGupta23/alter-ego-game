@@ -10,6 +10,7 @@ public class StickToPlatform : MonoBehaviour
         if (collision.gameObject.CompareTag("MovingPlatform") &&
             this.transform.position.y > collision.transform.position.y)
         {
+            // This object is directly on the platform
             gameObject.transform.parent = collision.transform;
             transf = collision.transform;
         }
@@ -18,6 +19,7 @@ public class StickToPlatform : MonoBehaviour
                  collision.transform.parent.gameObject.CompareTag("MovingPlatform") &&
                  this.transform.position.y > collision.transform.position.y)
         {
+            // This object is on top of another object that is effectively on the platform
             gameObject.transform.parent = collision.transform.parent.transform;
             transf = collision.transform;
         }

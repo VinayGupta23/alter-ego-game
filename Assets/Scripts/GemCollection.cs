@@ -6,12 +6,15 @@ public class GemCollection: MonoBehaviour
 {
     private new SpriteRenderer renderer;
     private bool collected = false;
+
+    private Color fadeColor = new Color(0f, 0f, 0f, 0.7f);
+
     void Start()
     {
         renderer = GetComponent<SpriteRenderer>();
         if (ProgressManager.Instance.GameProgress.IsGemCollected(LevelManager.Instance.GetCurrentLevel()))
         {
-            renderer.color = Color.grey;
+            renderer.color -= fadeColor;
             Collider2D collider = GetComponent<Collider2D>();
             collider.enabled = false;
             collider.isTrigger = false;

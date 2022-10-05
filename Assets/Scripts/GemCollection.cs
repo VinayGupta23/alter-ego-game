@@ -16,10 +16,6 @@ public class GemCollection: MonoBehaviour
             collider.enabled = false;
             collider.isTrigger = false;
         }
-        else
-        {
-            renderer.color = Color.red;
-        }
     }
 
     void OnTriggerEnter2D(Collider2D other)

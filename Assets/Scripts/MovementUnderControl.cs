@@ -23,7 +23,7 @@ public class MovementUnderControl : MonoBehaviour, IUnderControl
             LineRenderer lineRenderer = new GameObject().AddComponent<LineRenderer>();
             lineRenderer.startWidth = 0.4f;
             lineRenderer.endWidth = 0.4f;
-            lineRenderer.material.color = Color.blue;
+            lineRenderer.material.color = Color.cyan;
             lineRenderer.positionCount = positions.Length + 1;
             lineRenderer.useWorldSpace = true;
             lineRenderer.SetPositions(positions);

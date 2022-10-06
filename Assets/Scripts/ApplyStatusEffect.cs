@@ -14,9 +14,10 @@ public class ApplyStatusEffect : MonoBehaviour
     public float statusDuration;
 
     void OnTriggerEnter2D(Collider2D other){
-         if(other.gameObject.GetComponent<ReceiveStatusEffect>()!=null)
+         ReceiveStatusEffect receiver = other.gameObject.GetComponent<ReceiveStatusEffect>();
+         if(receiver!=null)
          {
-            other.gameObject.GetComponent<ReceiveStatusEffect>().ApplyEffect(statusEffect, statusDuration);
+            receiver.ApplyEffect(statusEffect, statusDuration);
             Destroy(this.gameObject);
          }
     }

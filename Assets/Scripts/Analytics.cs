@@ -10,13 +10,12 @@ public class Analytics : MonoBehaviour
 {
     private static Analytics _instance;
     public static Analytics Instance => _instance;
-    
+
     // Ashutosh's form
-    private static string URL = "https://docs.google.com/forms/u/1/d/e/1FAIpQLSfTGamJ38JWu5cGsslKp83ijYCk5o4awjrRxqp8Q14h_PO-LQ/formResponse";
-    
+    //private static string URL = "https://docs.google.com/forms/u/1/d/e/1FAIpQLSfTGamJ38JWu5cGsslKp83ijYCk5o4awjrRxqp8Q14h_PO-LQ/formResponse";
+
     //Smaran's google form
-    // private static string URL =
-    //     "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeQOE5oQ8iT3QJ9JvJJsY8H2eTPVAzFICRnWNUCJggAUg-qHA/formResponse";
+    private static string URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeQOE5oQ8iT3QJ9JvJJsY8H2eTPVAzFICRnWNUCJggAUg-qHA/formResponse";
     private SaveObject saveObject;
     private long sessionID;
     
@@ -114,22 +113,22 @@ public class Analytics : MonoBehaviour
     {
         WWWForm form = new WWWForm();
         //smaran form fields
-        // form.AddField("entry.1744685662", sessionID.ToString());
-        // form.AddField("entry.1338829509", saveObject.playerName);
-        // form.AddField("entry.446291850", saveObject.level);
-        // form.AddField("entry.1394998312", saveObject.playerDeaths);
-        // form.AddField("entry.1382578195", saveObject.cloneDeaths);
-        // form.AddField("entry.1974086555", totalTime);
-        // form.AddField("entry.", saveObject.restarts);
-        
+        form.AddField("entry.1744685662", sessionID.ToString());
+        form.AddField("entry.1338829509", saveObject.playerName);
+        form.AddField("entry.446291850", saveObject.level);
+        form.AddField("entry.1394998312", saveObject.playerDeaths);
+        form.AddField("entry.1382578195", saveObject.cloneDeaths);
+        form.AddField("entry.1974086555", totalTime);
+        form.AddField("entry.1179426767", saveObject.restarts);
+
         //Ashutosh form fields
-        form.AddField("entry.1881344749", sessionID.ToString());
-        form.AddField("entry.1270308506", saveObject.playerName);
-        form.AddField("entry.846070688", saveObject.level);
-        form.AddField("entry.258147173", saveObject.playerDeaths);
-        form.AddField("entry.969688975", saveObject.cloneDeaths);
-        form.AddField("entry.1115030971", totalTime);
-        form.AddField("entry.1709230882", saveObject.restarts);
+        //form.AddField("entry.1881344749", sessionID.ToString());
+        //form.AddField("entry.1270308506", saveObject.playerName);
+        //form.AddField("entry.846070688", saveObject.level);
+        //form.AddField("entry.258147173", saveObject.playerDeaths);
+        //form.AddField("entry.969688975", saveObject.cloneDeaths);
+        //form.AddField("entry.1115030971", totalTime);
+        //form.AddField("entry.1709230882", saveObject.restarts);
 
         using (UnityWebRequest www = UnityWebRequest.Post(URL, form))
         {

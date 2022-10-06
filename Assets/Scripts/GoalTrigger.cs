@@ -12,7 +12,7 @@ public class GoalTrigger : MonoBehaviour
 
     void Start()
     {
-        gem = GameObject.FindGameObjectWithTag("Gem");
+        gem = GameObject.FindWithTag("Gem");
     }
     
     void OnTriggerEnter2D(Collider2D other)

@@ -64,6 +64,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Move2NextLevel(){
         LevelManager.Instance.NextLevel();
+        Time.timeScale = 1f;
     }
     
 

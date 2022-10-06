@@ -8,11 +8,21 @@ public class GoalTrigger : MonoBehaviour
 {
     private GameObject gem;
 
-    public GameObject LevelEndPopUp;
+    private GameObject levelEndUI;
 
     void Start()
     {
         gem = GameObject.FindWithTag("Gem");
+
+        try
+        {
+            GameObject levelUI = GameObject.Find("R&PButtons");
+            levelEndUI = levelUI.transform.Find("LevelEnd").gameObject;
+        }
+        catch (NullReferenceException)
+        {
+            Debug.LogWarning("Did not find level end UI!");
+        }
     }
     
     void OnTriggerEnter2D(Collider2D other)
@@ -41,16 +51,16 @@ public class GoalTrigger : MonoBehaviour
             // StartCoroutine(Analytics.Post(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")));
             // Analytics.ResetSaveObject();
 
-            LevelEndPopUp.SetActive(true);
-
-            // LevelManager.Instance.NextLevel();
+            if (levelEndUI)
+            {
+                // Pause movement while showing level complete, this is reset when next level is pressed
+                Time.timeScale = 0f;
+                levelEndUI.SetActive(true);
+            }
+            else
+            {
+                LevelManager.Instance.NextLevel();
+            }
         }
     }
-
-    public void Move2NextLevel(){
-        LevelManager.Instance.NextLevel();
-    }
-
-    
-
 }

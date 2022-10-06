@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spike.2
       objectReference: {fileID: 0}
+    - target: {fileID: 8965865230779187532, guid: 56d32afd9090a104ebdf6092c77a5f10, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8965865230779187571, guid: 56d32afd9090a104ebdf6092c77a5f10, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -897,7 +901,7 @@ RectTransform:
   - {fileID: 258719170}
   m_Father: {fileID: 0}
   m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.247}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -2556,6 +2560,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1225855009, guid: 4f62683d167bb4b46813c209dec1b2db, type: 3}
+      propertyPath: LevelEndPopUp
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1266757459647015332, guid: 4f62683d167bb4b46813c209dec1b2db, type: 3}
       propertyPath: m_Name
       value: EndGoal
@@ -2875,10 +2883,6 @@ PrefabInstance:
     - target: {fileID: 4857733190958297863, guid: 18a34a63330c35c4bbe90883ec7ef52d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7143444687830081190, guid: 18a34a63330c35c4bbe90883ec7ef52d, type: 3}
-      propertyPath: m_text
-      value: 0-2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18a34a63330c35c4bbe90883ec7ef52d, type: 3}

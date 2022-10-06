@@ -6,12 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class GoalTrigger : MonoBehaviour
 {
+    private GameObject gem;
 
     public GameObject LevelEndPopUp;
 
     void Start()
     {
-
+        gem = GameObject.FindGameObjectWithTag("Gem");
     }
     
     void OnTriggerEnter2D(Collider2D other)
@@ -23,6 +24,18 @@ public class GoalTrigger : MonoBehaviour
             Debug.Log("Level: " + Analytics.Instance.GetLevel());
             Debug.Log("Player Deaths: " + Analytics.Instance.GetPlayerDeaths());
             Debug.Log("Clone Deaths: " + Analytics.Instance.GetCloneDeaths());
+
+            GameProgress gameProgress = ProgressManager.Instance.GameProgress;
+            string currentLevel = LevelManager.Instance.GetCurrentLevel();
+            
+            if (gem != null && gem.GetComponent<GemCollection>().IsCollected())
+            {
+                gameProgress.MarkComplete(currentLevel, true);
+            }
+            else
+            {
+                gameProgress.MarkComplete(currentLevel);
+            }
 
             Analytics.Instance.Save();
             // StartCoroutine(Analytics.Post(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")));

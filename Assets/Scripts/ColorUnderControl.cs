@@ -77,9 +77,4 @@ public class ColorUnderControl : MonoBehaviour, IUnderControl
             Activate();
         }
     }
-
-    public void SetColor(Color color) {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.color = color;
-    }
 }

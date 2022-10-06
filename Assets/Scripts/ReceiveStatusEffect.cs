@@ -6,13 +6,15 @@ public class ReceiveStatusEffect : MonoBehaviour
 {
     private PlayerController controller;
     private SpriteRenderer render;
+    private Color statusColor = new Color(0.52f, 1f, 0.61f);
+
     public void ApplyEffect(StatusEffect statusEffect, float duration)
     {
         switch(statusEffect)
         {
             case StatusEffect.SPEED_BOOST:
                 controller.speed *= 1.5f;
-                render.color = Color.green;
+                render.color = statusColor;
                 if(duration!=0.0f){
                     StartCoroutine(StopEffect(1.5f, duration));
                 }
@@ -20,7 +22,7 @@ public class ReceiveStatusEffect : MonoBehaviour
 
             case StatusEffect.FLIP_DIRECTION:
                 controller.speed *= -1.0f;
-                render.color = Color.green;
+                render.color = statusColor;
                 if(duration!=0.0f){
                     StartCoroutine(StopEffect(-1.0f, duration));
                 }

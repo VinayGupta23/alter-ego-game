@@ -29,11 +29,11 @@ public class GoalTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("In Finish");
-            Debug.Log("Player Name: " + Analytics.Instance.GetPlayerName());
-            Debug.Log("Level: " + Analytics.Instance.GetLevel());
-            Debug.Log("Player Deaths: " + Analytics.Instance.GetPlayerDeaths());
-            Debug.Log("Clone Deaths: " + Analytics.Instance.GetCloneDeaths());
+            // Debug.Log("In Finish");
+            // Debug.Log("Player Name: " + Analytics.Instance.GetPlayerName());
+            // Debug.Log("Level: " + Analytics.Instance.GetLevel());
+            // Debug.Log("Player Deaths: " + Analytics.Instance.GetPlayerDeaths());
+            // Debug.Log("Clone Deaths: " + Analytics.Instance.GetCloneDeaths());
 
             GameProgress gameProgress = ProgressManager.Instance.GameProgress;
             string currentLevel = LevelManager.Instance.GetCurrentLevel();

@@ -7,16 +7,34 @@ public class ButtonMultiController : MonoBehaviour
     [SerializeField]
     GameObject[] targets;
     // Update is called once per frame
+    List<IUnderControl> components = new List<IUnderControl>();
+    
+    public void Start()
+    {
+        IUnderControl[] cur_components = { };
+        if (targets != null) {
+            foreach (var target in targets)
+            {
+                cur_components = target.GetComponents<IUnderControl>();
+                foreach (var component in cur_components)
+                {
+                    components.Add(component);
+                }
+            }
+        }
+        
+
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        IUnderControl[] components = { };
-        foreach (var target in targets)
-        {   
-            components = target.GetComponents<IUnderControl>();
-            foreach (var component in components) {
+        if (components != null) {
+            foreach (var component in components)
+            {
                 component.Toggle();
             }
-            
         }
+        
     }
+            
+ 
 }

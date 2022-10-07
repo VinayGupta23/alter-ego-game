@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2510087014095850485}
   - component: {fileID: 2510087014095850486}
   - component: {fileID: 2510087014095850487}
-  - component: {fileID: 2510087014095850484}
   - component: {fileID: 8609113408356921730}
   m_Layer: 0
   m_Name: MultiButton1
@@ -113,19 +112,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7163681, y: 0.35689187}
   m_EdgeRadius: 0
---- !u!114 &2510087014095850484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2510087014095850472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b862cecfb3a25b419e2d846765bb293, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
 --- !u!114 &8609113408356921730
 MonoBehaviour:
   m_ObjectHideFlags: 0

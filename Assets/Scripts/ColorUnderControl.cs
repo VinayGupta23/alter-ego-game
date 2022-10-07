@@ -7,8 +7,8 @@ public class ColorUnderControl : MonoBehaviour, IUnderControl
     public enum ControllerColor
     {
         Neutral = 0,
-        Accent1,
-        Accent2
+        Accent1 = 1,
+        Accent2 = 2
     }
 
     public static readonly Color[] COLOR_OPTIONS = {

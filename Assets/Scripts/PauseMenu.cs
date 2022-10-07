@@ -30,6 +30,11 @@ public class PauseMenu : MonoBehaviour
                 Pause();
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+           LevelManager.Instance.MainMenu(); 
+        }
         
     }
 
@@ -51,4 +56,16 @@ public class PauseMenu : MonoBehaviour
     {
         LevelManager.Instance.MainMenu();
     }
+
+    public void LevelSelectFromPause()
+    {
+        LevelManager.Instance.LevelSelect();
+    }
+
+    public void Move2NextLevel(){
+        LevelManager.Instance.NextLevel();
+        Time.timeScale = 1f;
+    }
+    
+
  }

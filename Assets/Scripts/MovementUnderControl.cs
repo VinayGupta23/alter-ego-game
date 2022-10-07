@@ -16,6 +16,22 @@ public class MovementUnderControl : MonoBehaviour, IUnderControl
     private bool allowMovement;
 
     private int index;
+
+    public void Start()
+    {
+        if (positions.Length > 1) {
+            LineRenderer lineRenderer = new GameObject().AddComponent<LineRenderer>();
+            lineRenderer.startWidth = 0.4f;
+            lineRenderer.endWidth = 0.4f;
+            lineRenderer.material.color = Color.cyan;
+            lineRenderer.positionCount = positions.Length + 1;
+            lineRenderer.useWorldSpace = true;
+            lineRenderer.SetPositions(positions);
+            lineRenderer.SetPosition(positions.Length, positions[0]);
+        }
+
+
+    }
     public bool IsActive {
         get { return allowMovement; }
     }

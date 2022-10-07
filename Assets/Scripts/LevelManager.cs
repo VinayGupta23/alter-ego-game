@@ -54,7 +54,7 @@ public class LevelManager : MonoBehaviour
             SceneManager.LoadScene(levels[current], LoadSceneMode.Single);
         }
         
-        Analytics.Instance.SetLevelStopwatch(Stopwatch.StartNew());
+        Analytics.Instance.SetAttemptStopwatch(Stopwatch.StartNew());
     }
 
     public List<string> GetLevels()
@@ -71,7 +71,7 @@ public class LevelManager : MonoBehaviour
             SceneManager.LoadScene(levelName, LoadSceneMode.Single);
         }
         
-        Analytics.Instance.SetLevelStopwatch(Stopwatch.StartNew());
+        Analytics.Instance.SetAttemptStopwatch(Stopwatch.StartNew());
     }
 
     public string GetCurrentLevel()

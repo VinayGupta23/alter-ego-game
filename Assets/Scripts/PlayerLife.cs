@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Debug = UnityEngine.Debug;
 
 public class PlayerLife : LifeBase
 {
@@ -14,6 +15,8 @@ public class PlayerLife : LifeBase
         if (collision.gameObject.CompareTag("trap"))
         {
             Analytics.Instance.RecordPlayerDeath();
+            Debug.Log("About to save from PlayerDeath");
+            Analytics.Instance.Save();
 
             Die();
             // Kill all clones as well

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public static class Constants
 {
-    public static readonly int TotalGems = 0;
+    public static readonly int TotalGems = 3;
     public static readonly List<string> LevelNames = new List<string>
     {
         "0-1",
@@ -25,6 +25,12 @@ public static class Constants
         "4-3",
         "5-1",
         "5-2",
-        "5-3"
+        "5-3",
+        "7-1",
+        "7-2",
+        "7-3",
+        "8-1",
+        "8-2",
+        "8-3",
     };
 }

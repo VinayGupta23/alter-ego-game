@@ -58,22 +58,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("MovingPlatform"))
-        {
-            gameObject.transform.parent = collision.transform;
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("MovingPlatform"))
-        {
-            gameObject.transform.parent = null;
-        }
-    }
-
     void FixedUpdate()
     {
         if (life.IsAlive == false)
@@ -125,20 +109,5 @@ public class PlayerController : MonoBehaviour
         facingRight = !facingRight;
         // BUG: This causes collisions to recompute, and is also incorrect.
         // transform.localScale *= -1;
-    }
-
-    void OnTriggerEnter2D(Collider2D other){
-        if(other.gameObject.CompareTag("SpeedBoost"))
-        {
-            speed = speed*1.5f;
-            Destroy(other.gameObject);
-            StartCoroutine(StopSpeedUp());
-        }
-    }
-
-    IEnumerator StopSpeedUp()
-    {
-        yield return new WaitForSeconds(2.5f);
-        speed = speed/1.5f;
     }
 }

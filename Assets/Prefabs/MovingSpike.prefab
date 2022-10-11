@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3248321106893053091}
   - component: {fileID: 4900391621730580254}
   - component: {fileID: 5870860182045549930}
+  - component: {fileID: 678822093574888872}
   m_Layer: 0
   m_Name: MovingSpike
   m_TagString: trap
@@ -119,3 +120,19 @@ MonoBehaviour:
   - {x: 4.997959, y: -6.459761, z: 0}
   - {x: 5.76, y: -6.459761, z: 0}
   allowMovement: 1
+  connector: {fileID: 7190379239585479170, guid: 66760e35d0c41f6489ea8e0d84e2dac8, type: 3}
+--- !u!114 &678822093574888872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3248321106893053085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba83bf2a36bb5e24aabc264d8bd10454, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerColor: 0
+  fadeOnActive: 1
+  fadeColor: {r: 0, g: 0, b: 0, a: 0.7}

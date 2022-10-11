@@ -35,6 +35,11 @@ public class ColorUnderControl : MonoBehaviour, IUnderControl
         return COLOR_OPTIONS[(int)controllerColor];
     }
 
+    public void SetBaseColor(Color color) {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.color = color;
+    }
+
     // Start is called before the first frame update
     void Start()
     {

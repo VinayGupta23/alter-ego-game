@@ -17,7 +17,7 @@ public class ButtonMultiController : MonoBehaviour
         // Adding color to button 
         ColorUnderControl cur_button = gameObject.GetComponent<ColorUnderControl>(); ;
         if (cur_button != null) {
-            Debug.LogWarning(cur_button.GetBaseColor());
+            //Debug.LogWarning(cur_button.GetBaseColor());
             cur_button.SetBaseColor(Constants.COLOR_OPTIONS[(int)buttonColor]);
             Debug.LogWarning(cur_button.GetBaseColor());
             // Adding it to components to get fade effect on toggle

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 public static class Constants
 {
@@ -33,5 +34,16 @@ public static class Constants
         "8-1",
         "8-2",
         "8-3",
+    };
+    public  enum GameColors {
+        Neutral = 0,
+        Accent1 = 1,
+        Accent2 = 2
+    }
+
+    public static readonly Color[] COLOR_OPTIONS = {
+        new Color(1, 1, 1), // No change
+        new Color(1, 0.9231956f, 0.7882353f), // Tint yellow
+        new Color(1, 0.7882353f, 0.9254902f), // Tint pink
     };
 }

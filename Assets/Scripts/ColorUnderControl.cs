@@ -4,21 +4,8 @@ using UnityEngine;
 
 public class ColorUnderControl : MonoBehaviour, IUnderControl
 {
-    public enum ControllerColor
-    {
-        Neutral = 0,
-        Accent1 = 1,
-        Accent2 = 2
-    }
-
-    public static readonly Color[] COLOR_OPTIONS = {
-        new Color(1, 1, 1), // No change
-        new Color(1, 0.9231956f, 0.7882353f), // Tint yellow
-        new Color(1, 0.7882353f, 0.9254902f), // Tint pink
-    };
-
     [SerializeField]
-    private ControllerColor controllerColor = ControllerColor.Neutral;
+    private Constants.GameColors controllerColor = Constants.GameColors.Neutral;
     public bool fadeOnActive = true;
     public Color fadeColor = new Color(0f, 0f, 0f, 0.7f);
 
@@ -33,7 +20,7 @@ public class ColorUnderControl : MonoBehaviour, IUnderControl
 
     public Color GetBaseColor()
     {
-        return COLOR_OPTIONS[(int)controllerColor];
+        return Constants.COLOR_OPTIONS[(int)controllerColor];
     }
 
     public void SetBaseColor(Color color) {

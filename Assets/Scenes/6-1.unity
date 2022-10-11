@@ -128,19 +128,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3248321106893053085, guid: 99b12a74f885a1d4dba1bc91438102a8, type: 3}
   m_PrefabInstance: {fileID: 345077034}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &21303333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 21303328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cc60038c0f1d7e4cb93d71b5cc305fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 1041758038}
 --- !u!1 &146155964
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,19 +178,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3248321106893053085, guid: 99b12a74f885a1d4dba1bc91438102a8, type: 3}
   m_PrefabInstance: {fileID: 828220580}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &256302224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 256302219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cc60038c0f1d7e4cb93d71b5cc305fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 1041758038}
 --- !u!1001 &345077034
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -646,26 +620,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff7bbb14354f2a9489d0f80ccb9c60f6, type: 3}
---- !u!1 &1041758038 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2510087014095850472, guid: 37560e5209585e644bfd0fc5583ef111, type: 3}
-  m_PrefabInstance: {fileID: 2019515250}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1041758043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1041758038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba83bf2a36bb5e24aabc264d8bd10454, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controllerColor: 2
-  fadeOnActive: 1
-  fadeColor: {r: 0, g: 0, b: 0, a: 0.7}
 --- !u!1 &1091981089 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3248321106893053085, guid: 99b12a74f885a1d4dba1bc91438102a8, type: 3}
@@ -2871,6 +2825,22 @@ PrefabInstance:
     - target: {fileID: 2510087014095850485, guid: 37560e5209585e644bfd0fc5583ef111, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8609113408356921730, guid: 37560e5209585e644bfd0fc5583ef111, type: 3}
+      propertyPath: buttonColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8609113408356921730, guid: 37560e5209585e644bfd0fc5583ef111, type: 3}
+      propertyPath: buttonColor.b
+      value: 0.9716981
+      objectReference: {fileID: 0}
+    - target: {fileID: 8609113408356921730, guid: 37560e5209585e644bfd0fc5583ef111, type: 3}
+      propertyPath: buttonColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8609113408356921730, guid: 37560e5209585e644bfd0fc5583ef111, type: 3}
+      propertyPath: buttonColor.r
+      value: 0.9647063
       objectReference: {fileID: 0}
     - target: {fileID: 8609113408356921730, guid: 37560e5209585e644bfd0fc5583ef111, type: 3}
       propertyPath: targets.Array.data[0]

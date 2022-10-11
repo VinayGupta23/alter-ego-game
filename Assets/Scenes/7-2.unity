@@ -232,10 +232,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2720084297215702789, guid: 18a34a63330c35c4bbe90883ec7ef52d, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 83.69231
-      objectReference: {fileID: 0}
     - target: {fileID: 4857733190958297859, guid: 18a34a63330c35c4bbe90883ec7ef52d, type: 3}
       propertyPath: m_Name
       value: R&PButtons
@@ -331,14 +327,6 @@ PrefabInstance:
     - target: {fileID: 4857733190958297863, guid: 18a34a63330c35c4bbe90883ec7ef52d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4857733191948562028, guid: 18a34a63330c35c4bbe90883ec7ef52d, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 226.46153
-      objectReference: {fileID: 0}
-    - target: {fileID: 4857733192720840332, guid: 18a34a63330c35c4bbe90883ec7ef52d, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 162.46155
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18a34a63330c35c4bbe90883ec7ef52d, type: 3}

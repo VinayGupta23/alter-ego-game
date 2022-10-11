@@ -26,6 +26,7 @@ public static class Constants
         "5-1",
         "5-2",
         "5-3",
+        "6-1",
         "7-1",
         "7-2",
         "7-3",

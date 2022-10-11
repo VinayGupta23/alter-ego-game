@@ -15,22 +15,45 @@ public class MovementUnderControl : MonoBehaviour, IUnderControl
     [SerializeField]
     private bool allowMovement;
 
+    public GameObject connector;
+
     private int index;
 
     public void Start()
     {
-        if (positions.Length > 1) {
-            LineRenderer lineRenderer = new GameObject().AddComponent<LineRenderer>();
-            lineRenderer.startWidth = 0.4f;
-            lineRenderer.endWidth = 0.4f;
-            lineRenderer.material.color = Color.cyan;
-            lineRenderer.positionCount = positions.Length + 1;
-            lineRenderer.useWorldSpace = true;
-            lineRenderer.SetPositions(positions);
-            lineRenderer.SetPosition(positions.Length, positions[0]);
+        //if (positions.Length > 1) {
+        //    LineRenderer lineRenderer = new GameObject().AddComponent<LineRenderer>();
+        //    lineRenderer.startWidth = 0.4f;
+        //    lineRenderer.endWidth = 0.4f;
+        //    lineRenderer.material.color = Color.cyan;
+        //    lineRenderer.positionCount = positions.Length + 1;
+        //    lineRenderer.useWorldSpace = true;
+        //    lineRenderer.SetPositions(positions);
+        //    lineRenderer.SetPosition(positions.Length, positions[0]);
+        //}
+
+        connector = GameObject.Instantiate(connector);
+
+        if (positions.Length == 2 && connector != null)
+        {
+
+            Debug.Log(this.name);
+
+            connector.transform.position = new Vector3(
+                (positions[0].x + positions[1].x) / 2,
+                (positions[0].y + positions[1].y) / 2,
+                0
+            );
+
+            if (Mathf.Abs(positions[1].y - positions[0].y) > 0.5)
+            {
+                connector.transform.localScale = new Vector3(0.25f, positions[1].y - positions[0].y, 1);
+            }
+            else
+            {
+                connector.transform.localScale = new Vector3(positions[1].x - positions[0].x, 0.25f, 1);
+            }
         }
-
-
     }
     public bool IsActive {
         get { return allowMovement; }

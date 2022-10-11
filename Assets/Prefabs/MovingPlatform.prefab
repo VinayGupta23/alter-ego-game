@@ -188,3 +188,4 @@ MonoBehaviour:
   - {x: 0, y: -5, z: 0}
   - {x: 0, y: 5, z: 0}
   allowMovement: 1
+  connector: {fileID: 7190379239585479170, guid: 66760e35d0c41f6489ea8e0d84e2dac8, type: 3}

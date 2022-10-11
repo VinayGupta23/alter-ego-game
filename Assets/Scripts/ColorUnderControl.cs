@@ -25,6 +25,7 @@ public class ColorUnderControl : MonoBehaviour, IUnderControl
     SpriteRenderer spriteRenderer;
     bool isActive = false;
 
+    bool isColorSet = false;
     public bool IsActive
     {
         get { return isActive; }
@@ -38,13 +39,17 @@ public class ColorUnderControl : MonoBehaviour, IUnderControl
     public void SetBaseColor(Color color) {
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.color = color;
+        isColorSet = true;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.color = GetBaseColor();
+        if (isColorSet == false) {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer.color = GetBaseColor();
+        }
+
     }
 
     // Update is called once per frame

@@ -8,7 +8,7 @@ public class ButtonMultiController : MonoBehaviour
 
     [SerializeField]
     GameObject[] targets;
-    private  Constants.GameColors buttonColor = Constants.GameColors.Neutral;
+    public  Constants.GameColors buttonColor = Constants.GameColors.Neutral;
     // Update is called once per frame
     List<IUnderControl> components = new List<IUnderControl>();
     

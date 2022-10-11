@@ -13,6 +13,7 @@ public class ReceiveStatusEffect : MonoBehaviour
         switch(statusEffect)
         {
             case StatusEffect.SPEED_BOOST:
+                ShowBoostSymbol("Speed");
                 controller.speed *= 1.5f;
                 render.color = statusColor;
                 if(duration!=0.0f){
@@ -21,6 +22,7 @@ public class ReceiveStatusEffect : MonoBehaviour
                 break;
 
             case StatusEffect.FLIP_DIRECTION:
+                ShowBoostSymbol("Reverse");
                 controller.speed *= -1.0f;
                 render.color = statusColor;
                 if(duration!=0.0f){
@@ -36,6 +38,8 @@ public class ReceiveStatusEffect : MonoBehaviour
         yield return new WaitForSeconds(duration);
         controller.speed /= speedChange;
         render.color = Color.white;
+        HideBoostSymbol("Speed");
+        HideBoostSymbol("Reverse");
     }
 
     // Start is called before the first frame update
@@ -43,6 +47,17 @@ public class ReceiveStatusEffect : MonoBehaviour
     {
         controller = GetComponent<PlayerController>();
         render = GetComponent<SpriteRenderer>();
+        HideBoostSymbol("Speed");
+        HideBoostSymbol("Reverse");
     }
 
+    void ShowBoostSymbol(string boostName)
+    {
+        this.gameObject.transform.Find(boostName).gameObject.SetActive(true);
+    }
+    
+    void HideBoostSymbol(string boostName)
+    {
+        this.gameObject.transform.Find(boostName).gameObject.SetActive(false);
+    }
 }

@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 678822093574888872, guid: 99b12a74f885a1d4dba1bc91438102a8, type: 3}
+      propertyPath: fadeOnActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3248321106893053085, guid: 99b12a74f885a1d4dba1bc91438102a8, type: 3}
       propertyPath: m_Name
       value: MovingSpike
@@ -137,6 +141,14 @@ PrefabInstance:
     - target: {fileID: 3248321106893053090, guid: 99b12a74f885a1d4dba1bc91438102a8, type: 3}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3248321106893053090, guid: 99b12a74f885a1d4dba1bc91438102a8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.6275
+      objectReference: {fileID: 0}
+    - target: {fileID: 3248321106893053090, guid: 99b12a74f885a1d4dba1bc91438102a8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.6176444
       objectReference: {fileID: 0}
     - target: {fileID: 3248321106893053090, guid: 99b12a74f885a1d4dba1bc91438102a8, type: 3}
       propertyPath: m_LocalPosition.x

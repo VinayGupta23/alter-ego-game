@@ -228,6 +228,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8609113408356921730, guid: 37560e5209585e644bfd0fc5583ef111, type: 3}
+      propertyPath: buttonColor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8609113408356921730, guid: 37560e5209585e644bfd0fc5583ef111, type: 3}
       propertyPath: targets.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -2573,6 +2577,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3312635993162862832, guid: 37560e5209585e644bfd0fc5583ef111, type: 3}
       propertyPath: controllerColor
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8609113408356921730, guid: 37560e5209585e644bfd0fc5583ef111, type: 3}
+      propertyPath: buttonColor
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8609113408356921730, guid: 37560e5209585e644bfd0fc5583ef111, type: 3}

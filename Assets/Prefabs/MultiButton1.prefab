@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2510087014095850485}
   - component: {fileID: 2510087014095850486}
   - component: {fileID: 2510087014095850487}
+  - component: {fileID: 3312635993162862832}
   - component: {fileID: 8609113408356921730}
   m_Layer: 0
   m_Name: MultiButton1
@@ -112,6 +113,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7163681, y: 0.35689187}
   m_EdgeRadius: 0
+--- !u!114 &3312635993162862832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2510087014095850472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba83bf2a36bb5e24aabc264d8bd10454, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerColor: 0
+  fadeOnActive: 1
+  fadeColor: {r: 0, g: 0, b: 0, a: 0.7}
 --- !u!114 &8609113408356921730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,3 +143,4 @@ MonoBehaviour:
   targets:
   - {fileID: 0}
   - {fileID: 0}
+  buttonColor: {r: 0, g: 0, b: 0, a: 0.7}

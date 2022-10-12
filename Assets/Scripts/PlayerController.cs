@@ -80,20 +80,21 @@ public class PlayerController : MonoBehaviour
         Physics2D.OverlapCollider(col, filter, colliders);
         foreach(Collider2D c in colliders)
         {
-            if (c.CompareTag("Door"))
+            if (c.CompareTag("Door") && transform.position.y < c.bounds.max.y)
             {
-                float maxCol = c.bounds.max.x - transform.position.x;
-                float minCol = c.bounds.min.x - transform.position.x;
+                Vector3 pos = transform.position;
+                Bounds colBounds = c.bounds;
+                float maxCol = colBounds.max.x - pos.x;
+                float minCol = colBounds.min.x - pos.x;
                 if (maxCol > 0 && minCol < 0)
                 {
-                    Vector3 pos = transform.position;
                     if (maxCol > Math.Abs(minCol))
                     {
-                        pos.x -= 0.5f;
+                        pos.x -= maxCol;
                     }
                     else
                     {
-                        pos.x += 0.5f;
+                        pos.x -= minCol;
                     }
 
                     transform.position = pos;

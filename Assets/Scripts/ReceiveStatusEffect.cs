@@ -19,7 +19,7 @@ public class ReceiveStatusEffect : MonoBehaviour
                 controller.speed *= 1.5f;
                 render.color = statusColor;
                 if(duration!=0.0f){
-                    StartCoroutine(StopEffect(1.5f, duration));
+                    StartCoroutine(StopEffect(1.5f, duration, Speed));
                 }
                 break;
 
@@ -28,20 +28,19 @@ public class ReceiveStatusEffect : MonoBehaviour
                 controller.speed *= -1.0f;
                 render.color = statusColor;
                 if(duration!=0.0f){
-                    StartCoroutine(StopEffect(-1.0f, duration));
+                    StartCoroutine(StopEffect(-1.0f, duration, Reverse));
                 }
                 break;
         }
 
     }
 
-    IEnumerator StopEffect(float speedChange, float duration)
+    IEnumerator StopEffect(float speedChange, float duration, GameObject boostGameObject)
     {
         yield return new WaitForSeconds(duration);
         controller.speed /= speedChange;
         render.color = Color.white;
-        HideBoostSymbol(Speed);
-        HideBoostSymbol(Reverse);
+        HideBoostSymbol(boostGameObject);
     }
 
     // Start is called before the first frame update

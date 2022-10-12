@@ -8,7 +8,7 @@ public class ReceiveStatusEffect : MonoBehaviour
     private SpriteRenderer render;
     private GameObject Speed;
     private GameObject Reverse;
-    private Color statusColor = new Color(0.52f, 1f, 0.61f);
+    private Color statusColor = Color.white;
 
     public void ApplyEffect(StatusEffect statusEffect, float duration)
     {

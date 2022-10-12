@@ -15,6 +15,10 @@ public class PauseMenu : MonoBehaviour
         GameObject levelName = transform.Find("LevelName").gameObject;
         TextMeshProUGUI levelNameText = levelName.GetComponent<TextMeshProUGUI>();
         levelNameText.text = SceneManager.GetActiveScene().name;
+
+        GameObject GemNum = transform.Find("GemNum").gameObject;
+        TextMeshProUGUI GemNumText = GemNum.GetComponent<TextMeshProUGUI>();
+        GemNumText.text = ProgressManager.Instance.GameProgress.Gems().ToString();
     }
 
     // Update is called once per frame

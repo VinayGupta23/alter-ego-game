@@ -18,7 +18,8 @@ public class PauseMenu : MonoBehaviour
 
         GameObject GemNum = transform.Find("GemNum").gameObject;
         TextMeshProUGUI GemNumText = GemNum.GetComponent<TextMeshProUGUI>();
-        GemNumText.text = ProgressManager.Instance.GameProgress.Gems().ToString();
+        // GemNumText.text = ProgressManager.Instance.GameProgress.Gems().ToString();
+        GemNumText.text = Constants.TotalGems.ToString();
     }
 
     // Update is called once per frame

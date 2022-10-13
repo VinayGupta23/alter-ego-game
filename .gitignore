@@ -78,3 +78,6 @@ connectwebgl.zip
 
 # Other
 .DS_Store
+
+# Secrets file for python notebook
+google_forms_service_account.json

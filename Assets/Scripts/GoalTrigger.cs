@@ -8,7 +8,7 @@ public class GoalTrigger : MonoBehaviour
 {
     private GameObject gem;
 
-    private GameObject levelEndUI;
+    private LevelHUD levelHUD;
 
     void Start()
     {
@@ -16,12 +16,11 @@ public class GoalTrigger : MonoBehaviour
 
         try
         {
-            GameObject levelUI = GameObject.Find("R&PButtons");
-            levelEndUI = levelUI.transform.Find("LevelEnd").gameObject;
+            levelHUD = GameObject.Find("R&PButtons").GetComponent<LevelHUD>();
         }
         catch (NullReferenceException)
         {
-            Debug.LogWarning("Did not find level end UI!");
+            Debug.LogWarning("Did not find level HUD!");
         }
     }
     
@@ -51,11 +50,9 @@ public class GoalTrigger : MonoBehaviour
             // StartCoroutine(Analytics.Post(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")));
             // Analytics.ResetSaveObject();
 
-            if (levelEndUI)
+            if (levelHUD != null)
             {
-                // Pause movement while showing level complete, this is reset when next level is pressed
-                Time.timeScale = 0f;
-                levelEndUI.SetActive(true);
+                levelHUD.ShowLevelEnd();
             }
             else
             {

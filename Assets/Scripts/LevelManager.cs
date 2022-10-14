@@ -15,7 +15,24 @@ public class LevelManager : MonoBehaviour
     private static string levelSelectScene = "LevelSelect";
     private static List<string> levels = Constants.LevelNames;
 
-    private int current;
+    private int _current;
+    private int _previous = -1;
+
+    public int current
+    {
+        get { return _current; }
+        private set 
+        { 
+            previous = _current;
+            _current = value;
+        }
+    }
+
+    public int previous
+    {
+        get { return _previous; }
+        private set { _previous = value; }
+    }
 
     void Start()
     {
@@ -109,5 +126,17 @@ public class LevelManager : MonoBehaviour
     {
         current = -1;
         SceneManager.LoadScene(levelSelectScene, LoadSceneMode.Single);
+    }
+
+    public void PreviousScene()
+    {
+        if (previous == -1)
+        {
+            MainMenu();
+        }
+        else
+        {
+            JumpToLevel(levels[previous]);
+        }
     }
 }

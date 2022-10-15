@@ -52,13 +52,13 @@ public class Analytics : MonoBehaviour
     public void RecordPlayerDeath(string causeOfDeath, Vector3 position)
     {
         saveObject.postionOfDeathPlayer = position.ToString();
-        saveObject.causeOfDeathPlayer = causeOfDeath;
+        saveObject.causeOfDeathPlayer = causeOfDeath.Split(".")[0];
         saveObject.playerDeaths++;
     }
 
     public void RecordCloneDeath(string causeOfDeath, Vector3 position)
     {
-        saveObject.causeAndPositionOfDeathClone.Add(Tuple.Create(causeOfDeath, position.ToString()));
+        saveObject.causeAndPositionOfDeathClone.Add(Tuple.Create(causeOfDeath.Split(".")[0], position.ToString()));
         saveObject.cloneDeaths++;
     }
 

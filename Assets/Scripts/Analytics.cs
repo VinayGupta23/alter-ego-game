@@ -49,13 +49,16 @@ public class Analytics : MonoBehaviour
         saveObject.level = level;
     }
 
-    public void RecordPlayerDeath()
+    public void RecordPlayerDeath(string causeOfDeath, Vector3 position)
     {
+        saveObject.postionOfDeathPlayer = position.ToString();
+        saveObject.causeOfDeathPlayer = causeOfDeath;
         saveObject.playerDeaths++;
     }
 
-    public void RecordCloneDeath()
+    public void RecordCloneDeath(string causeOfDeath, Vector3 position)
     {
+        saveObject.causeAndPositionOfDeathClone.Add(Tuple.Create(causeOfDeath, position.ToString()));
         saveObject.cloneDeaths++;
     }
 
@@ -87,6 +90,16 @@ public class Analytics : MonoBehaviour
         return saveObject.level;
     }
 
+    public String GetCauseOfPlayerDeath()
+    {
+        return saveObject.causeOfDeathPlayer;
+    }
+
+    public String GetPositionOfPlayerDeath()
+    {
+        return saveObject.postionOfDeathPlayer;
+    }
+
     public void Save()
     {
         saveObject.attemptStopwatch.Stop();
@@ -96,6 +109,14 @@ public class Analytics : MonoBehaviour
 
         Debug.Log("Inside Save Function");
         Debug.Log(totalTime);
+        
+        Debug.Log("Player Death Reason : "+GetCauseOfPlayerDeath());
+        Debug.Log("Player Death Position : "+GetPositionOfPlayerDeath());
+        Debug.Log("Clone Death Stats : ");
+        foreach (var tuple in saveObject.causeAndPositionOfDeathClone)
+        {
+            Debug.Log(tuple.Item1 + " : " + tuple.Item2);
+        }
         
         StartCoroutine(Post(sessionID, totalTime));
         ResetSaveObject();
@@ -107,6 +128,8 @@ public class Analytics : MonoBehaviour
         saveObject.cloneDeaths = 0;
         saveObject.restarts = 0;
         saveObject.attemptStopwatch.Restart();
+        saveObject.causeOfDeathPlayer = "";
+        saveObject.causeAndPositionOfDeathClone = new System.Collections.Generic.List<System.Tuple<string, string>>();
     }
 
     private IEnumerator Post(long sessionID, string totalTime)

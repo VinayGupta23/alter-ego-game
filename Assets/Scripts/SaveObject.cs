@@ -14,6 +14,7 @@ public class SaveObject
     public string causeOfDeathPlayer;
     public string postionOfDeathPlayer;
     public List<Tuple<string,string>> causeAndPositionOfDeathClone;
+    public Boolean collectedPill;
 
     public SaveObject()
     {
@@ -26,5 +27,6 @@ public class SaveObject
         this.causeOfDeathPlayer = "";
         this.postionOfDeathPlayer = "";
         this.causeAndPositionOfDeathClone = new System.Collections.Generic.List<System.Tuple<string, string>>();
+        this.collectedPill = false;
     }
 }

@@ -130,18 +130,18 @@ public class Analytics : MonoBehaviour
         SetPlayerName("TestUser");
         SetLevelName(SceneManager.GetActiveScene().name);
 
-        Debug.Log("Inside Save Function");
-        Debug.Log(totalTime);
-        
-        Debug.Log("Player Death Reason : "+GetCauseOfPlayerDeath());
-        Debug.Log("Player Death Position : "+GetPositionOfPlayerDeath());
-        Debug.Log("Clone Death Stats : ");
-        foreach (var tuple in saveObject.causeAndPositionOfDeathClone)
-        {
-            Debug.Log(tuple.Item1 + " : " + tuple.Item2);
-        }
-        
-        Debug.Log("Collected Pill : "+saveObject.collectedPill);
+        // Debug.Log("Inside Save Function");
+        // Debug.Log(totalTime);
+        //
+        // Debug.Log("Player Death Reason : "+GetCauseOfPlayerDeath());
+        // Debug.Log("Player Death Position : "+GetPositionOfPlayerDeath());
+        // Debug.Log("Clone Death Stats : ");
+        // foreach (var tuple in saveObject.causeAndPositionOfDeathClone)
+        // {
+        //     Debug.Log(tuple.Item1 + " : " + tuple.Item2);
+        // }
+        //
+        // Debug.Log("Collected Pill : "+saveObject.collectedPill);
         
         StartCoroutine(Post(sessionID, totalTime));
         ResetSaveObject();

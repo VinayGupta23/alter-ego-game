@@ -16,7 +16,8 @@ public class ApplyStatusEffect : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other){
          ReceiveStatusEffect receiver = other.gameObject.GetComponent<ReceiveStatusEffect>();
          if(receiver!=null)
-         {
+         { 
+             Analytics.Instance.RecordPillCollection();
             receiver.ApplyEffect(statusEffect, statusDuration);
             Destroy(this.gameObject);
          }

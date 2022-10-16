@@ -67,6 +67,11 @@ public class Analytics : MonoBehaviour
         saveObject.restarts++;
     }
 
+    public void RecordPillCollection()
+    {
+        saveObject.collectedPill = true;
+    }
+
     public int GetPlayerDeaths()
     {
         return saveObject.playerDeaths;
@@ -99,6 +104,11 @@ public class Analytics : MonoBehaviour
     {
         return saveObject.postionOfDeathPlayer;
     }
+    
+    public String GetCollectedPill()
+    {
+        return saveObject.collectedPill.ToString();
+    }
 
     public void Save()
     {
@@ -118,6 +128,8 @@ public class Analytics : MonoBehaviour
             Debug.Log(tuple.Item1 + " : " + tuple.Item2);
         }
         
+        Debug.Log("Collected Pill : "+saveObject.collectedPill);
+        
         StartCoroutine(Post(sessionID, totalTime));
         ResetSaveObject();
     }
@@ -130,6 +142,7 @@ public class Analytics : MonoBehaviour
         saveObject.attemptStopwatch.Restart();
         saveObject.causeOfDeathPlayer = "";
         saveObject.causeAndPositionOfDeathClone = new System.Collections.Generic.List<System.Tuple<string, string>>();
+        saveObject.collectedPill = false;
     }
 
     private IEnumerator Post(long sessionID, string totalTime)

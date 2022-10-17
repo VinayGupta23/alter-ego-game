@@ -17,7 +17,10 @@ public class LevelSelection : MonoBehaviour
 
     public void OpenScene(){
         LevelManager.Instance.JumpToLevel(level);
+        
     }
+
+    
 
 }
 

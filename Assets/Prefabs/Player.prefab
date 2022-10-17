@@ -192,7 +192,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1.75
+  m_GravityScale: 2.25
   m_Material: {fileID: 6200000, guid: 4ff68e9c27812ba44b88e313ffde06f5, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -238,6 +238,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   jumpForce: 11.5
+  airMult: 0.8
   colXOffset: 0.01
   colYOffset: 0.99
   groundLayer:

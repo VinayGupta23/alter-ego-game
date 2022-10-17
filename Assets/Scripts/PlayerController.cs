@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -8,7 +9,9 @@ public class PlayerController : MonoBehaviour
 {
     public float speed;
     public float jumpForce;
+    public float airMult;
     private float moveInput;
+    private float lastInput;
 
     public float colXOffset;
     public float colYOffset;
@@ -78,7 +81,7 @@ public class PlayerController : MonoBehaviour
         filter.layerMask = LayerMask.GetMask("Default");
         filter.useLayerMask = true;
         Physics2D.OverlapCollider(col, filter, colliders);
-        foreach(Collider2D c in colliders)
+        foreach (Collider2D c in colliders)
         {
             if (c.CompareTag("Door") && transform.position.y < c.bounds.max.y)
             {
@@ -102,7 +105,20 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+        float targetSpeed = moveInput * speed;
+        if (math.abs(moveInput) < lastInput)
+        {
+            targetSpeed = 0;
+        }
+        
+        lastInput = math.abs(moveInput);
+        
+        if (!isGrounded)
+        {
+            targetSpeed *= airMult;
+        }
+        
+        rb.velocity = new Vector2(targetSpeed, rb.velocity.y);
     }
 
     void Flip()

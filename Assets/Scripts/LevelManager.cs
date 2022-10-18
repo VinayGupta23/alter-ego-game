@@ -151,8 +151,8 @@ public class LevelManager : MonoBehaviour
         {
             SceneManager.LoadScene(levelname, LoadSceneMode.Single);
         }
-        else { 
-        // We need to decide on what to display
+        else {
+            Debug.Log("Required gems not collected earlier. Not loading level " + levelname);
         }
         
     }

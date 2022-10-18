@@ -3,22 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class DependecyManager
+public class DependencyManager
 {
     public bool FreeMode = false;
 
-    private Dictionary<string, List<string>> Dependency = new Dictionary<string, List<string>>();
+    private Dictionary<string, List<string>> Dependency = Constants.Dependency;
 
     // Ideally this should be set from UI. 
-    public void SetDependency()
-    {
-        Dependency.Add("7-1", new List<string> { "6-3" });
-        Dependency.Add("7-2", new List<string> { "6-3" });
-    }
 
-    public static DependecyManager Load() {
-        DependecyManager dm = new DependecyManager();
-        dm.SetDependency();
+    public static DependencyManager Load() {
+        DependencyManager dm = new DependencyManager();
         return dm;
     }
 
@@ -56,14 +50,12 @@ public class DependecyManager
 public class LevelDependency : MonoBehaviour {
 
     // we should get this input from game ui
-    [SerializeField]
-    private bool FreeMode = false;
 
     private static LevelDependency _instance;
     public static LevelDependency Instance => _instance;
 
-    private DependecyManager _DM_instance;
-    public DependecyManager DMInstance => _DM_instance;
+    private DependencyManager _DM_instance;
+    public DependencyManager DMInstance => _DM_instance;
 
     public void Start()
     {
@@ -76,8 +68,7 @@ public class LevelDependency : MonoBehaviour {
         _instance = this;
         DontDestroyOnLoad(gameObject);
 
-        _DM_instance = DependecyManager.Load();
-        _DM_instance.SetFreeMode(FreeMode);
+        _DM_instance = DependencyManager.Load();
 
     }
 

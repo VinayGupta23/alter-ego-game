@@ -33,6 +33,11 @@ public class GameProgress
         return gemCollectedLevels.Count;
     }
 
+
+    public bool IsGemFound(string levelname) {
+        return Constants.Gems.Contains(levelname);
+    }
+
     public void MarkComplete(string levelName, bool gemCollected = false)
     {
         bool success = completedLevels.Add(levelName);
@@ -49,7 +54,6 @@ public class GameProgress
                 serializable.gemCollectedLevels.Add(levelName);
             }
         }
-
         Save(this);
     }
 

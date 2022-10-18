@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class Constants
 {
-    public static readonly int TotalGems = 3;
+    
     public static readonly List<string> LevelNames = new List<string>
     {
         "0-1",
@@ -35,6 +35,23 @@ public static class Constants
         "7-3"
     };
 
+    //Need to update the existance of gem here after adding gem to any level.
+    public static readonly HashSet<string> Gems = new HashSet<string> {
+        "4-1",
+        "5-3",
+        "6-3"
+    };
+    public static readonly int TotalGems = Gems.Count;
+
+    public static Dictionary<string, List<string>> LevelDependency = new Dictionary<string, List<string>> {
+        { "7-2", new List<string> { "7-1" } },
+         { "7-3", new List<string> { "7-1" } }
+    };
+    public static Dictionary<string, List<string>> GemDependency = new Dictionary<string, List<string>> {
+        { "4-2", new List<string> { "4-1" } },
+         { "4-3", new List<string> { "4-1" } },
+         { "7-1", new List<string> { "6-3" } }
+    };
     public  enum GameColors {
         Neutral = 0,
         Accent1 = 1,

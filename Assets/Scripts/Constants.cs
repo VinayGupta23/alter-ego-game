@@ -38,6 +38,7 @@ public static class Constants
     //Need to update the existance of gem here after adding gem to any level.
     public static readonly HashSet<string> Gems = new HashSet<string> {
         "4-1",
+        "5-3",
         "6-3"
     };
     public static readonly int TotalGems = Gems.Count;

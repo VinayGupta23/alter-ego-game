@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+
 
 public class LevelSelectUI : MonoBehaviour
 {
     // Start is called before the first frame update
+
+
     void Start()
     {
         Cursor.visible = true;
@@ -18,11 +22,18 @@ public class LevelSelectUI : MonoBehaviour
             ProgressManager.Instance.GameProgress.Gems(),
             Constants.TotalGems
         );
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (ProgressManager.Instance.GameProgress.IsCompleted("0-1")){
+            Toggle tmp = GetComponentInChildren<Toggle>();
+
+            tmp.isOn = true;
+        }
+
 
     }
 

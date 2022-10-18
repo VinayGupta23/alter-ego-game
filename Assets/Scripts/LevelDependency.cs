@@ -35,7 +35,12 @@ public class DependencyManager
         if (levels != null) {
             foreach (string level in levels)
             {
-                if (ProgressManager.Instance.GameProgress.IsGemCollected(level) == false)
+                // check if earlier dependent level is completed or not
+                if (ProgressManager.Instance.GameProgress.IsCompleted(level) == false) {
+                    return true;
+                }
+                // check if gem exists in the dependent level and whether its collected or not
+                if (ProgressManager.Instance.GameProgress.IsGemFound(level) && ProgressManager.Instance.GameProgress.IsGemCollected(level) == false)
                 {
                     return true;
                 }

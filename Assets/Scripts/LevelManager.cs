@@ -152,7 +152,9 @@ public class LevelManager : MonoBehaviour
             SceneManager.LoadScene(levelname, LoadSceneMode.Single);
         }
         else {
+            current--;
             Debug.Log("Required gems not collected earlier. Not loading level " + levelname);
+            throw new Exception("Trying to load level " + levelname + " without meeting dependencies");
         }
         
     }

@@ -10,10 +10,20 @@ public class GoalTrigger : MonoBehaviour
 
     private LevelHUD levelHUD;
 
+    private  GameProgress gameProgress = ProgressManager.Instance.GameProgress;
+    private string currentLevel = LevelManager.Instance.GetCurrentLevel();
     void Start()
     {
-        gem = GameObject.FindWithTag("Gem");
+        
 
+        gem = GameObject.Find("Gem");
+        
+        // When we add dependencies where gems are not present(only level based dependencies, we need to know whether there is a gem in the level
+        // to compare. So recording the presence of gems.
+        // This way we can even dependencies between levels with and without gems.
+        if (gem != null) {
+            gameProgress.FoundGem(currentLevel);
+        }
         try
         {
             levelHUD = GameObject.Find("R&PButtons").GetComponent<LevelHUD>();
@@ -34,8 +44,8 @@ public class GoalTrigger : MonoBehaviour
             // Debug.Log("Player Deaths: " + Analytics.Instance.GetPlayerDeaths());
             // Debug.Log("Clone Deaths: " + Analytics.Instance.GetCloneDeaths());
 
-            GameProgress gameProgress = ProgressManager.Instance.GameProgress;
-            string currentLevel = LevelManager.Instance.GetCurrentLevel();
+            
+            
             
             if (gem != null && gem.GetComponent<GemCollection>().IsCollected())
             {

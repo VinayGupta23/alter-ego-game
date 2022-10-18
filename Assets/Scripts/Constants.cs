@@ -34,7 +34,11 @@ public static class Constants
         "7-2",
         "7-3"
     };
-
+    
+    public static Dictionary<string, List<string>> Dependency = new Dictionary<string, List<string>> {
+        { "6-2", new List<string> { "6-1" } },
+         { "6-3", new List<string> { "6-1" } }
+    };
     public  enum GameColors {
         Neutral = 0,
         Accent1 = 1,

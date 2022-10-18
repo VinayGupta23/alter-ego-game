@@ -8,6 +8,7 @@ using Debug = UnityEngine.Debug;
 
 public class LevelManager : MonoBehaviour
 {
+   
     private static LevelManager _instance;
     public static LevelManager Instance => _instance;
 
@@ -68,7 +69,8 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene(levels[current], LoadSceneMode.Single);
+            //SceneManager.LoadScene(levels[current], LoadSceneMode.Single);
+            LoadScene(levels[current]);
         }
         
         Analytics.Instance.SetAttemptStopwatch(Stopwatch.StartNew());
@@ -85,7 +87,8 @@ public class LevelManager : MonoBehaviour
         if (lvl >= 0)
         {
             current = lvl;
-            SceneManager.LoadScene(levelName, LoadSceneMode.Single);
+            //SceneManager.LoadScene(levelName, LoadSceneMode.Single);
+            LoadScene(levelName);
         }
         
         Analytics.Instance.SetAttemptStopwatch(Stopwatch.StartNew());
@@ -108,24 +111,28 @@ public class LevelManager : MonoBehaviour
             if (currentScene != mainMenuScene && currentScene != levelSelectScene && !levels.Contains(currentScene))
             {
                 // This is a test scene not part of level sequence
-                SceneManager.LoadScene(currentScene, LoadSceneMode.Single);
+                //SceneManager.LoadScene(currentScene, LoadSceneMode.Single);
+                LoadScene(currentScene);
             }
         }
 
         if (current == -1) return;
-        SceneManager.LoadScene(levels[current], LoadSceneMode.Single);
+        //SceneManager.LoadScene(levels[current], LoadSceneMode.Single);
+        LoadScene(levels[current]);
     }
 
     public void MainMenu()
     {
         current = -1;
-        SceneManager.LoadScene(mainMenuScene, LoadSceneMode.Single);
+        //SceneManager.LoadScene(mainMenuScene, LoadSceneMode.Single);
+        LoadScene(mainMenuScene);
     }
     
     public void LevelSelect()
     {
         current = -1;
-        SceneManager.LoadScene(levelSelectScene, LoadSceneMode.Single);
+        //SceneManager.LoadScene(levelSelectScene, LoadSceneMode.Single);
+        LoadScene(levelSelectScene);
     }
 
     public void PreviousScene()
@@ -138,5 +145,17 @@ public class LevelManager : MonoBehaviour
         {
             JumpToLevel(levels[previous]);
         }
+    }
+    public void LoadScene(string levelname) {
+        if (LevelDependency.Instance.DMInstance.IsLocked(levelname) == false)
+        {
+            SceneManager.LoadScene(levelname, LoadSceneMode.Single);
+        }
+        else {
+            current = previous;
+            Debug.Log("Required gems not collected earlier. Not loading level " + levelname);
+            throw new Exception("Trying to load level " + levelname + " without meeting dependencies");
+        }
+        
     }
 }

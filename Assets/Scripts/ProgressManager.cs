@@ -12,7 +12,6 @@ public class GameProgress
     {
         public List<string> completedLevels = new List<string>();
         public List<string> gemCollectedLevels = new List<string>();
-        public Dictionary<string,bool> gemPresentLevels = new();
     }
 
     private HashSet<string> completedLevels;
@@ -34,14 +33,9 @@ public class GameProgress
         return gemCollectedLevels.Count;
     }
 
-    public void FoundGem(string levelname) {
-        if (serializable.gemPresentLevels.ContainsKey(levelname) == false) {
-            serializable.gemPresentLevels.Add(levelname, true);
-        }
-    }
 
     public bool IsGemFound(string levelname) {
-        return serializable.gemPresentLevels.ContainsKey(levelname);
+        return Constants.Gems.Contains(levelname);
     }
 
     public void MarkComplete(string levelName, bool gemCollected = false)

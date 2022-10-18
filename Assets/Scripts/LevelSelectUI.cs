@@ -28,16 +28,17 @@ public class LevelSelectUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (ProgressManager.Instance.GameProgress.IsCompleted("0-1")){
-            Toggle tmp = GetComponentInChildren<Toggle>();
-            tmp.isOn = true;
-        }
-
 
     }
 
     public void GoBack()
     {
         LevelManager.Instance.PreviousScene();
+    }
+
+    public void Reset() 
+    {
+        Debug.Log("Reset requested.");
+        ProgressManager.Instance.GameProgress.Reset();
     }
 }

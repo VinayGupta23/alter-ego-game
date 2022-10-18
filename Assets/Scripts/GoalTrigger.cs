@@ -14,6 +14,7 @@ public class GoalTrigger : MonoBehaviour
         
 
         gem = GameObject.FindWithTag("Gem");
+
         try
         {
             levelHUD = GameObject.Find("R&PButtons").GetComponent<LevelHUD>();

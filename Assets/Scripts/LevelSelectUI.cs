@@ -22,7 +22,7 @@ public class LevelSelectUI : MonoBehaviour
             ProgressManager.Instance.GameProgress.Gems(),
             Constants.TotalGems
         );
-        
+
     }
 
     // Update is called once per frame
@@ -30,7 +30,6 @@ public class LevelSelectUI : MonoBehaviour
     {
         if (ProgressManager.Instance.GameProgress.IsCompleted("0-1")){
             Toggle tmp = GetComponentInChildren<Toggle>();
-
             tmp.isOn = true;
         }
 

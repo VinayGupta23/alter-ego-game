@@ -13,7 +13,7 @@ public class GoalTrigger : MonoBehaviour
     {
         
 
-        gem = GameObject.Find("Gem");
+        gem = GameObject.FindWithTag("Gem");
         try
         {
             levelHUD = GameObject.Find("R&PButtons").GetComponent<LevelHUD>();
@@ -37,6 +37,7 @@ public class GoalTrigger : MonoBehaviour
 
             GameProgress gameProgress = ProgressManager.Instance.GameProgress;
             string currentLevel = LevelManager.Instance.GetCurrentLevel();
+
             if (gem != null && gem.GetComponent<GemCollection>().IsCollected())
             {
                 gameProgress.MarkComplete(currentLevel, true);

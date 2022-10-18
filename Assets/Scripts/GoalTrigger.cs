@@ -11,8 +11,6 @@ public class GoalTrigger : MonoBehaviour
     private LevelHUD levelHUD;
     void Start()
     {
-        
-
         gem = GameObject.FindWithTag("Gem");
 
         try

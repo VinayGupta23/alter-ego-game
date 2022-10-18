@@ -7,7 +7,8 @@ public class DependencyManager
 {
     public bool FreeMode = false;
 
-    private Dictionary<string, List<string>> Dependency = Constants.Dependency;
+    private Dictionary<string, List<string>> LevelDependencyDict = Constants.LevelDependency;
+    private Dictionary<string, List<string>> GemDependencyDict = Constants.GemDependency;
 
     // Ideally this should be set from UI. 
 
@@ -20,9 +21,15 @@ public class DependencyManager
         FreeMode = mode;
     }
 
-    public List<string> GetDependency(string levelname)
+    public List<string> GetLevelDependency(string levelname)
     {
-        Dependency.TryGetValue(levelname, out List<string> x);
+        LevelDependencyDict.TryGetValue(levelname, out List<string> x);
+        return x;
+    }
+
+    public List<string> GetGemDependency(string levelname)
+    {
+        GemDependencyDict.TryGetValue(levelname, out List<string> x);
         return x;
     }
 
@@ -31,7 +38,7 @@ public class DependencyManager
         if (FreeMode == true) { 
             return false;
         }
-        List<string> levels = GetDependency(levelname);
+        List<string> levels = GetLevelDependency(levelname);
         if (levels != null) {
             foreach (string level in levels)
             {
@@ -39,6 +46,16 @@ public class DependencyManager
                 if (ProgressManager.Instance.GameProgress.IsCompleted(level) == false) {
                     return true;
                 }
+            }
+
+        }
+
+        levels = GetGemDependency(levelname);
+        if (levels != null)
+        {
+            foreach (string level in levels)
+            {
+                // check if earlier dependent level is completed or not
                 // check if gem exists in the dependent level and whether its collected or not
                 if (ProgressManager.Instance.GameProgress.IsGemFound(level) && ProgressManager.Instance.GameProgress.IsGemCollected(level) == false)
                 {
@@ -47,7 +64,7 @@ public class DependencyManager
             }
 
         }
-       
+
         return false;
     }
 }

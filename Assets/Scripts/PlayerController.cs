@@ -106,17 +106,25 @@ public class PlayerController : MonoBehaviour
         }
 
         float targetSpeed = moveInput * speed;
-        if (math.abs(moveInput) < lastInput)
-        {
-            targetSpeed = 0;
-        }
-        
-        lastInput = math.abs(moveInput);
-        
         if (!isGrounded)
         {
             targetSpeed *= airMult;
         }
+        else if (math.abs(moveInput) < lastInput)
+        {
+            if (math.abs(moveInput) < 0.5f)
+            {
+                targetSpeed = 0;
+            }
+            else
+            {
+                targetSpeed /= 1.5f;
+            }
+        }
+        
+        lastInput = math.abs(moveInput);
+        
+        
         
         rb.velocity = new Vector2(targetSpeed, rb.velocity.y);
     }

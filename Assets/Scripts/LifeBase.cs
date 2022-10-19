@@ -13,10 +13,16 @@ public class LifeBase : MonoBehaviour
     protected RigidbodyType2D originalBodyType;
 
     private bool _isAlive = true;
+    private bool _isAnimating = false;
 
     public bool IsAlive
     { 
         get { return _isAlive; }
+    }
+
+    public bool IsAnimating
+    {
+        get { return _isAnimating; }
     }
 
     // Start is called before the first frame update
@@ -45,6 +51,7 @@ public class LifeBase : MonoBehaviour
             deathRing.transform.position = transform.position;
             deathRing.GetComponent<SpriteRenderer>().color = deathRingTint;
         }
+        _isAnimating = true;
     }
 
     public void Revive()
@@ -59,5 +66,8 @@ public class LifeBase : MonoBehaviour
         animator.SetTrigger("Revive");
     }
 
-    public virtual void HandleDeathAnimDone() { }
+    public virtual void HandleDeathAnimDone()
+    {
+        _isAnimating = false;
+    }
 }

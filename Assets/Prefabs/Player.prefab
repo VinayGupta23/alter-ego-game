@@ -256,7 +256,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathRingPrefab: {fileID: 8095279402752766882, guid: 1b8f8b40eb4cac643bc447bce102c545, type: 3}
-  deathRingTint: {r: 0.38431373, g: 0.45882353, b: 0.8784314, a: 1}
+  deathRingTint: {r: 1, g: 1, b: 1, a: 1}
+  cloneKillDelay: 0.3
 --- !u!95 &-3196698848595260840
 Animator:
   serializedVersion: 4

@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/0-2.unity
     guid: 67af24e16c13a444dba683fe1613cf72
+  - enabled: 0
+    path: Assets/Scenes/Test/0-3.unity
+    guid: d4f27de9924cd37438eb27ccd7108c56
   - enabled: 1
     path: Assets/Scenes/1-1.unity
     guid: c28076a2a17f97c4e81f45684db43b8a
@@ -32,12 +35,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/2-2.unity
     guid: c41ea69a786a2f940b0525f93c23d14d
-  - enabled: 1
-    path: Assets/Scenes/2-3.unity
+  - enabled: 0
+    path: Assets/Scenes/Test/2-3.unity
     guid: e12ea4f00b16c4d2981100cdbf615fc3
   - enabled: 1
-    path: Assets/Scenes/2-4.unity
+    path: Assets/Scenes/2-3.unity
     guid: 2d8a75ac811094e4b9961e28298e0880
+  - enabled: 1
+    path: Assets/Scenes/2-4.unity
+    guid: 3ac5324ac0efa412fab429474990bc53
   - enabled: 1
     path: Assets/Scenes/3-1.unity
     guid: a91508f4a56b24ddfb85e8c1a196fec9
@@ -78,9 +84,9 @@ EditorBuildSettings:
     path: Assets/Scenes/7-1.unity
     guid: 84bbbd55064908b42bf7bfcb23161206
   - enabled: 1
-    path: Assets/Scenes/7-2.unity
+    path: Assets/Scenes/7-3.unity
     guid: d6e0344d49a7c834d8e6873f77ebf6b6
   - enabled: 1
-    path: Assets/Scenes/7-3.unity
+    path: Assets/Scenes/7-2.unity
     guid: 7a7cd8cc78fe1634b9f2f43a59cd6f3f
   m_configObjects: {}

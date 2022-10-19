@@ -8,14 +8,19 @@ using UnityEngine.UI;
 
 public class LevelSelection : MonoBehaviour
 {
-    private Toggle toggle;
     private string level;
+    private Button button;
+    private Toggle toggle;
+
     // Start is called before the first frame update
     void Start()
     {
         TextMeshProUGUI tmpText = GetComponentInChildren<TextMeshProUGUI>();
         level = tmpText.text;
-        
+
+        button = GetComponent<Button>();
+        button.interactable = LevelDependency.Instance.DMInstance.IsLocked(level);
+
         try
         {
             GameObject go = transform.Find("Toggle").gameObject;
@@ -46,4 +51,3 @@ public class LevelSelection : MonoBehaviour
         }
     }
 }
-

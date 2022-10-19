@@ -238,6 +238,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   jumpForce: 11.5
+  airMult: 0.8
   colXOffset: 0.01
   colYOffset: 0.99
   groundLayer:

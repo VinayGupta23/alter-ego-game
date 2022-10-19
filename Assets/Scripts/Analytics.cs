@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using UnityEditor;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using Debug = UnityEngine.Debug;
@@ -20,6 +21,8 @@ public class Analytics : MonoBehaviour
     private static string URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeQOE5oQ8iT3QJ9JvJJsY8H2eTPVAzFICRnWNUCJggAUg-qHA/formResponse";
     private SaveObject saveObject;
     private long sessionID;
+    private string applicationVersion;
+    //private string systemId;
     
     void Start()
     {
@@ -34,6 +37,14 @@ public class Analytics : MonoBehaviour
 
         saveObject = new SaveObject();
         sessionID = DateTime.Now.Ticks;
+        applicationVersion = Application.version;
+        //systemId = System.Guid.NewGuid().ToString();
+    }
+
+    public void SetCameraDimension(float height, float width)
+    {
+        saveObject.cameraHeight = height;
+        saveObject.cameraWidth = width;
     }
 
     public void SetAttemptStopwatch(Stopwatch sw)
@@ -139,7 +150,13 @@ public class Analytics : MonoBehaviour
         string totalTime = saveObject.attemptStopwatch.Elapsed.TotalSeconds.ToString("F");
         SetPlayerName("TestUser");
         SetLevelName(SceneManager.GetActiveScene().name);
+        Camera cam = FindObjectOfType<Camera>();
+        float height = cam.orthographicSize;
+        float width = height * cam.aspect;
+        SetCameraDimension(height, width);
 
+        // Debug.Log("App Version :"+applicationVersion);
+        // Debug.Log("Cam H : "+saveObject.cameraHeight+" Cam W : "+saveObject.cameraWidth);
         // Debug.Log("Inside Save Function");
         // Debug.Log(totalTime);
         //
@@ -168,6 +185,8 @@ public class Analytics : MonoBehaviour
         saveObject.causeAndPositionOfDeathClone = new System.Collections.Generic.List<System.Tuple<string, string>>();
         saveObject.collectedPill = false;
         saveObject.collectedGem = false;
+        saveObject.cameraHeight = 0;
+        saveObject.cameraWidth = 0;
     }
 
     private IEnumerator Post(long sessionID, string totalTime)
@@ -186,6 +205,9 @@ public class Analytics : MonoBehaviour
         form.AddField("entry.104374970", GetCommaSeparatedStringForClone(saveObject.causeAndPositionOfDeathClone));
         form.AddField("entry.2075508212", saveObject.collectedPill.ToString());
         form.AddField("entry.1887514904", saveObject.collectedGem.ToString());
+        form.AddField("entry.1351303107", applicationVersion);
+        form.AddField("entry.313515096", saveObject.cameraHeight.ToString());
+        form.AddField("entry.2117992083", saveObject.cameraWidth.ToString());
 
         //Ashutosh form fields
         // form.AddField("entry.1881344749", sessionID.ToString());

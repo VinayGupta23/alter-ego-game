@@ -22,7 +22,6 @@ public class Analytics : MonoBehaviour
     private SaveObject saveObject;
     private long sessionID;
     private string applicationVersion;
-    //private string systemId;
     
     void Start()
     {
@@ -38,7 +37,11 @@ public class Analytics : MonoBehaviour
         saveObject = new SaveObject();
         sessionID = DateTime.Now.Ticks;
         applicationVersion = Application.version;
-        //systemId = System.Guid.NewGuid().ToString();
+
+        if (!PlayerPrefs.HasKey("GUID"))
+        {
+            PlayerPrefs.SetString("GUID", System.Guid.NewGuid().ToString());
+        }
     }
 
     public void SetCameraDimension(float height, float width)
@@ -208,6 +211,7 @@ public class Analytics : MonoBehaviour
         form.AddField("entry.1351303107", applicationVersion);
         form.AddField("entry.313515096", saveObject.cameraHeight.ToString());
         form.AddField("entry.2117992083", saveObject.cameraWidth.ToString());
+        form.AddField("entry.652434414", PlayerPrefs.GetString("GUID"));
 
         //Ashutosh form fields
         // form.AddField("entry.1881344749", sessionID.ToString());

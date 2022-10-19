@@ -9,6 +9,8 @@ public class GoalTrigger : MonoBehaviour
     private GameObject gem;
 
     private LevelHUD levelHUD;
+
+
     void Start()
     {
         gem = GameObject.FindWithTag("Gem");
@@ -23,6 +25,7 @@ public class GoalTrigger : MonoBehaviour
         }
     }
     
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))

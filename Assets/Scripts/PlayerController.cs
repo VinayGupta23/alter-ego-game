@@ -9,9 +9,8 @@ public class PlayerController : MonoBehaviour
 {
     public float speed;
     public float jumpForce;
-    public float airMult;
     private float moveInput;
-    private float lastInput;
+    private float lastInputMagnitude;
 
     public float colXOffset;
     public float colYOffset;
@@ -106,7 +105,7 @@ public class PlayerController : MonoBehaviour
         }
 
         float targetSpeed = moveInput * speed;
-        if (math.abs(moveInput) < lastInput)
+        if (math.abs(moveInput) < lastInputMagnitude)
         {
             if (math.abs(moveInput) < 0.2f)
             {
@@ -118,7 +117,7 @@ public class PlayerController : MonoBehaviour
             }
         }
         
-        lastInput = math.abs(moveInput);
+        lastInputMagnitude = math.abs(moveInput);
         
         
         

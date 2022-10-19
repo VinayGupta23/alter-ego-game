@@ -36,6 +36,7 @@ public class LevelSelectUI : MonoBehaviour
         LevelManager.Instance.PreviousScene();
     }
 
+
     public void Reset() 
     {
         Debug.Log("Reset requested.");

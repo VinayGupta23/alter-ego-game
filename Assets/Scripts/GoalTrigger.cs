@@ -9,7 +9,6 @@ public class GoalTrigger : MonoBehaviour
     private GameObject gem;
 
     private LevelHUD levelHUD;
-
     void Start()
     {
         gem = GameObject.FindWithTag("Gem");
@@ -34,9 +33,10 @@ public class GoalTrigger : MonoBehaviour
             // Debug.Log("Player Deaths: " + Analytics.Instance.GetPlayerDeaths());
             // Debug.Log("Clone Deaths: " + Analytics.Instance.GetCloneDeaths());
 
+
             GameProgress gameProgress = ProgressManager.Instance.GameProgress;
             string currentLevel = LevelManager.Instance.GetCurrentLevel();
-            
+
             if (gem != null && gem.GetComponent<GemCollection>().IsCollected())
             {
                 gameProgress.MarkComplete(currentLevel, true);

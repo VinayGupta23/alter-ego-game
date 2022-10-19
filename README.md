@@ -88,3 +88,9 @@ In summary, for crisp rendering, we should maintain `resolution_height = 2 * cam
  - By experimenting and comparing with similar games, the camera zoom will be set to `11.25`.
  - This gives us a PPU of `48px`.
    - This means, e.g., if the player is 2 units tall and 1 unit wide, the sprite should have size `48 * 96 px`.
+
+### Level design
+
+ - Follow overall steps as described in [recorded tutorial](https://drive.google.com/file/d/16-aJkB1AYF_EEgqpEK9k14uniQu0kPtR/view?usp=sharing)
+ - You can increase the camera size slightly if you need more space
+ - Don't override prefab settings for the wrong reasons - e.g. to improve "aesthetics" or fix level design issue. This causes lot of pain in future.

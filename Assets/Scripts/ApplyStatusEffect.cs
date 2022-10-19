@@ -15,11 +15,7 @@ public class ApplyStatusEffect : MonoBehaviour
 
     void Start()
     {
-        if (statusDuration != 0.0f)
-        {
-            this.gameObject.transform.Find("Infinite").gameObject.SetActive(false);
-        }
-        else
+        if (statusDuration == 0.0f)
         {
             this.gameObject.transform.Find("Timed").gameObject.SetActive(false);
         }

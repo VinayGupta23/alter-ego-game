@@ -238,7 +238,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   jumpForce: 11.5
-  airMult: 0.8
   colXOffset: 0.01
   colYOffset: 0.99
   groundLayer:
@@ -256,6 +255,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a651b1c786027045a599b2a0d6ef488, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathRingPrefab: {fileID: 8095279402752766882, guid: 1b8f8b40eb4cac643bc447bce102c545, type: 3}
+  deathRingTint: {r: 1, g: 1, b: 1, a: 1}
+  cloneKillDelay: 0.3
 --- !u!95 &-3196698848595260840
 Animator:
   serializedVersion: 4

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3773338394111369241}
   - component: {fileID: 630000035}
   - component: {fileID: 3773338394111369240}
+  - component: {fileID: 8143117108707528734}
   m_Layer: 6
   m_Name: MovingPlatform
   m_TagString: MovingPlatform
@@ -189,3 +190,16 @@ MonoBehaviour:
   - {x: 0, y: 5, z: 0}
   allowMovement: 1
   connector: {fileID: 7190379239585479170, guid: 66760e35d0c41f6489ea8e0d84e2dac8, type: 3}
+--- !u!114 &8143117108707528734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3773338394111369243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3147ca83bb4de274a936f4b26e4c89bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indicatorPrefab: {fileID: 5134823159092807400, guid: 1ec6ec41f1a80244aa4412944bd4b664, type: 3}

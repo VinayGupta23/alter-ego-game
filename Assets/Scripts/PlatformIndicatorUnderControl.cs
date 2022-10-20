@@ -48,6 +48,7 @@ public class PlatformIndicatorUnderControl : MonoBehaviour, IUnderControl
             {
                 GameObject indicator = GameObject.Instantiate(indicatorPrefab);
                 indicator.transform.position = position;
+                indicator.transform.parent = transform;
                 indicator.GetComponent<SpriteRenderer>().color = targetColor;
             }
             

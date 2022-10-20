@@ -30,7 +30,10 @@ public static class Constants
         "6-3",
         "7-1",
         "7-2",
-        "7-3"
+        "7-3",
+        "B-1",
+        "B-2",
+        "B-3"
     };
 
     //Need to update the existance of gem here after adding gem to any level.

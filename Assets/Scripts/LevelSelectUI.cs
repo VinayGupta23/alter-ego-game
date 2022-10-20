@@ -8,8 +8,6 @@ using UnityEngine.UI;
 public class LevelSelectUI : MonoBehaviour
 {
     // Start is called before the first frame update
-
-
     void Start()
     {
         Cursor.visible = true;
@@ -43,5 +41,9 @@ public class LevelSelectUI : MonoBehaviour
         ProgressManager.Instance.GameProgress.Reset();
     }
 
-    
+    public void SetFreeMode()
+    {
+        bool curMode = LevelDependency.Instance.DMInstance.FreeMode;
+        LevelDependency.Instance.DMInstance.SetFreeMode(!curMode);
+    }
 }

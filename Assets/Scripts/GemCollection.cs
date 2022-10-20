@@ -37,6 +37,7 @@ public class GemCollection: MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Analytics.Instance.RecordGemCollection();
             collected = true;
             renderer.enabled = false;
         }

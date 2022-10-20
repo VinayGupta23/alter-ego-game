@@ -8,14 +8,19 @@ using UnityEngine.UI;
 
 public class LevelSelection : MonoBehaviour
 {
-    private Toggle toggle;
     private string level;
+    private Image buttonImage;
+    private Toggle toggle;
+    private AlertManager alertManager;
+
     // Start is called before the first frame update
     void Start()
     {
         TextMeshProUGUI tmpText = GetComponentInChildren<TextMeshProUGUI>();
         level = tmpText.text;
-        
+
+        buttonImage = GetComponent<Image>();
+
         try
         {
             GameObject go = transform.Find("Toggle").gameObject;
@@ -25,25 +30,34 @@ public class LevelSelection : MonoBehaviour
         {
             Debug.LogWarning("Check icon is missing for level " + level + "!");
         }
+
+        alertManager = GameObject.Find("Popup").GetComponent<AlertManager>();
     }
 
-    public void OpenScene(){
-        LevelManager.Instance.JumpToLevel(level);
+    public void OpenScene() {
+        if (LevelDependency.Instance.DMInstance.IsLocked(level))
+        {
+            alertManager.ShowText("Collect gems to unlock this bonus level!");
+        }
+        else
+        {
+            LevelManager.Instance.JumpToLevel(level);
+        }   
     }
 
     void Update() 
     {
-        if (toggle == null)
-        {
-            return;
-        }
+        var tempColor = buttonImage.color;
+        tempColor.a = LevelDependency.Instance.DMInstance.IsLocked(level) ? 0.5f : 1f;
+        buttonImage.color = tempColor;
 
-        toggle.isOn = false;
-        if (ProgressManager.Instance.GameProgress.IsCompleted(level)) {
-            // Debug.Log("iscompleted ");
-            // make toggle on 
-            toggle.isOn = true;
+        if (toggle != null)
+        {
+            toggle.isOn = false;
+            if (ProgressManager.Instance.GameProgress.IsCompleted(level))
+            {
+                toggle.isOn = true;
+            }
         }
     }
 }
-

@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using UnityEngine;
 
 public class SaveObject
 {
@@ -9,6 +11,13 @@ public class SaveObject
     public int cloneDeaths;
     public int restarts;
     public Stopwatch attemptStopwatch;
+    public string causeOfDeathPlayer;
+    public string postionOfDeathPlayer;
+    public List<Tuple<string,string>> causeAndPositionOfDeathClone;
+    public Boolean collectedPill;
+    public Boolean collectedGem;
+    public float cameraHeight;
+    public float cameraWidth;
 
     public SaveObject()
     {
@@ -18,5 +27,12 @@ public class SaveObject
         this.cloneDeaths = 0;
         this.restarts = 0;
         this.attemptStopwatch = Stopwatch.StartNew();
+        this.causeOfDeathPlayer = "";
+        this.postionOfDeathPlayer = "";
+        this.causeAndPositionOfDeathClone = new System.Collections.Generic.List<System.Tuple<string, string>>();
+        this.collectedPill = false;
+        this.collectedGem = false;
+        this.cameraHeight = 0;
+        this.cameraWidth = 0;
     }
 }

@@ -21,7 +21,7 @@ public class CloneLife : LifeBase
     {
         if (collision.gameObject.CompareTag("trap"))
         {
-            Analytics.Instance.RecordCloneDeath();
+            Analytics.Instance.RecordCloneDeath(collision.gameObject.name, collision.gameObject.transform.position);
             Die();
         }
     }

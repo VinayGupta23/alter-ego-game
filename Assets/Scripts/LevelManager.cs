@@ -8,7 +8,7 @@ using Debug = UnityEngine.Debug;
 
 public class LevelManager : MonoBehaviour
 {
-   
+    public GameObject Panel;
     private static LevelManager _instance;
     public static LevelManager Instance => _instance;
 
@@ -121,6 +121,19 @@ public class LevelManager : MonoBehaviour
         LoadScene(levels[current]);
     }
 
+    public void PopupClose()
+    {
+        Panel.SetActive(false);
+    }
+
+    public void PopupWindow()
+    {
+        if (Panel != null)
+        {
+            bool isActive = Panel.activeSelf;
+            Panel.SetActive(!isActive);
+        }
+    }
     public void MainMenu()
     {
         current = -1;

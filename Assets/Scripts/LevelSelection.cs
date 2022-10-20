@@ -37,7 +37,10 @@ public class LevelSelection : MonoBehaviour
     public void OpenScene() {
         if (LevelDependency.Instance.DMInstance.IsLocked(level))
         {
-            alertManager.ShowText("Collect gems to unlock this bonus level!");
+            alertManager.ShowText(String.Format(
+                "Collect the gem in {0} to unlock this!",
+                String.Join(", ", LevelDependency.Instance.DMInstance.GetGemDependency(level))
+            ));
         }
         else
         {

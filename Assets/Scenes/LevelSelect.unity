@@ -809,7 +809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f433707640ad4724da7ec0c59a12498b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visibleDuration: 2
+  visibleDuration: 3
 --- !u!1 &78160031
 GameObject:
   m_ObjectHideFlags: 0

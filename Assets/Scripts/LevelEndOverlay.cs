@@ -6,6 +6,8 @@ using TMPro;
 
 public class LevelEndOverlay : MonoBehaviour
 {
+    public bool isOrphanLevel = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,13 @@ public class LevelEndOverlay : MonoBehaviour
     public void LoadNext()
     {
         Time.timeScale = 1f;
-        LevelManager.Instance.NextLevel();
+        if (isOrphanLevel)
+        {
+            LevelManager.Instance.LevelSelect();
+        }
+        else
+        {
+            LevelManager.Instance.NextLevel();
+        }
     }
 }

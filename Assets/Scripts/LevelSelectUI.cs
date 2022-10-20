@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+
 
 public class LevelSelectUI : MonoBehaviour
 {
@@ -18,6 +20,7 @@ public class LevelSelectUI : MonoBehaviour
             ProgressManager.Instance.GameProgress.Gems(),
             Constants.TotalGems
         );
+
     }
 
     // Update is called once per frame
@@ -29,5 +32,18 @@ public class LevelSelectUI : MonoBehaviour
     public void GoBack()
     {
         LevelManager.Instance.PreviousScene();
+    }
+
+
+    public void Reset() 
+    {
+        Debug.Log("Reset requested.");
+        ProgressManager.Instance.GameProgress.Reset();
+    }
+
+    public void SetFreeMode()
+    {
+        bool curMode = LevelDependency.Instance.DMInstance.FreeMode;
+        LevelDependency.Instance.DMInstance.SetFreeMode(!curMode);
     }
 }

@@ -697,6 +697,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1067623149369534946, guid: 18a34a63330c35c4bbe90883ec7ef52d, type: 3}
+      propertyPath: isOrphanLevel
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4857733190958297859, guid: 18a34a63330c35c4bbe90883ec7ef52d, type: 3}
       propertyPath: m_Name
       value: R&PButtons

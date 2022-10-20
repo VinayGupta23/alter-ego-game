@@ -62,9 +62,9 @@ public static class Constants
     }
 
     public static readonly Color[] COLOR_OPTIONS = {
-        new Color(1, 1, 1),              // No change
-        new Color(0.94183f, 1, 0.65f),   // Tint lime
-        new Color(1, 0.65f, 0.876852f),  // Tint pink
-        new Color(0.65f, 0.8628378f, 1)  // Tint blue
+        new Color(1, 1, 1),            // No change
+        new Color(1, 0.8516f, 0.6f),   // Tint lime
+        new Color(1, 0.7f, 0.8955f),   // Tint pink
+        new Color(0.65f, 0.8998f, 1)   // Tint blue
     };
 }

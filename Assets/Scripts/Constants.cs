@@ -30,7 +30,10 @@ public static class Constants
         "6-3",
         "7-1",
         "7-2",
-        "7-3"
+        "7-3",
+        "B-1",
+        "B-2",
+        "B-3"
     };
 
     //Need to update the existance of gem here after adding gem to any level.
@@ -54,12 +57,14 @@ public static class Constants
     {
         Neutral = 0,
         Accent1 = 1,
-        Accent2 = 2
+        Accent2 = 2,
+        Accent3 = 3
     }
 
     public static readonly Color[] COLOR_OPTIONS = {
         new Color(1, 1, 1), // No change
         new Color(1, 0.9231956f, 0.7882353f), // Tint yellow
         new Color(1, 0.7882353f, 0.9254902f), // Tint pink
+        new Color(181/255f, 226/255f, 255/255f) //Tint blue
     };
 }

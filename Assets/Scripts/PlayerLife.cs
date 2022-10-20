@@ -24,7 +24,7 @@ public class PlayerLife : LifeBase
     {
         if (collision.gameObject.CompareTag("trap"))
         {
-            Analytics.Instance.RecordPlayerDeath();
+            Analytics.Instance.RecordPlayerDeath(collision.gameObject.name, transform.position);
             Debug.Log("About to save from PlayerDeath");
             Analytics.Instance.Save();
 

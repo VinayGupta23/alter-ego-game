@@ -24,13 +24,21 @@ public class ReceiveStatusEffect : MonoBehaviour
                 break;
 
             case StatusEffect.FLIP_DIRECTION:
-                ShowBoostSymbol(Reverse);
-                controller.speed *= -1.0f;
-                render.color = statusColor;
-                if(duration!=0.0f){
-                    StartCoroutine(StopEffect(-1.0f, duration, Reverse));
+                if (CheckBoost(Reverse)==false)
+                {
+                    ShowBoostSymbol(Reverse);
+                    controller.speed *= -1.0f;
+                    render.color = statusColor;
+                    if(duration!=0.0f){
+                        StartCoroutine(StopEffect(-1.0f, duration, Reverse));
+                    }
+                    break;
                 }
-                break;
+                else{
+                    HideBoostSymbol(Reverse);
+                    controller.speed *= -1.0f;
+                    break;
+                }
         }
 
     }
@@ -62,5 +70,17 @@ public class ReceiveStatusEffect : MonoBehaviour
     void HideBoostSymbol(GameObject boostGameObject)
     {
         boostGameObject.SetActive(false);
+    }
+
+    bool CheckBoost(GameObject boostGameObject)
+    {
+        if(boostGameObject.activeSelf)
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
+        
     }
 }

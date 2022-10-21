@@ -153,8 +153,10 @@ public class LevelManager : MonoBehaviour
         }
         else {
             current = previous;
-            Debug.Log("Required gems not collected earlier. Not loading level " + levelname);
-            throw new Exception("Trying to load level " + levelname + " without meeting dependencies");
+            Debug.LogWarning("Cannot load level " + levelname + " without meeting dependencies.");
+            // Fallback to level select. Warning: This could lead to infinite recursion
+            // if level select is locked unintentionally!
+            LevelSelect();
         }
         
     }

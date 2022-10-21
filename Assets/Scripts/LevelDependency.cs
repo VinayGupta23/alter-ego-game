@@ -5,7 +5,13 @@ using UnityEngine;
 
 public class DependencyManager
 {
-    public bool FreeMode = false;
+    public bool _freeMode = false;
+
+    public bool FreeMode
+    {
+        get { return _freeMode; }
+        set { _freeMode = value; }
+    }
 
     private Dictionary<string, List<string>> LevelDependencyDict = Constants.LevelDependency;
     private Dictionary<string, List<string>> GemDependencyDict = Constants.GemDependency;
@@ -15,10 +21,6 @@ public class DependencyManager
     public static DependencyManager Load() {
         DependencyManager dm = new DependencyManager();
         return dm;
-    }
-
-    public void SetFreeMode(bool mode) {
-        FreeMode = mode;
     }
 
     public List<string> GetLevelDependency(string levelname)

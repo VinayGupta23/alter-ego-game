@@ -10,7 +10,7 @@ public class LevelSelection : MonoBehaviour
 {
     private string level;
     private Image buttonImage;
-    private Toggle toggle;
+    private GameObject completionTick;
     private AlertManager alertManager;
 
     // Start is called before the first frame update
@@ -23,8 +23,7 @@ public class LevelSelection : MonoBehaviour
 
         try
         {
-            GameObject go = transform.Find("Toggle").gameObject;
-            toggle = go.GetComponent<Toggle>();
+            completionTick = transform.Find("Tick").gameObject;
         }
         catch (NullReferenceException)
         {
@@ -37,7 +36,10 @@ public class LevelSelection : MonoBehaviour
     public void OpenScene() {
         if (LevelDependency.Instance.DMInstance.IsLocked(level))
         {
-            alertManager.ShowText("Collect gems to unlock this bonus level!");
+            alertManager.ShowText(String.Format(
+                "Collect the gem in {0} to unlock this!",
+                String.Join(", ", LevelDependency.Instance.DMInstance.GetGemDependency(level))
+            ));
         }
         else
         {
@@ -51,12 +53,12 @@ public class LevelSelection : MonoBehaviour
         tempColor.a = LevelDependency.Instance.DMInstance.IsLocked(level) ? 0.5f : 1f;
         buttonImage.color = tempColor;
 
-        if (toggle != null)
+        if (completionTick != null)
         {
-            toggle.isOn = false;
+            completionTick.SetActive(false);
             if (ProgressManager.Instance.GameProgress.IsCompleted(level))
             {
-                toggle.isOn = true;
+                completionTick.SetActive(true);
             }
         }
     }

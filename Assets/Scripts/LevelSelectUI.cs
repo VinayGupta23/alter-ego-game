@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class LevelSelectUI : MonoBehaviour
 {
+    private Toggle freeModeToggle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,8 @@ public class LevelSelectUI : MonoBehaviour
             Constants.TotalGems
         );
 
+        freeModeToggle = GameObject.Find("FreeMode").GetComponent<Toggle>();
+        freeModeToggle.isOn = LevelDependency.Instance.DMInstance.FreeMode;
     }
 
     // Update is called once per frame
@@ -43,7 +47,6 @@ public class LevelSelectUI : MonoBehaviour
 
     public void SetFreeMode()
     {
-        bool curMode = LevelDependency.Instance.DMInstance.FreeMode;
-        LevelDependency.Instance.DMInstance.SetFreeMode(!curMode);
+        LevelDependency.Instance.DMInstance.FreeMode = freeModeToggle.isOn;
     }
 }

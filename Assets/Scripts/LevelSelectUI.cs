@@ -43,6 +43,7 @@ public class LevelSelectUI : MonoBehaviour
     {
         Debug.Log("Reset requested.");
         ProgressManager.Instance.GameProgress.Reset();
+
     }
 
     public void SetFreeMode()

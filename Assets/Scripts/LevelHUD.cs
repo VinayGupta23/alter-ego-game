@@ -49,6 +49,7 @@ public class LevelHUD : MonoBehaviour
     public void TogglePause()
     {
         pauseMenuComponent.TogglePause();
+        SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.Click);
     }
 
     public void Restart()
@@ -57,6 +58,7 @@ public class LevelHUD : MonoBehaviour
         Debug.Log("About to save from Restart");
         Analytics.Instance.Save();
         LevelManager.Instance.RestartLevel();
+        SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.Click);
     }
 
     public void ShowLevelEnd()

@@ -10,6 +10,8 @@ public class SFXManager : MonoBehaviour
     public AudioClip Gem;
     public AudioClip PillStart;
     public AudioClip PillEnd;
+    public AudioClip Respawn;
+    
 
     public static SFXManager SFXInstance;
     

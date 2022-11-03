@@ -147,3 +147,4 @@ MonoBehaviour:
   Gem: {fileID: 8300000, guid: 8ea304fadbca744be978e15c0e13a855, type: 3}
   PillStart: {fileID: 8300000, guid: ec2c18c8ae3e4499ab09a3c0a76e843d, type: 3}
   PillEnd: {fileID: 8300000, guid: 1ee735d0314274896a6c61036ddd8440, type: 3}
+  Respawn: {fileID: 8300000, guid: 970e04980ca0c4c71a731f75866fc669, type: 3}

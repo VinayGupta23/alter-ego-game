@@ -33,19 +33,7 @@ public class LevelSelection : MonoBehaviour
         alertManager = GameObject.Find("Popup").GetComponent<AlertManager>();
     }
 
-    public void OpenScene() {
-        if (LevelDependency.Instance.DMInstance.IsLocked(level))
-        {
-            alertManager.ShowText(String.Format(
-                "Collect the gem in {0} to unlock this!",
-                String.Join(", ", LevelDependency.Instance.DMInstance.GetGemDependency(level))
-            ));
-        }
-        else
-        {
-            LevelManager.Instance.JumpToLevel(level);
-        }   
-    }
+    
 
     void Update() 
     {
@@ -60,6 +48,33 @@ public class LevelSelection : MonoBehaviour
             {
                 completionTick.SetActive(true);
             }
+        }
+    }
+
+
+    public void OpenScene()
+    {
+
+        SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.Click);
+
+        if (LevelDependency.Instance.DMInstance.IsLocked(level))
+        {
+            
+
+            alertManager.ShowText(String.Format(
+                "Collect the gem in {0} to unlock this!",
+                String.Join(", ", LevelDependency.Instance.DMInstance.GetGemDependency(level))
+            ));
+
+            
+
+
+        }
+        else
+        {
+            LevelManager.Instance.JumpToLevel(level);
+            //SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.Click);
+
         }
     }
 }

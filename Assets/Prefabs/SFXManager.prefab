@@ -143,7 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Audio: {fileID: 6211040160733752633}
   Click: {fileID: 8300000, guid: 9b9add8814b1440edaa46e3d9c0679f7, type: 3}
-  Death: {fileID: 8300000, guid: 1eb2ad194361e4ae4b4b9e49eb984278, type: 3}
-  Gem: {fileID: 8300000, guid: 3490ed2aa0b874e3cba5d95ffad8ed11, type: 3}
-  PillStart: {fileID: 8300000, guid: ab74ae1ecb6f142e89d88ef390612bfe, type: 3}
+  Death: {fileID: 8300000, guid: 6c610665b771746d0b3539ccc28d0a02, type: 3}
+  Gem: {fileID: 8300000, guid: 8ea304fadbca744be978e15c0e13a855, type: 3}
+  PillStart: {fileID: 8300000, guid: ec2c18c8ae3e4499ab09a3c0a76e843d, type: 3}
   PillEnd: {fileID: 8300000, guid: 1ee735d0314274896a6c61036ddd8440, type: 3}

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public enum StatusEffect
 {
@@ -22,12 +23,24 @@ public class ApplyStatusEffect : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other){
-         ReceiveStatusEffect receiver = other.gameObject.GetComponent<ReceiveStatusEffect>();
-         if(receiver!=null)
-         { 
-             Analytics.Instance.RecordPillCollection();
-            receiver.ApplyEffect(statusEffect, statusDuration);
-            Destroy(this.gameObject);
-         }
+
+        SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.PillStart);
+        ReceiveStatusEffect receiver = other.gameObject.GetComponent<ReceiveStatusEffect>();
+        if(receiver!=null)
+        { 
+        Analytics.Instance.RecordPillCollection();
+        receiver.ApplyEffect(statusEffect, statusDuration);
+        Destroy(this.gameObject);
+
+        DateTime tmp = DateTime.Now ;
+
+        // while( ((DateTime.Now)-tmp).TotalMilliseconds < statusDuration*1000000){
+
+        //     SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.PillEnd);
+        //     continue;
+        // }
+        
+        }
+        
     }
 }

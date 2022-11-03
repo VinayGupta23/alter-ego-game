@@ -144,3 +144,6 @@ MonoBehaviour:
   Audio: {fileID: 6211040160733752633}
   Click: {fileID: 8300000, guid: bbeb0aea3c3c14fc2b40b598d9a798d8, type: 3}
   Death: {fileID: 8300000, guid: 1eb2ad194361e4ae4b4b9e49eb984278, type: 3}
+  Gem: {fileID: 8300000, guid: 3490ed2aa0b874e3cba5d95ffad8ed11, type: 3}
+  PillStart: {fileID: 8300000, guid: ab74ae1ecb6f142e89d88ef390612bfe, type: 3}
+  PillEnd: {fileID: 8300000, guid: 1ee735d0314274896a6c61036ddd8440, type: 3}

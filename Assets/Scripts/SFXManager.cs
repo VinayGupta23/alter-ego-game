@@ -7,7 +7,9 @@ public class SFXManager : MonoBehaviour
     public AudioSource Audio;
     public AudioClip Click;
     public AudioClip Death;
-    
+    public AudioClip Gem;
+    public AudioClip PillStart;
+    public AudioClip PillEnd;
 
     public static SFXManager SFXInstance;
     

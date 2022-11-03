@@ -36,6 +36,8 @@ public class LevelSelectUI : MonoBehaviour
     public void GoBack()
     {
         LevelManager.Instance.PreviousScene();
+        SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.Click);
+
     }
 
 
@@ -43,11 +45,15 @@ public class LevelSelectUI : MonoBehaviour
     {
         Debug.Log("Reset requested.");
         ProgressManager.Instance.GameProgress.Reset();
+        SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.Click);
+
 
     }
 
     public void SetFreeMode()
     {
         LevelDependency.Instance.DMInstance.FreeMode = freeModeToggle.isOn;
+        SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.Click);
+
     }
 }

@@ -27,6 +27,7 @@ public class PauseMenuOverlay : MonoBehaviour
 
     public void Resume()
     {
+        SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.Click);
         ResumeTime();
         this.gameObject.SetActive(false);
     }
@@ -46,12 +47,16 @@ public class PauseMenuOverlay : MonoBehaviour
     public void LoadMenu()
     {
         LevelManager.Instance.MainMenu();
+        SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.Click);
         ResumeTime();
+        
     }
 
     public void LoadLevelSelect()
     {
         LevelManager.Instance.LevelSelect();
+        SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.Click);
         ResumeTime();
+        
     }
  }

@@ -40,7 +40,11 @@ public class GemCollection: MonoBehaviour
             Analytics.Instance.RecordGemCollection();
             collected = true;
             renderer.enabled = false;
+
+            SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.Gem);
         }
+
+
     }
 
     public bool IsCollected()

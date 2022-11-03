@@ -143,3 +143,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Audio: {fileID: 6211040160733752633}
   Click: {fileID: 8300000, guid: bbeb0aea3c3c14fc2b40b598d9a798d8, type: 3}
+  Death: {fileID: 8300000, guid: 1eb2ad194361e4ae4b4b9e49eb984278, type: 3}

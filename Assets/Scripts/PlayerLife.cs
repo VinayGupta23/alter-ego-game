@@ -33,6 +33,7 @@ public class PlayerLife : LifeBase
 
             // Kill all clones as well, with some delay
             StartCoroutine(KillClones());
+
         }
     }
 
@@ -60,6 +61,8 @@ public class PlayerLife : LifeBase
             if (allDead)
             {
                 LevelManager.Instance.RestartLevel();
+                SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.Respawn);
+
             }
         }
     }

@@ -35,7 +35,6 @@ public class ApplyStatusEffect : MonoBehaviour
         DateTime tmp = DateTime.Now ;
 
         // while( ((DateTime.Now)-tmp).TotalMilliseconds < statusDuration*1000000){
-
         //     SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.PillEnd);
         //     continue;
         // }

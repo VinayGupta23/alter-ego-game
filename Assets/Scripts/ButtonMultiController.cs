@@ -46,6 +46,7 @@ public class ButtonMultiController : MonoBehaviour
         if (components != null) {
             foreach (var component in components)
             {
+                SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.ButtonClick);
                 component.Toggle();
             }
         }

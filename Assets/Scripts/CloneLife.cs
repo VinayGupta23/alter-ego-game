@@ -21,6 +21,7 @@ public class CloneLife : LifeBase
     {
         if (collision.gameObject.CompareTag("trap"))
         {
+            SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.CloneDeath);
             Analytics.Instance.RecordCloneDeath(collision.gameObject.name, collision.gameObject.transform.position);
             Die();
         }
@@ -29,7 +30,6 @@ public class CloneLife : LifeBase
     public override void HandleDeathAnimDone()
     {
         base.HandleDeathAnimDone();
-
         if (playerLifeRef.IsAlive == false)
         {
             // The player died while the clone was animating
@@ -37,7 +37,9 @@ public class CloneLife : LifeBase
             return;
         }
 
+        
         Revive();
         transform.position = originalPosition;
+        
     }
 }

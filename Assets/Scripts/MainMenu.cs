@@ -1,9 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
+    void Start()
+    {
+        // Configure the Player GUID
+        GameObject playerGUID = transform.Find("PlayerGUID").gameObject;
+        TextMeshProUGUI playerGUIDText = playerGUID.GetComponent<TextMeshProUGUI>();
+        playerGUIDText.text = PlayerPrefs.GetString("GUID");
+    }
+
     public void LevelSelect() {
         LevelManager.Instance.LevelSelect();
     }

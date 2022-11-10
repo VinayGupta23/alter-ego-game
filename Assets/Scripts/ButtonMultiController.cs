@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,10 +12,13 @@ public class ButtonMultiController : MonoBehaviour
     public  Constants.GameColors buttonColor = Constants.GameColors.Neutral;
     // Update is called once per frame
     List<IUnderControl> components = new List<IUnderControl>();
-    
+
+    DateTime lastCollionDate = DateTime.Now;
+
     public void Start()
     {
         // Adding color to button 
+        
         ColorUnderControl cur_button = gameObject.GetComponent<ColorUnderControl>(); ;
         if (cur_button != null) {
             //Debug.LogWarning(cur_button.GetBaseColor());
@@ -43,12 +47,20 @@ public class ButtonMultiController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (components != null) {
-            foreach (var component in components)
+        var timeDelta = (DateTime.Now - lastCollionDate).TotalMilliseconds;
+        if (timeDelta > 1000)
+        {
+            if (components != null)
             {
-                component.Toggle();
+                foreach (var component in components)
+                {
+                    component.Toggle();
+                }
             }
+
         }
+        lastCollionDate = DateTime.Now;
+        
         
     }
             

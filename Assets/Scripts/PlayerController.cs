@@ -82,7 +82,11 @@ public class PlayerController : MonoBehaviour
         Physics2D.OverlapCollider(col, filter, colliders);
         foreach (Collider2D c in colliders)
         {
-            if (c.CompareTag("Door") && transform.position.y < c.bounds.max.y)
+            if (c.CompareTag("Door") && col.bounds.min.y + 0.05f > c.bounds.max.y)
+            {
+                isGrounded = true;
+            }
+            else if (c.CompareTag("Door"))
             {
                 Vector3 pos = transform.position;
                 Bounds colBounds = c.bounds;

@@ -10,10 +10,11 @@ public class ButtonMultiController : MonoBehaviour
     [SerializeField]
     GameObject[] targets;
     public  Constants.GameColors buttonColor = Constants.GameColors.Neutral;
+    public int  WaitDelay = 1000;
     // Update is called once per frame
     List<IUnderControl> components = new List<IUnderControl>();
 
-    DateTime lastCollionDate = DateTime.Now;
+    float elapsed = 100000;
 
     public void Start()
     {
@@ -45,11 +46,17 @@ public class ButtonMultiController : MonoBehaviour
         
 
     }
+
+    private void FixedUpdate()
+    {
+        elapsed += Time.fixedDeltaTime*1000;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        var timeDelta = (DateTime.Now - lastCollionDate).TotalMilliseconds;
-        if (timeDelta > 1000)
+        Debug.Log("elapse time" + elapsed);
+        if (elapsed > WaitDelay)
         {
+            Debug.Log("Toggling button");
             if (components != null)
             {
                 foreach (var component in components)
@@ -57,9 +64,10 @@ public class ButtonMultiController : MonoBehaviour
                     component.Toggle();
                 }
             }
-
+            elapsed = 0;
         }
-        lastCollionDate = DateTime.Now;
+
+        
         
         
     }

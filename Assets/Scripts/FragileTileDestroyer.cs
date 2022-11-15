@@ -32,8 +32,10 @@ public class FragileTileDestroyer : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        bool isPlayerOrClone = collision.collider.CompareTag("Player") || collision.collider.CompareTag("Clone");
-        if (!isPlayerOrClone)
+        bool shouldBreak = collision.collider.CompareTag("Player") 
+                            || collision.collider.CompareTag("Clone") 
+                            || collision.collider.CompareTag("SecretItem");
+        if (!shouldBreak)
         {
             // Only break the fragile tiles if player or clone collides
             return;

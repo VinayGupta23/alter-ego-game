@@ -54,6 +54,13 @@ public static class Constants
         { "B-3", new List<string> { "7-2" } }
     };
 
+    public static readonly HashSet<string> Secrets = new HashSet<string> {
+        "2-3",
+        "5-2",
+        "7-1"
+    };
+    public static readonly int TotalSecrets = Secrets.Count;
+
     public enum GameColors
     {
         Neutral = 0,

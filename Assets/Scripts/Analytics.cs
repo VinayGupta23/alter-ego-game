@@ -41,7 +41,7 @@ public class Analytics : MonoBehaviour
         SetGuidIfNotSet();
     }
 
-    public void SetGuidIfNotSet()
+    private void SetGuidIfNotSet()
     {
         if (!PlayerPrefs.HasKey("GUID"))
         {

@@ -79,6 +79,6 @@ public class LevelSelectUI : MonoBehaviour
     public void CheckSecretStatus()
     {
         alertManager.ShowText(
-            secretUnlocked ? "Press 'F' to use your special ability!" : "Need more parts...");
+            secretUnlocked ? "Press 'F' to reset clones back to the start. Use it wisely!" : "Find secret parts to unlock a unique ability...");
     }
 }

@@ -10,8 +10,16 @@ public class MainMenu : MonoBehaviour
         // Configure the Player GUID
         GameObject playerGUID = transform.Find("PlayerGUID").gameObject;
         TextMeshProUGUI playerGUIDText = playerGUID.GetComponent<TextMeshProUGUI>();
-        Analytics.Instance.SetGuidIfNotSet();
+        SetGuidIfNotSet();
         playerGUIDText.text = PlayerPrefs.GetString("GUID");
+    }
+    
+    private void SetGuidIfNotSet()
+    {
+        if (!PlayerPrefs.HasKey("GUID"))
+        {
+            PlayerPrefs.SetString("GUID", System.Guid.NewGuid().ToString());
+        }
     }
 
     public void LevelSelect() {

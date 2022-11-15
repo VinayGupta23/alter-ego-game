@@ -39,7 +39,7 @@ public static class Constants
 
     //Need to update the existance of gem here after adding gem to any level.
     public static readonly HashSet<string> Gems = new HashSet<string> {
-        "4-1",
+        "4-2",
         "6-2",
         "7-2"
     };
@@ -49,7 +49,7 @@ public static class Constants
         // No locking of levels as of now
     };
     public static Dictionary<string, List<string>> GemDependency = new Dictionary<string, List<string>> {
-        { "B-1", new List<string> { "4-1" } },
+        { "B-1", new List<string> { "4-2" } },
         { "B-2", new List<string> { "6-2" } },
         { "B-3", new List<string> { "7-2" } }
     };

@@ -78,7 +78,13 @@ public class LevelSelectUI : MonoBehaviour
 
     public void CheckSecretStatus()
     {
-        alertManager.ShowText(
-            secretUnlocked ? "Press 'F' to reset clones back to the start. Use it wisely!" : "Find secret parts to unlock a unique ability...");
+        if (!secretUnlocked)
+        {
+            alertManager.ShowText("Secret: Find all hidden pieces and come back here...");
+        }
+        else
+        {
+            LevelManager.Instance.JumpToLevel("SECRET");
+        }
     }
 }

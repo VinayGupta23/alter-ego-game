@@ -38,6 +38,11 @@ public class Analytics : MonoBehaviour
         sessionID = DateTime.Now.Ticks;
         applicationVersion = Application.version;
 
+        SetGuidIfNotSet();
+    }
+
+    private void SetGuidIfNotSet()
+    {
         if (!PlayerPrefs.HasKey("GUID"))
         {
             PlayerPrefs.SetString("GUID", System.Guid.NewGuid().ToString());

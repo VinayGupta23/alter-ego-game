@@ -7,6 +7,11 @@ public class GemCollection: MonoBehaviour
     private new SpriteRenderer renderer;
     private bool collected = false;
 
+    public bool Collected
+    {
+        get { return collected; }
+    }
+
     private bool isConfigured = false;
     private Color fadeColor = new Color(0f, 0f, 0f, 0.7f);
 
@@ -41,10 +46,5 @@ public class GemCollection: MonoBehaviour
             collected = true;
             renderer.enabled = false;
         }
-    }
-
-    public bool IsCollected()
-    {
-        return collected;
     }
 }

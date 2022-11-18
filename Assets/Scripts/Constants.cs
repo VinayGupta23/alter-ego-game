@@ -9,6 +9,7 @@ public static class Constants
     {
         "0-1",
         "0-2",
+        "0-3",
         "1-1",
         "1-2",
         "1-3",
@@ -33,12 +34,14 @@ public static class Constants
         "7-3",
         "B-1",
         "B-2",
-        "B-3"
+        "B-3",
+        "SECRET"
     };
+    public static readonly int NormalLevelCount = LevelNames.Count - 1;
 
     //Need to update the existance of gem here after adding gem to any level.
     public static readonly HashSet<string> Gems = new HashSet<string> {
-        "4-1",
+        "4-2",
         "6-2",
         "7-2"
     };
@@ -48,10 +51,17 @@ public static class Constants
         // No locking of levels as of now
     };
     public static Dictionary<string, List<string>> GemDependency = new Dictionary<string, List<string>> {
-        { "B-1", new List<string> { "4-1" } },
+        { "B-1", new List<string> { "4-2" } },
         { "B-2", new List<string> { "6-2" } },
         { "B-3", new List<string> { "7-2" } }
     };
+
+    public static readonly HashSet<string> Secrets = new HashSet<string> {
+        "2-3",
+        "5-2",
+        "7-1"
+    };
+    public static readonly int TotalSecrets = Secrets.Count;
 
     public enum GameColors
     {

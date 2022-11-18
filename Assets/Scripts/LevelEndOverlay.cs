@@ -17,7 +17,7 @@ public class LevelEndOverlay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Return))
+        if (Input.GetKey(KeyCode.Return) | Input.GetKey(KeyCode.Space))
         {
             LoadNext();
         }
@@ -40,5 +40,11 @@ public class LevelEndOverlay : MonoBehaviour
         {
             LevelManager.Instance.NextLevel();
         }
+    }
+    
+    public void LoadLevelSelect()
+    {
+        Time.timeScale = 1f;
+        LevelManager.Instance.LevelSelect();
     }
 }

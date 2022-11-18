@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controllerColor: 0
-  fadeOnActive: 0
+  fadeOnActive: 1
   fadeColor: {r: 0, g: 0, b: 0, a: 0.7}
 --- !u!114 &8609113408356921730
 MonoBehaviour:
@@ -144,3 +144,4 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   buttonColor: 0
+  WaitDelay: 1000

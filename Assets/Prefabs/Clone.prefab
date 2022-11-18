@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.pivot.y
       value: 0.33333334
       objectReference: {fileID: 0}
+    - target: {fileID: 3580381102270408880, guid: 107ec466a9acb3a4eaee6c42397cbc8f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3869406192395554996, guid: 107ec466a9acb3a4eaee6c42397cbc8f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -59,6 +63,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 83620b75cb260e24c940a922be57292b, type: 3}
+    - target: {fileID: 3869406192395555003, guid: 107ec466a9acb3a4eaee6c42397cbc8f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3869406192395555007, guid: 107ec466a9acb3a4eaee6c42397cbc8f, type: 3}
       propertyPath: m_Name
       value: Clone
@@ -70,6 +78,10 @@ PrefabInstance:
     - target: {fileID: 8469453898424591344, guid: 107ec466a9acb3a4eaee6c42397cbc8f, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8708556257470246345, guid: 107ec466a9acb3a4eaee6c42397cbc8f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8469453898424591344, guid: 107ec466a9acb3a4eaee6c42397cbc8f, type: 3}

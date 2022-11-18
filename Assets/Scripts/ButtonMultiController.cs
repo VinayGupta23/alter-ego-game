@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ButtonMultiController : MonoBehaviour
 {
-    private ColorUnderControl  colorundercontrol;
+    private ColorUnderControl colorundercontrol;
 
     [SerializeField]
     GameObject[] targets;
@@ -19,9 +19,10 @@ public class ButtonMultiController : MonoBehaviour
     public void Start()
     {
         // Adding color to button 
-        
+
         ColorUnderControl cur_button = gameObject.GetComponent<ColorUnderControl>(); ;
-        if (cur_button != null) {
+        if (cur_button != null)
+        {
             //Debug.LogWarning(cur_button.GetBaseColor());
             cur_button.SetBaseColor(Constants.COLOR_OPTIONS[(int)buttonColor]);
             //Debug.LogWarning(cur_button.GetBaseColor());
@@ -30,33 +31,33 @@ public class ButtonMultiController : MonoBehaviour
         }
 
         IUnderControl[] cur_components = { };
-        if (targets != null) {
+        if (targets != null)
+        {
             foreach (var target in targets)
             {
                 cur_components = target.GetComponents<IUnderControl>();
                 foreach (var component in cur_components)
                 {
-                   // Debug.LogWarning(component);
+                    // Debug.LogWarning(component);
                     components.Add(component);
                     component.SetBaseColor(Constants.COLOR_OPTIONS[(int)buttonColor]);
                 }
             }
         }
 
-        
+
 
     }
 
     private void FixedUpdate()
     {
-        elapsed += Time.fixedDeltaTime*1000;
+        elapsed += Time.fixedDeltaTime * 1000;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("elapse time" + elapsed);
         if (elapsed > WaitDelay)
         {
-            Debug.Log("Toggling button");
+            //Debug.Log("Toggling button");
             if (components != null)
             {
                 foreach (var component in components)
@@ -66,11 +67,7 @@ public class ButtonMultiController : MonoBehaviour
             }
             elapsed = 0;
         }
-
-        
-        
-        
     }
-            
- 
+
+
 }

@@ -44,6 +44,7 @@ public class LevelEndOverlay : MonoBehaviour
     
     public void LoadLevelSelect()
     {
+        Time.timeScale = 1f;
         LevelManager.Instance.LevelSelect();
     }
 }

@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2344759943708770447, guid: 107ec466a9acb3a4eaee6c42397cbc8f, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.33333334
+      objectReference: {fileID: 0}
     - target: {fileID: 3869406192395554996, guid: 107ec466a9acb3a4eaee6c42397cbc8f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -69,6 +73,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8469453898424591344, guid: 107ec466a9acb3a4eaee6c42397cbc8f, type: 3}
+    - {fileID: 6933357614466345705, guid: 107ec466a9acb3a4eaee6c42397cbc8f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 107ec466a9acb3a4eaee6c42397cbc8f, type: 3}
 --- !u!1 &8903454209015157097 stripped
 GameObject:

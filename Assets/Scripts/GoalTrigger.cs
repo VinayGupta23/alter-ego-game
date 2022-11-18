@@ -52,6 +52,7 @@ public class GoalTrigger : MonoBehaviour
 
             if (levelHUD != null)
             {
+                SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.Goal);
                 levelHUD.ShowLevelEnd();
             }
             else

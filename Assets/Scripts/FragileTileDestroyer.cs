@@ -66,8 +66,8 @@ public class FragileTileDestroyer : MonoBehaviour
 
     private IEnumerator BreakTile(Vector3Int tilePosition)
     {
+        SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.TileBreak);
         yield return new WaitForSeconds(destroyDelay);
-
         tilemap.SetTile(tilePosition, null);
     }
 }

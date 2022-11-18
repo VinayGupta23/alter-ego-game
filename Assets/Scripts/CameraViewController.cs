@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraViewController : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float sceneWidth = 70;
+    public float sceneWidth = 40;
 
     Camera _camera;
     void Start()
@@ -19,8 +19,8 @@ public class CameraViewController : MonoBehaviour
     {
         float unitsPerPixel = sceneWidth / Screen.width;
 
-        float desiredHalfHeight = 0.5f * unitsPerPixel * Screen.height;
-
+        float desiredHalfHeight = 0.6f * unitsPerPixel * Screen.height;
+        //Debug.Log(Screen.height + " " + Screen.width + " " + desiredHalfHeight);
         _camera.orthographicSize = desiredHalfHeight;
     }
 }

@@ -13,7 +13,8 @@ public class SFXManager : MonoBehaviour
     public AudioClip PillStart;
     public AudioClip PillEnd;
     public AudioClip Respawn;
-    
+    public AudioClip TileBreak;
+    public AudioClip Goal;
 
     public static SFXManager SFXInstance;
     

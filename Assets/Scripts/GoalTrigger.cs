@@ -7,11 +7,13 @@ using UnityEngine.SceneManagement;
 public class GoalTrigger : MonoBehaviour
 {
     private GameObject gem;
+    private GameObject secret;
 
     private LevelHUD levelHUD;
     void Start()
     {
         gem = GameObject.FindWithTag("Gem");
+        secret = GameObject.FindWithTag("SecretItem");
 
         try
         {
@@ -37,14 +39,17 @@ public class GoalTrigger : MonoBehaviour
             GameProgress gameProgress = ProgressManager.Instance.GameProgress;
             string currentLevel = LevelManager.Instance.GetCurrentLevel();
 
-            if (gem != null && gem.GetComponent<GemCollection>().IsCollected())
+            bool gotGem = false;
+            bool gotSecret = false;
+            if (gem != null && gem.GetComponent<GemCollection>().Collected)
             {
-                gameProgress.MarkComplete(currentLevel, true);
+                gotGem = true;
             }
-            else
+            if (secret != null && secret.GetComponent<SecretCollection>().Collected)
             {
-                gameProgress.MarkComplete(currentLevel);
+                gotSecret = true;
             }
+            gameProgress.MarkComplete(currentLevel, gotGem, gotSecret);
 
             Analytics.Instance.Save();
             // StartCoroutine(Analytics.Post(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")));

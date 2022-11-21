@@ -144,4 +144,4 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   buttonColor: 0
-  WaitDelay: 1000
+  WaitDelay: 500

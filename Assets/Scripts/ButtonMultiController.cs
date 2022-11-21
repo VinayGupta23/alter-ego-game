@@ -10,7 +10,7 @@ public class ButtonMultiController : MonoBehaviour
     [SerializeField]
     GameObject[] targets;
     public  Constants.GameColors buttonColor = Constants.GameColors.Neutral;
-    public int  WaitDelay = 1000;
+    public int  WaitDelay = 500;
     // Update is called once per frame
     List<IUnderControl> components = new List<IUnderControl>();
 

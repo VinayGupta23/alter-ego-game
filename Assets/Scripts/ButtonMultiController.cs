@@ -51,7 +51,7 @@ public class ButtonMultiController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        elapsed += Time.fixedDeltaTime * 1000;
+        elapsed = Math.Min(elapsed + Time.fixedDeltaTime * 1000, 100000);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

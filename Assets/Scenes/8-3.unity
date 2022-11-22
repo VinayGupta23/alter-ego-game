@@ -266,7 +266,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4506371189007790699, guid: 47d0a02a7c1464642be0c353b3e40bd4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.500026
+      value: -5.750005
       objectReference: {fileID: 0}
     - target: {fileID: 4506371189007790699, guid: 47d0a02a7c1464642be0c353b3e40bd4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -570,7 +570,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4506371189007790699, guid: 47d0a02a7c1464642be0c353b3e40bd4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.500002
+      value: 1.2500011
       objectReference: {fileID: 0}
     - target: {fileID: 4506371189007790699, guid: 47d0a02a7c1464642be0c353b3e40bd4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1093,11 +1093,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4506371189007790699, guid: 47d0a02a7c1464642be0c353b3e40bd4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.942167
+      value: -17.500015
       objectReference: {fileID: 0}
     - target: {fileID: 4506371189007790699, guid: 47d0a02a7c1464642be0c353b3e40bd4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.50299513
+      value: 1.2500011
       objectReference: {fileID: 0}
     - target: {fileID: 4506371189007790699, guid: 47d0a02a7c1464642be0c353b3e40bd4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3903,6 +3903,30 @@ CompositeCollider2D:
       - X: -159999900
         Y: 30000041
       - X: -159999959
+        Y: 30000100
+      - X: -169999900
+        Y: 30000100
+      - X: -169999900
+        Y: 30000041
+      - X: -169999959
+        Y: 30000100
+      - X: -179999900
+        Y: 30000100
+      - X: -179999900
+        Y: 30000041
+      - X: -179999959
+        Y: 30000100
+      - X: -189999900
+        Y: 30000100
+      - X: -189999900
+        Y: 30000041
+      - X: -189999959
+        Y: 30000100
+      - X: -199999900
+        Y: 30000100
+      - X: -199999900
+        Y: 30000041
+      - X: -199999959
         Y: 30000100
       - X: -210000041
         Y: 30000100

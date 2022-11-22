@@ -7,6 +7,9 @@ public class CharacterSwap : MonoBehaviour
 {
     private GameObject player;
     private GameObject clone;
+
+    [SerializeField]
+    private Sprite usedPortal;
     
     void Start()
     {
@@ -23,6 +26,8 @@ public class CharacterSwap : MonoBehaviour
             Collider2D collider = GetComponent<Collider2D>();
             collider.enabled = false;
             collider.isTrigger = false;
+            SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+            renderer.sprite = usedPortal;
         }
     }
 }

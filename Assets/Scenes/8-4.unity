@@ -1067,6 +1067,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8609113408356921730, guid: 37560e5209585e644bfd0fc5583ef111, type: 3}
+      propertyPath: buttonColor
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8609113408356921730, guid: 37560e5209585e644bfd0fc5583ef111, type: 3}
       propertyPath: targets.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -1357,6 +1361,10 @@ PrefabInstance:
     - target: {fileID: 2510087014095850485, guid: 37560e5209585e644bfd0fc5583ef111, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8609113408356921730, guid: 37560e5209585e644bfd0fc5583ef111, type: 3}
+      propertyPath: buttonColor
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8609113408356921730, guid: 37560e5209585e644bfd0fc5583ef111, type: 3}
       propertyPath: targets.Array.size
@@ -4524,6 +4532,10 @@ PrefabInstance:
     - target: {fileID: 2510087014095850485, guid: 37560e5209585e644bfd0fc5583ef111, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8609113408356921730, guid: 37560e5209585e644bfd0fc5583ef111, type: 3}
+      propertyPath: buttonColor
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8609113408356921730, guid: 37560e5209585e644bfd0fc5583ef111, type: 3}
       propertyPath: targets.Array.size

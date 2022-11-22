@@ -34,8 +34,10 @@ public static class Constants
         "7-3",
         "B-1",
         "B-2",
-        "B-3"
+        "B-3",
+        "SECRET"
     };
+    public static readonly int NormalLevelCount = LevelNames.Count - 1;
 
     //Need to update the existance of gem here after adding gem to any level.
     public static readonly HashSet<string> Gems = new HashSet<string> {
@@ -53,6 +55,13 @@ public static class Constants
         { "B-2", new List<string> { "6-2" } },
         { "B-3", new List<string> { "7-2" } }
     };
+
+    public static readonly HashSet<string> Secrets = new HashSet<string> {
+        "2-3",
+        "5-2",
+        "7-1"
+    };
+    public static readonly int TotalSecrets = Secrets.Count;
 
     public enum GameColors
     {

@@ -15,6 +15,7 @@ public class SFXManager : MonoBehaviour
     public AudioClip Respawn;
     public AudioClip TileBreak;
     public AudioClip Goal;
+    public AudioClip Secret;
 
     public static SFXManager SFXInstance;
     

@@ -22,24 +22,17 @@ public class ApplyStatusEffect : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other){
+    void OnTriggerEnter2D(Collider2D other)
+    {
 
         SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.PillStart);
         ReceiveStatusEffect receiver = other.gameObject.GetComponent<ReceiveStatusEffect>();
-        if(receiver!=null)
-        { 
-        Analytics.Instance.RecordPillCollection();
-        receiver.ApplyEffect(statusEffect, statusDuration);
-        Destroy(this.gameObject);
-
-        DateTime tmp = DateTime.Now ;
-
-        // while( ((DateTime.Now)-tmp).TotalMilliseconds < statusDuration*1000000){
-        //     SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.PillEnd);
-        //     continue;
-        // }
-        
+        if (receiver != null)
+        {
+            Analytics.Instance.RecordPillCollection();
+            receiver.ApplyEffect(statusEffect, statusDuration);
+            Destroy(this.gameObject);
         }
-        
+
     }
 }

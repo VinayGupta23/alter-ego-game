@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class BGMManager : MonoBehaviour
 {
-    public static BGMManager instance;
+    private static BGMManager instance;
+    public static BGMManager Instance => instance;
 
     private void Awake()
     {
-        if (instance != null)
+        if (instance != null && instance != this)
         {
             Destroy(gameObject);
+            return;
         }
-        else
-        {
-            instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
+
+        instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 }

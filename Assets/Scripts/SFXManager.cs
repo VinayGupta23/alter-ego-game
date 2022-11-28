@@ -18,17 +18,18 @@ public class SFXManager : MonoBehaviour
     public AudioClip Secret;
 
     public static SFXManager SFXInstance;
-    
-    private void Awake(){
-        if (SFXInstance != null && SFXInstance != this ){
-            Destroy(this.gameObject);
-            return;
 
+    private void Awake()
+    {
+        if (SFXInstance != null && SFXInstance != this)
+        {
+            Destroy(gameObject);
+            return;
         }
 
         SFXInstance = this;
-        DontDestroyOnLoad(this);
-        
+        DontDestroyOnLoad(gameObject);
+
     }
 
 

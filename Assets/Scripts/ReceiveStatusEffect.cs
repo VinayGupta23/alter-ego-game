@@ -8,6 +8,7 @@ public class ReceiveStatusEffect : MonoBehaviour
     private SpriteRenderer render;
     private GameObject Speed;
     private GameObject Reverse;
+    private GameObject Timer;
     private Color statusColor = Color.white;
 
     public void ApplyEffect(StatusEffect statusEffect, float duration)
@@ -19,6 +20,7 @@ public class ReceiveStatusEffect : MonoBehaviour
                 controller.speed *= 1.5f;
                 render.color = statusColor;
                 if(duration!=0.0f){
+                    ShowBoostSymbol(Timer);
                     StartCoroutine(StopEffect(1.5f, duration, Speed));
                 }
                 break;
@@ -30,11 +32,13 @@ public class ReceiveStatusEffect : MonoBehaviour
                     controller.speed *= -1.0f;
                     render.color = statusColor;
                     if(duration!=0.0f){
+                        ShowBoostSymbol(Timer);
                         StartCoroutine(StopEffect(-1.0f, duration, Reverse));
                     }
                     break;
                 }
                 else{
+                    HideBoostSymbol(Timer);
                     HideBoostSymbol(Reverse);
                     controller.speed *= -1.0f;
                     break;
@@ -49,6 +53,7 @@ public class ReceiveStatusEffect : MonoBehaviour
         controller.speed /= speedChange;
         render.color = Color.white;
         HideBoostSymbol(boostGameObject);
+        HideBoostSymbol(Timer);
         SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.PillEnd);
     }
 
@@ -59,8 +64,10 @@ public class ReceiveStatusEffect : MonoBehaviour
         render = GetComponent<SpriteRenderer>();
         Speed = this.gameObject.transform.Find("Speed").gameObject;
         Reverse = this.gameObject.transform.Find("Reverse").gameObject;
+        Timer = this.gameObject.transform.Find("Timer").gameObject;
         HideBoostSymbol(Speed);
         HideBoostSymbol(Reverse);
+        HideBoostSymbol(Timer);
     }
 
     void ShowBoostSymbol(GameObject boostGameObject)

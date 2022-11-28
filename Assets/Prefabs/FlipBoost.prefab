@@ -71,9 +71,17 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.7924528
       objectReference: {fileID: 0}
+    - target: {fileID: 2336422260948601217, guid: b838269cf397c0549ae93eb2c7212161, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2336422260948601220, guid: b838269cf397c0549ae93eb2c7212161, type: 3}
       propertyPath: m_Name
       value: FlipBoost
+      objectReference: {fileID: 0}
+    - target: {fileID: 6143026260704909810, guid: b838269cf397c0549ae93eb2c7212161, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b838269cf397c0549ae93eb2c7212161, type: 3}

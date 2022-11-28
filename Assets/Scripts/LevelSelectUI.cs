@@ -48,14 +48,12 @@ public class LevelSelectUI : MonoBehaviour
         if (secretUnlocked)
         {
             secretImage.sprite = secretTakenIcon;
-            secretText.text = "F";
-            secretText.color = new Color(45 / 255, 49 / 255, 68 / 255);
+            secretText.text = "( F )";
         }
         else
         {
             secretImage.sprite = secretMissingIcon;
-            secretText.text = "?";
-            secretText.color = Color.white;
+            secretText.text = "???";
         }
     }
 

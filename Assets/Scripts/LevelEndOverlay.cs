@@ -7,6 +7,8 @@ using TMPro;
 public class LevelEndOverlay : MonoBehaviour
 {
     public bool isOrphanLevel = false;
+    [SerializeField]
+    GameObject secretGameObject;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +23,12 @@ public class LevelEndOverlay : MonoBehaviour
         {
             LoadNext();
         }
+    }
+
+    public void SetReminder(string reminder)
+    {
+        TextMeshProUGUI textComponent = secretGameObject.GetComponent<TextMeshProUGUI>();
+        textComponent.text = reminder;
     }
 
     public void Display()

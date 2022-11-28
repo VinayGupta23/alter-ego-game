@@ -44,6 +44,10 @@ public class SecretCollection : MonoBehaviour
             {
                 DisableSelf();
             }
+            else
+            {
+                StartCoroutine(Chime());
+            }
             isConfigured = true;
         }
     }
@@ -61,6 +65,7 @@ public class SecretCollection : MonoBehaviour
             secretWeapon.ReceivePiece();
             rigidBody.bodyType = RigidbodyType2D.Static;
             collider2d.enabled = false;
+            SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.Gem);
 
             GameObject deathRing = GameObject.Instantiate(deathRingPrefab);
             deathRing.transform.position = transform.position;
@@ -68,5 +73,16 @@ public class SecretCollection : MonoBehaviour
 
             animator.SetTrigger("Pick");  // Disable happens through animation trigger
         }
+    }
+
+    IEnumerator Chime()
+    {
+        yield return new WaitForSeconds(1f);
+        do
+        {
+            SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.Secret, 0.2f);
+            yield return new WaitForSeconds(5.5f);
+        }
+        while (!collected);
     }
 }

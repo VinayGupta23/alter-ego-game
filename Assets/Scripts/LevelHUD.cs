@@ -61,8 +61,9 @@ public class LevelHUD : MonoBehaviour
         SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.Click);
     }
 
-    public void ShowLevelEnd()
+    public void ShowLevelEnd(string reminder = "")
     {
+        levelEndComponent.SetReminder(reminder);
         levelEndComponent.Display();
     }
 }

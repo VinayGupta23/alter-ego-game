@@ -49,7 +49,15 @@ public class GoalTrigger : MonoBehaviour
 
             if (levelHUD != null)
             {
-                levelHUD.ShowLevelEnd();
+                string reminder = "";
+                if (gotSecret)
+                {
+                    if (gameProgress.Secrets() == Constants.TotalSecrets)
+                    {
+                        reminder = "All secrets found! Head over to level select to learn more.";
+                    }
+                }
+                levelHUD.ShowLevelEnd(reminder);
             }
             else
             {

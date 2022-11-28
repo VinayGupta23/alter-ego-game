@@ -60,6 +60,7 @@ public class ButtonMultiController : MonoBehaviour
             //Debug.Log("Toggling button");
             if (components != null)
             {
+                SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.ButtonClick);
                 foreach (var component in components)
                 {
                     component.Toggle();

@@ -24,7 +24,16 @@ public class LevelManager : MonoBehaviour
         get { return _current; }
         private set 
         { 
-            previous = _current;
+            if (_current == levels.IndexOf("SECRET"))
+            {
+                // When navigating out of the secret level, delete the back pointer.
+                // This is in case the player resets data while playing this level.
+                previous = -1;
+            }
+            else
+            {
+                previous = _current;
+            }
             _current = value;
         }
     }
@@ -63,8 +72,9 @@ public class LevelManager : MonoBehaviour
 
         if (current == -1) return;
         current++;
-        if (current >= levels.Count)
+        if (current >= Constants.NormalLevelCount)
         {
+            // Should not go to secret level after the last bonus level
             MainMenu();
         }
         else

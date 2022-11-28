@@ -143,4 +143,5 @@ MonoBehaviour:
   targets:
   - {fileID: 0}
   - {fileID: 0}
-  buttonColor: {r: 0, g: 0, b: 0, a: 0.7}
+  buttonColor: 0
+  WaitDelay: 500

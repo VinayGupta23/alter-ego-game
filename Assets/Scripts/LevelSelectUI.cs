@@ -8,6 +8,15 @@ using UnityEngine.UI;
 public class LevelSelectUI : MonoBehaviour
 {
     private Toggle freeModeToggle;
+    private Image secretImage;
+    private TextMeshProUGUI secretText;
+    private AlertManager alertManager;
+    private bool secretUnlocked = false;
+
+    [SerializeField]
+    private Sprite secretMissingIcon;
+    [SerializeField]
+    private Sprite secretTakenIcon;
 
     // Start is called before the first frame update
     void Start()
@@ -25,12 +34,29 @@ public class LevelSelectUI : MonoBehaviour
 
         freeModeToggle = GameObject.Find("FreeMode").GetComponent<Toggle>();
         freeModeToggle.isOn = LevelDependency.Instance.DMInstance.FreeMode;
+
+        // Configure secret icon
+        secretImage = transform.Find("SecretAbility").GetComponent<Image>();
+        secretText = transform.Find("SecretAbility/SecretText").GetComponent<TextMeshProUGUI>();
+        alertManager = transform.Find("Popup").GetComponent<AlertManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        secretUnlocked = (ProgressManager.Instance.GameProgress.Secrets() == Constants.TotalSecrets) || LevelDependency.Instance.DMInstance.FreeMode;
+        if (secretUnlocked)
+        {
+            secretImage.sprite = secretTakenIcon;
+            secretText.text = "F";
+            secretText.color = new Color(45 / 255, 49 / 255, 68 / 255);
+        }
+        else
+        {
+            secretImage.sprite = secretMissingIcon;
+            secretText.text = "?";
+            secretText.color = Color.white;
+        }
     }
 
     public void GoBack()
@@ -55,5 +81,17 @@ public class LevelSelectUI : MonoBehaviour
         LevelDependency.Instance.DMInstance.FreeMode = freeModeToggle.isOn;
         SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.Click);
 
+    }
+
+    public void CheckSecretStatus()
+    {
+        if (!secretUnlocked)
+        {
+            alertManager.ShowText("Secret: Find all hidden pieces and come back here...");
+        }
+        else
+        {
+            LevelManager.Instance.JumpToLevel("SECRET");
+        }
     }
 }

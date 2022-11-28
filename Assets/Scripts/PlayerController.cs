@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
 
         moveInput = Input.GetAxis("Horizontal");
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             if (isGrounded)
             {
@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
             }
         }
         
-        if (Input.GetKeyUp(KeyCode.Space) && rb.velocity.y > 0f)
+        if ((Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow)) && rb.velocity.y > 0f)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
@@ -82,7 +82,11 @@ public class PlayerController : MonoBehaviour
         Physics2D.OverlapCollider(col, filter, colliders);
         foreach (Collider2D c in colliders)
         {
-            if (c.CompareTag("Door") && transform.position.y < c.bounds.max.y)
+            if (c.CompareTag("Door") && col.bounds.min.y + 0.2f > c.bounds.max.y)
+            {
+                isGrounded = true;
+            }
+            else if (c.CompareTag("Door"))
             {
                 Vector3 pos = transform.position;
                 Bounds colBounds = c.bounds;

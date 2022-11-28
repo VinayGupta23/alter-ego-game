@@ -34,13 +34,13 @@ public class LevelHUD : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.Tab) && pauseMenuUI.activeSelf == false)
+        if (Input.GetKeyDown(KeyCode.R) && pauseMenuUI.activeSelf == false)
         {
             // Don't allow restart when pause menu is open
             Restart();
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             TogglePause();
         }

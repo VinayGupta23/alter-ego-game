@@ -68,6 +68,7 @@ public class SecretWeapon : MonoBehaviour
 
         if (weaponUnlocked && Input.GetKeyDown(KeyCode.F))
         {
+            SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.CloneDeath);
             foreach (LifeBase cloneLife in cloneLives)
             {
                 cloneLife.Die();

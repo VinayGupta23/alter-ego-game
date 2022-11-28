@@ -5,6 +5,7 @@ using UnityEngine;
 public class GemCollection: MonoBehaviour
 {
     private new SpriteRenderer renderer;
+    private new Collider2D collider;
     private bool collected = false;
 
     public bool Collected
@@ -18,6 +19,7 @@ public class GemCollection: MonoBehaviour
     void Start()
     {
         renderer = GetComponent<SpriteRenderer>();
+        collider = GetComponent<Collider2D>();
     }
 
     private void Update()
@@ -30,7 +32,6 @@ public class GemCollection: MonoBehaviour
             if (ProgressManager.Instance.GameProgress.IsGemCollected(LevelManager.Instance.GetCurrentLevel()))
             {
                 renderer.color -= fadeColor;
-                Collider2D collider = GetComponent<Collider2D>();
                 collider.enabled = false;
                 collider.isTrigger = false;
             }
@@ -45,6 +46,8 @@ public class GemCollection: MonoBehaviour
             Analytics.Instance.RecordGemCollection();
             collected = true;
             renderer.enabled = false;
+            collider.enabled = false;
+            collider.isTrigger = false;
 
             SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.Gem);
         }

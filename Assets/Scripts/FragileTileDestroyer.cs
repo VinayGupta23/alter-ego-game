@@ -61,6 +61,10 @@ public class FragileTileDestroyer : MonoBehaviour
 
                 tilemap.SetTileFlags(cell, TileFlags.None);
                 tilemap.SetColor(cell, impendingDestroyTint);
+                if (!collision.collider.CompareTag("SecretItem"))
+                {
+                    SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.TileBreak);
+                }
                 StartCoroutine(BreakTile(cell));
             }
         }
@@ -69,7 +73,6 @@ public class FragileTileDestroyer : MonoBehaviour
     private IEnumerator BreakTile(Vector3Int tilePosition)
     {
         yield return new WaitForSeconds(destroyDelay);
-
         tilemap.SetTile(tilePosition, null);
     }
 }

@@ -54,6 +54,7 @@ public class ReceiveStatusEffect : MonoBehaviour
         render.color = Color.white;
         HideBoostSymbol(boostGameObject);
         HideBoostSymbol(Timer);
+        SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.PillEnd);
     }
 
     // Start is called before the first frame update

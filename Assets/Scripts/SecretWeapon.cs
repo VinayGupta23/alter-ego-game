@@ -19,7 +19,7 @@ public class SecretWeapon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = transform.Find("Ability").gameObject.GetComponent<SpriteRenderer>();
 
         foreach (GameObject clone in GameObject.FindGameObjectsWithTag("Clone"))
         {

@@ -144,8 +144,8 @@ MonoBehaviour:
   Audio: {fileID: 6211040160733752633}
   ButtonClick: {fileID: 8300000, guid: cecda3660d8014bd58ed011214c1292f, type: 3}
   Click: {fileID: 8300000, guid: 9b9add8814b1440edaa46e3d9c0679f7, type: 3}
-  Death: {fileID: 8300000, guid: a8d7b0ac47fee49d3a0c3d37c16479b9, type: 3}
-  CloneDeath: {fileID: 8300000, guid: 6c610665b771746d0b3539ccc28d0a02, type: 3}
+  Death: {fileID: 8300000, guid: dc941f7ac13aaf14e98b4ad244b2d921, type: 3}
+  CloneDeath: {fileID: 8300000, guid: 60a383d7bd031b744bf3e5e187106d28, type: 3}
   Gem: {fileID: 8300000, guid: 8ea304fadbca744be978e15c0e13a855, type: 3}
   PillStart: {fileID: 8300000, guid: ec2c18c8ae3e4499ab09a3c0a76e843d, type: 3}
   PillEnd: {fileID: 8300000, guid: 1ee735d0314274896a6c61036ddd8440, type: 3}
@@ -153,3 +153,4 @@ MonoBehaviour:
   TileBreak: {fileID: 8300000, guid: 416806e5d21464c2d8f9a48a71bb4045, type: 3}
   Goal: {fileID: 8300000, guid: 13752753229e545299796e9c31f54fbc, type: 3}
   Secret: {fileID: 8300000, guid: d34b5feff38644d2fa2a5d9f04a2dea7, type: 3}
+  Teleport: {fileID: 8300000, guid: 685a970f80eddb942bac50542a5d6a37, type: 3}

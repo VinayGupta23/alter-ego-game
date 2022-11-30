@@ -14,6 +14,7 @@ public class LevelManager : MonoBehaviour
 
     private static string mainMenuScene = "MainMenu";
     private static string levelSelectScene = "LevelSelect";
+    private static string creditScene = "Credits";
     private static List<string> levels = Constants.LevelNames;
 
     private int _current;
@@ -143,6 +144,12 @@ public class LevelManager : MonoBehaviour
         current = -1;
         //SceneManager.LoadScene(levelSelectScene, LoadSceneMode.Single);
         LoadScene(levelSelectScene);
+    }
+
+    public void Credits()
+    {
+        current = -1;
+        LoadScene(creditScene);
     }
 
     public void PreviousScene()

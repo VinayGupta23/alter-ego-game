@@ -56,6 +56,6 @@ public class BGMManager : MonoBehaviour
 
     private bool isMenuType(string sceneName)
     {
-        return (sceneName == "MainMenu" || sceneName == "LevelSelect");
+        return (sceneName == "MainMenu" || sceneName == "LevelSelect" || sceneName == "Credits");
     }
 }

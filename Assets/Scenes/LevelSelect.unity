@@ -1981,7 +1981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1173812366}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!1 &820056655
@@ -2849,6 +2849,11 @@ PrefabInstance:
 Camera:
   m_CorrespondingSourceObject: {fileID: 8064451218109500917, guid: 6c3e9baf303a22042b0a1f85b4067c42, type: 3}
   m_PrefabInstance: {fileID: 1146120136}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1173812366 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7891453383399696229, guid: ac285ef912dd2a24facdd33afdf1abf7, type: 3}
+  m_PrefabInstance: {fileID: 743435221}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1211672946
 GameObject:

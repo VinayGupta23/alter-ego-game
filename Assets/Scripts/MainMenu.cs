@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -24,9 +25,13 @@ public class MainMenu : MonoBehaviour
 
     public void LevelSelect() {
         LevelManager.Instance.LevelSelect();
+        SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.Click);
+
     }
 
     public void StartTutorial() {
         LevelManager.Instance.JumpToLevel("0-1");
+        SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.Click);
+
     }
 }

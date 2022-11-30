@@ -34,4 +34,10 @@ public class MainMenu : MonoBehaviour
         SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.Click);
 
     }
+
+    public void Credits()
+    {
+        LevelManager.Instance.Credits();
+        SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.Click);
+    }
 }

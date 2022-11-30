@@ -34,10 +34,12 @@ public class LevelEndOverlay : MonoBehaviour
         Time.timeScale = 1f;
         if (isOrphanLevel)
         {
+            SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.Click);
             LevelManager.Instance.LevelSelect();
         }
         else
         {
+            SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.Click);
             LevelManager.Instance.NextLevel();
         }
     }

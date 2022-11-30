@@ -29,13 +29,6 @@ public class GoalTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // Debug.Log("In Finish");
-            // Debug.Log("Player Name: " + Analytics.Instance.GetPlayerName());
-            // Debug.Log("Level: " + Analytics.Instance.GetLevel());
-            // Debug.Log("Player Deaths: " + Analytics.Instance.GetPlayerDeaths());
-            // Debug.Log("Clone Deaths: " + Analytics.Instance.GetCloneDeaths());
-
-
             GameProgress gameProgress = ProgressManager.Instance.GameProgress;
             string currentLevel = LevelManager.Instance.GetCurrentLevel();
 
@@ -52,8 +45,7 @@ public class GoalTrigger : MonoBehaviour
             gameProgress.MarkComplete(currentLevel, gotGem, gotSecret);
 
             Analytics.Instance.Save();
-            // StartCoroutine(Analytics.Post(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")));
-            // Analytics.ResetSaveObject();
+            SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.Goal);
 
             if (levelHUD != null)
             {

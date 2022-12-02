@@ -20,11 +20,7 @@ public class LevelEndOverlay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Return) | Input.GetKey(KeyCode.Space))
-        {
-            LoadNext();
-            ResetFirstSelected();
-        }
+
     }
 
     public void SetReminder(string reminder)

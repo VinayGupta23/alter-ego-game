@@ -81,7 +81,7 @@ public class SecretCollection : MonoBehaviour
         do
         {
             SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.Secret, 0.2f);
-            yield return new WaitForSeconds(5.5f);
+            yield return new WaitForSeconds(3.47f);
         }
         while (!collected);
     }

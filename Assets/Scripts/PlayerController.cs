@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundLayer;
 
     private LifeBase life;
+    private LevelHUD levelHUD;
 
     void Start()
     {
@@ -32,11 +33,13 @@ public class PlayerController : MonoBehaviour
         life = GetComponent<LifeBase>();
         animator = GetComponent<Animator>();
         legsRenderer = transform.Find("Legs").gameObject.GetComponent<SpriteRenderer>();
+
+        levelHUD = GameObject.Find("R&PButtons").GetComponent<LevelHUD>();
     }
 
     void Update()
     {
-        if (life.IsAlive == false)
+        if (life.IsAlive == false || levelHUD.IsPaused == true)
         {
             // Don't register input if player is dead
             // This supresses warnings since we change the rigid body type on death

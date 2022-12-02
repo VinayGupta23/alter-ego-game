@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PauseMenuOverlay : MonoBehaviour
 {
     private void Start()
     {
-
+        
     }
 
     public void PauseTime()
@@ -23,6 +24,7 @@ public class PauseMenuOverlay : MonoBehaviour
     {
         PauseTime();
         this.gameObject.SetActive(true);
+        SetFirstSelected();
     }
 
     public void Resume()
@@ -30,6 +32,7 @@ public class PauseMenuOverlay : MonoBehaviour
         SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.Click);
         ResumeTime();
         this.gameObject.SetActive(false);
+        ResetFirstSelected();
     }
 
     public void TogglePause()
@@ -58,5 +61,15 @@ public class PauseMenuOverlay : MonoBehaviour
         SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.Click);
         ResumeTime();
         
+    }
+
+    private void SetFirstSelected()
+    {
+        EventSystem.current.SetSelectedGameObject(this.gameObject.transform.Find("Resume").gameObject, null);
+    }
+
+    private void ResetFirstSelected()
+    {
+        EventSystem.current.SetSelectedGameObject(null, null);
     }
  }

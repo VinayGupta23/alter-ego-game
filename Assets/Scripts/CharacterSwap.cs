@@ -28,6 +28,7 @@ public class CharacterSwap : MonoBehaviour
             collider.isTrigger = false;
             SpriteRenderer renderer = GetComponent<SpriteRenderer>();
             renderer.sprite = usedPortal;
+            SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.Teleport);
         }
     }
 }

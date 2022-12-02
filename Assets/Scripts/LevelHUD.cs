@@ -12,6 +12,18 @@ public class LevelHUD : MonoBehaviour
     private PauseMenuOverlay pauseMenuComponent;
     private LevelEndOverlay levelEndComponent;
 
+    public bool IsPaused
+    {
+        get
+        {
+            if (pauseMenuComponent == null)
+            {
+                return false;
+            }
+            return pauseMenuUI.activeSelf;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,8 +73,9 @@ public class LevelHUD : MonoBehaviour
         SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.Click);
     }
 
-    public void ShowLevelEnd()
+    public void ShowLevelEnd(string reminder = "")
     {
+        levelEndComponent.SetReminder(reminder);
         levelEndComponent.Display();
     }
 }

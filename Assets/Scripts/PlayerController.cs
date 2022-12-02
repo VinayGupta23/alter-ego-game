@@ -17,22 +17,29 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Collider2D col;
     private bool facingRight = true;
+    private Animator animator;
+    private SpriteRenderer legsRenderer;
 
     private bool isGrounded;
     public LayerMask groundLayer;
 
     private LifeBase life;
+    private LevelHUD levelHUD;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
         life = GetComponent<LifeBase>();
+        animator = GetComponent<Animator>();
+        legsRenderer = transform.Find("Legs").gameObject.GetComponent<SpriteRenderer>();
+
+        levelHUD = GameObject.Find("R&PButtons").GetComponent<LevelHUD>();
     }
 
     void Update()
     {
-        if (life.IsAlive == false)
+        if (life.IsAlive == false || levelHUD.IsPaused == true)
         {
             // Don't register input if player is dead
             // This supresses warnings since we change the rigid body type on death
@@ -120,18 +127,19 @@ public class PlayerController : MonoBehaviour
                 targetSpeed = rb.velocity.x/1.25f;
             }
         }
-        
+
+        animator.SetBool(
+            "IsWalking",
+            isGrounded && (targetSpeed != 0 || lastInputMagnitude != 0)
+        );
         lastInputMagnitude = math.abs(moveInput);
-        
-        
         
         rb.velocity = new Vector2(targetSpeed, rb.velocity.y);
     }
 
     void Flip()
     {
+        legsRenderer.flipX = facingRight;
         facingRight = !facingRight;
-        // BUG: This causes collisions to recompute, and is also incorrect.
-        // transform.localScale *= -1;
     }
 }

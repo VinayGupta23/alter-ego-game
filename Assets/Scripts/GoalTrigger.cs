@@ -45,11 +45,23 @@ public class GoalTrigger : MonoBehaviour
             gameProgress.MarkComplete(currentLevel, gotGem, gotSecret);
 
             Analytics.Instance.Save();
-            SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.Goal);
+            SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.Goal, 0.7f);
 
             if (levelHUD != null)
             {
-                levelHUD.ShowLevelEnd();
+                string reminder = "";
+                if (gotSecret)
+                {
+                    if (gameProgress.Secrets() == Constants.TotalSecrets)
+                    {
+                        reminder = "All secrets found! Head over to level select to learn more.";
+                    }
+                    else
+                    {
+                        reminder = "You found an hidden item! Collect them all to unlock a secret!";
+                    }
+                }
+                levelHUD.ShowLevelEnd(reminder);
             }
             else
             {

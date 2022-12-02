@@ -29,7 +29,7 @@ public class PlayerLife : LifeBase
             Analytics.Instance.Save();
 
             Die();
-            SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.Death);
+            SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.Death, 0.75f);
 
             // Kill all clones as well, with some delay
             StartCoroutine(KillClones());

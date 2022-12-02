@@ -17,6 +17,7 @@ public class MovementUnderControl : MonoBehaviour, IUnderControl
 
     public GameObject connector;
 
+    private Animator animator;
     private int index;
 
     public void Start()
@@ -32,6 +33,8 @@ public class MovementUnderControl : MonoBehaviour, IUnderControl
         //    lineRenderer.SetPositions(positions);
         //    lineRenderer.SetPosition(positions.Length, positions[0]);
         //}
+
+        animator = GetComponent<Animator>();
 
         if (connector != null)
         {
@@ -98,7 +101,16 @@ public class MovementUnderControl : MonoBehaviour, IUnderControl
     {   
         if (allowMovement == true)
         {
-            transform.position = Vector2.MoveTowards(transform.position, positions[index], Time.deltaTime * speed);
+            var newPosition = Vector2.MoveTowards(transform.position, positions[index], Time.deltaTime * speed);
+            if (animator != null)
+            {
+                animator.SetBool(
+                    "IsReverse",
+                    newPosition.x < transform.position.x || newPosition.y < transform.position.y
+                );
+            }
+
+            transform.position = newPosition;
             if (transform.position == positions[index])
             {
                 if (index == positions.Length - 1)

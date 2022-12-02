@@ -16,6 +16,7 @@ public class SFXManager : MonoBehaviour
     public AudioClip TileBreak;
     public AudioClip Goal;
     public AudioClip Secret;
+    public AudioClip Teleport;
 
     public static SFXManager SFXInstance;
 

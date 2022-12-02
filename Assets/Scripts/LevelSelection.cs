@@ -38,7 +38,7 @@ public class LevelSelection : MonoBehaviour
     void Update() 
     {
         var tempColor = buttonImage.color;
-        tempColor.a = LevelDependency.Instance.DMInstance.IsLocked(level) ? 0.5f : 1f;
+        tempColor.a = LevelDependency.Instance.DMInstance.IsLocked(level) ? 0.7f : 1f;
         buttonImage.color = tempColor;
 
         if (completionTick != null)

@@ -20,7 +20,7 @@ public class ReceiveStatusEffect : MonoBehaviour
                 controller.speed *= 1.5f;
                 render.color = statusColor;
                 if(duration!=0.0f){
-                    ShowBoostSymbol(Timer);
+                    //ShowBoostSymbol(Timer);
                     StartCoroutine(StopEffect(1.5f, duration, Speed));
                 }
                 break;
@@ -32,13 +32,13 @@ public class ReceiveStatusEffect : MonoBehaviour
                     controller.speed *= -1.0f;
                     render.color = statusColor;
                     if(duration!=0.0f){
-                        ShowBoostSymbol(Timer);
+                        //ShowBoostSymbol(Timer);
                         StartCoroutine(StopEffect(-1.0f, duration, Reverse));
                     }
                     break;
                 }
                 else{
-                    HideBoostSymbol(Timer);
+                    //HideBoostSymbol(Timer);
                     HideBoostSymbol(Reverse);
                     controller.speed *= -1.0f;
                     break;
@@ -49,11 +49,21 @@ public class ReceiveStatusEffect : MonoBehaviour
 
     IEnumerator StopEffect(float speedChange, float duration, GameObject boostGameObject)
     {
-        yield return new WaitForSeconds(duration);
+        float blinks = 10;
+        SpriteRenderer renderer = boostGameObject.GetComponent<SpriteRenderer>();
+        Color originalColor = renderer.color;
+        Color blinkColor = Color.gray;
+
+        for (int i = 0; i < blinks; i++)
+        {
+            yield return new WaitForSeconds(duration / blinks);
+            renderer.color = i % 2 == 0 ? blinkColor : originalColor;
+        }
+
         controller.speed /= speedChange;
         render.color = Color.white;
         HideBoostSymbol(boostGameObject);
-        HideBoostSymbol(Timer);
+        //HideBoostSymbol(Timer);
         SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.PillEnd);
     }
 
@@ -74,7 +84,7 @@ public class ReceiveStatusEffect : MonoBehaviour
     {
         boostGameObject.SetActive(true);
     }
-    
+
     void HideBoostSymbol(GameObject boostGameObject)
     {
         boostGameObject.SetActive(false);
@@ -89,6 +99,6 @@ public class ReceiveStatusEffect : MonoBehaviour
         else{
             return false;
         }
-        
+
     }
 }

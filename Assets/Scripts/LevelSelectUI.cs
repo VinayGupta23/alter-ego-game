@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 
 public class LevelSelectUI : MonoBehaviour
 {
     private Toggle freeModeToggle;
+    private Button secretButton;
     private Image secretImage;
     private TextMeshProUGUI secretText;
-    private AlertManager alertManager;
+    private TextMeshProUGUI secretDetails;
     private bool secretUnlocked = false;
 
     [SerializeField]
@@ -24,7 +26,7 @@ public class LevelSelectUI : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
 
-        GameObject gemStats = transform.Find("GemStats").gameObject;
+        GameObject gemStats = transform.Find("GemIcon/GemStats").gameObject;
         TextMeshProUGUI levelNameText = gemStats.GetComponent<TextMeshProUGUI>();
         levelNameText.text = string.Format(
             "{0} / {1}",
@@ -36,9 +38,10 @@ public class LevelSelectUI : MonoBehaviour
         freeModeToggle.isOn = LevelDependency.Instance.DMInstance.FreeMode;
 
         // Configure secret icon
+        secretButton = transform.Find("SecretAbility").GetComponent<Button>();
         secretImage = transform.Find("SecretAbility").GetComponent<Image>();
         secretText = transform.Find("SecretAbility/SecretText").GetComponent<TextMeshProUGUI>();
-        alertManager = transform.Find("Popup").GetComponent<AlertManager>();
+        secretDetails = transform.Find("SecretDetails").GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
@@ -47,15 +50,19 @@ public class LevelSelectUI : MonoBehaviour
         secretUnlocked = (ProgressManager.Instance.GameProgress.Secrets() == Constants.TotalSecrets) || LevelDependency.Instance.DMInstance.FreeMode;
         if (secretUnlocked)
         {
+            secretButton.interactable = true;
             secretImage.sprite = secretTakenIcon;
             secretText.text = "F";
-            secretText.color = new Color(45 / 255, 49 / 255, 68 / 255);
+            secretText.color = Color.black;
+            secretDetails.text = "Secret unlocked! Click the diamond to learn more!";
         }
         else
         {
+            secretButton.interactable = false;
             secretImage.sprite = secretMissingIcon;
             secretText.text = "?";
             secretText.color = Color.white;
+            secretDetails.text = "Secret: Find all hidden pieces and come back here!";
         }
     }
 
@@ -72,7 +79,7 @@ public class LevelSelectUI : MonoBehaviour
         Debug.Log("Reset requested.");
         ProgressManager.Instance.GameProgress.Reset();
         SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.Click);
-
+        EventSystem.current.SetSelectedGameObject(this.gameObject.transform.Find("BackButton").gameObject, null);
 
     }
 
@@ -80,16 +87,12 @@ public class LevelSelectUI : MonoBehaviour
     {
         LevelDependency.Instance.DMInstance.FreeMode = freeModeToggle.isOn;
         SFXManager.SFXInstance.Audio.PlayOneShot(SFXManager.SFXInstance.Click);
-
+        EventSystem.current.SetSelectedGameObject(this.gameObject.transform.Find("BackButton").gameObject, null);
     }
 
     public void CheckSecretStatus()
     {
-        if (!secretUnlocked)
-        {
-            alertManager.ShowText("Secret: Find all hidden pieces and come back here...");
-        }
-        else
+        if (secretUnlocked)
         {
             LevelManager.Instance.JumpToLevel("SECRET");
         }
